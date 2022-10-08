@@ -173,7 +173,7 @@
                 $("#usercheck").show();
                 LnError = false;
                 return false;
-                } else if (usernameValue.length < 3 || usernameValue.length > 10) {
+                } else if (usernameValue.length < 3 || usernameValue.length > 100) {
                 $("#usercheck").show();
                 $("#usercheck").html("*maximum of 100 character");
                 usernameError = false;
@@ -272,7 +272,7 @@
                     if (bp.length == 0) {
                         $("#userBirthplace").show();
                     }
-                    else if (bp.length < 3 || bp.length > 10) {
+                    else if (bp.length < 3 || bp.length > 100) {
                         $("#userBirthplace").show();
                         $("#userBirthplace").html("*maximum of 100 character");
                         userBirthError = false;    
@@ -322,7 +322,7 @@
                     if (em.length == 0) {
                         $("#userEmail").show();
                     }
-                    else if (em.length < 3 ||em.length > 10) {
+                    else if (em.length < 3 ||em.length > 100) {
                         $("#userEmail").show();
                         $("#userEmail").html("*maximum of 100 character");
                         userEmailError = false;    

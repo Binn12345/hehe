@@ -22,6 +22,9 @@ Route::get('/', 'StudentController@show');
 Route::get('/student', 'StudentController@create')->name('student.create');
 Route::post('/student', 'StudentController@store')->name('student.store');
 
+// Route::get('/login', function () {
+//       return view('welcome');
+// });
 
 Route::get('/student/{student}', 'StudentController@edit')->name('student.edit');
 Route::delete('/student/{student}', 'StudentController@destroy')->name('student.destroy');
