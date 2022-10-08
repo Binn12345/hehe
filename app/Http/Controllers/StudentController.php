@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Students;
+use PDF;
+use Excel;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -11,11 +13,22 @@ class StudentController extends Controller
     //     $students = Students::all();
     //     return redirect()->with('students',$students);
     // }
+    //export To PDF
 
+    public function getAllStudent()
+    {
+        $students = Students::all();
+        return view('index2', compact('students','students'));
+    }
     public function show(){
         $students = Students::all();
         return view('index2', compact('students','students'));
     }
+    // public function showData()
+    // {
+    //     $students = Students::all();
+    //     return view('dTable', compact('students','students'));
+    // }
     public function create()
     {
         return view('create');

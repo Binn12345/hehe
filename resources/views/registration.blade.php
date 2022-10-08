@@ -96,10 +96,7 @@
                 
                 <br>
                 <br>
-                
 
-
-                
                 <div class="col-md-4">
                     <label class="fname">Fullname</label>
                     <input type="text" name="fname" id="fname" placeholder="Firstname" required>

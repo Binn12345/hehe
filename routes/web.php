@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('index2');
 // });
-
-
+Route::get('/data/student', 'dataController@showData')->name('student.sTable');
+// Route::get('/', 'dataController@showDataCopy')->name('student.copy');
 Route::get('/', 'StudentController@show');
 Route::get('/student', 'StudentController@create')->name('student.create');
 Route::post('/student', 'StudentController@store')->name('student.store');

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>BESEPE</title>
+    <title>BESEPE - Register Account</title>
 
 
     <!-- Scripts -->
@@ -18,14 +18,15 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link hre="https://cdn.usebootstrap.com/bootstrap/3.3.7/js/bootstrap.min.js" rel="stylesheet">
     <link href="https://cdn.usebootstrap.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
-     @include('inc.link')
+     {{-- @include('inc.link') --}}
     <!-- Styles -->
+    @include('inc.link')
      {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div id="app">
-      @include('inc.navbar')
+        
       {{-- <nav class="navbar navbar-expand-md navbar-black bg-white shadow-sm" style="color: black;">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">

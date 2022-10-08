@@ -48,7 +48,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route ('..') }}"><i class="fa fa-circle-o"></i> Student Data</a></li>
+            <li><a href="{{ route('student.sTable') }}"><i class="fa fa-circle-o"></i> Student Data</a></li>
             {{-- <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
             <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
             <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li> --}}
@@ -115,7 +115,7 @@
             </span>
           </a>
         </li> --}}
-        {{-- <li class="treeview">
+        <!-- {{-- <li class="treeview">
           <a href="#">
             <i class="fa fa-folder"></i> <span>Examples</span>
             <span class="pull-right-container">
@@ -133,7 +133,7 @@
             <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
             <li><a href="pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
           </ul>
-        </li> --}}
+        </li> --}} -->
         <li class="treeview">
           <a href="#">
             <i class="fa fa-share"></i> <span>Audit trail</span>

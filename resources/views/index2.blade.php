@@ -9,11 +9,14 @@
          </div>
     
 </div>
-<div class = "row" align="left">
-    <div class = "pull-right">
+
+    <div class = "pull-left">
+        
         <a class = "btn btn-success" href="{{ route('student.create') }}">Add New Data</a>
-    </div>
-<div>
+        <a class = "btn btn-danger" href="{{ route('student.create') }}">Export</a>
+        {{-- <a class = "btn btn-info href="{{ route('i') }}">Add New Data</a> --}}
+    </div>  
+
 
 @if ($message = Session::get('success'))
 
