@@ -21,10 +21,17 @@ Route::get('/data/student', 'dataController@showData')->name('student.sTable');
 Route::get('/', 'StudentController@show');
 Route::get('/student', 'StudentController@create')->name('student.create');
 Route::post('/student', 'StudentController@store')->name('student.store');
+Route::get('/download-data.pdf','StudentController@getDataPDF')->name('student.getDataPDF');
 
 // Route::get('/login', function () {
 //       return view('welcome');
 // });
+Route::get('/export-student-excel', 'StudentController@exportToExcel')->name('student.getDataEXCEL');
+Route::get('/export-student-CSV', 'StudentController@exportToCsv')->name('student.getDataCSV');
+
+
+Route::post('/', 'StudentController@import')->name('import');
+
 
 Route::get('/student/{student}', 'StudentController@edit')->name('student.edit');
 Route::delete('/student/{student}', 'StudentController@destroy')->name('student.destroy');
@@ -35,7 +42,7 @@ Route::get('/', 'StudentController@show')->name('student.show');
 
 
 
-Route::get('/login', 'adminController@login');
+Route::get('/login', 'adminController@login');  
 
 // Route::get('login', function () {
 //     return view('welcome2');

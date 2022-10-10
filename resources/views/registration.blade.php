@@ -141,6 +141,7 @@
                 
                 <div class="col-md-4">
                     <label>Address</label>
+                    <textarea class="form-control" rows="3" placeholder="Enter ..." style="width: 610px; height: 110px;"></textarea>
                     <input type="text" name="address" id="ad" placeholder="Address" required>
                 </div>
 

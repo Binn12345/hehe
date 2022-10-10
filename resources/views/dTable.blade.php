@@ -4,18 +4,30 @@
 
 
 @include('inc.sidebar')
-<div class="content-wrapper" style="min-height: 902.75px;">
+<div class="content-wrapper" style="min-height: 9.75px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         
-      <h1>
-        Student Data
-      </h1>
-      <div class = "row" align="left">
-        <div class = "pull-right">
-            <a class = "btn btn-success" href="{{ route('student.create') }}">Add New Data</a>
-        </div>
-    <div>
+      <h1>Student Data</h1>
+      <div class = "c   ">
+        <form method="POST" action="{{route('import')}}" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+                <label for="exampleInputFile">Import excel file</label>
+                <input type="file" id="exampleInputFile" name="file" accept=".xlsx, .xls, .csv">
+            </div>
+        <input type="submit" class="btn btn-primary" value="Submit"/>
+        </form>
+    </div>  
+      <div class = "pull-left" style="margin-top: 10px;
+                                    margin-bottom: 10px;">                              
+        
+        <a class = "btn btn-success" href="{{ route('student.create') }}">Add New Data</a>
+        <a class = "btn btn-danger" href="{{ route('student.getDataPDF') }}">Export as PDF</a>
+        <a class = "btn btn-info" href="{{ route('student.getDataEXCEL')}}">Export as Excel</a>
+        <a class = "btn btn" href="{{ route('student.getDataCSV')}}" style="color: white;
+                                                                            background-color: rgb(86, 206, 246)">Export as CSV</a>
+    </div>  
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Student Data</li>
@@ -24,22 +36,22 @@
     <br>
     
 <section class="content">
-        <div class="box">
+        <div class="box" style="margin-top: 10px;">
             <div class="box-header">
                 <h3 class="box-title"></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            <table id="example1" class="table table-bordered table-striped">
+                <table class ="table table-striped row">
                 <tr>
                     <th>ID</th>
-                    <th>NAME</th>
-                    <th>GENDER</th>
-                    <th>BIRTHDATE</th>
-                    <th>BIRTHPLACE</th> 
-                    <th>CONTACT</th>
-                    <th>EMAIL</th>
-                    <th>ADDRESS</th>  
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Birthdate</th>          
+                    <th>Birthplace</th> 
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Address</th>  
                     <th>Action</th>
                 </tr>
             @foreach($students as $student)

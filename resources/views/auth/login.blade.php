@@ -7,7 +7,7 @@
             <!-- Horizontal Form -->
             <div class="box box-info">
               <div class="box-header with-border">
-                <h3 class="box-title">Login</h3>
+                <h2 class="box-title" style= "font-size: 20px;">Login</h2>
               </div>
               <!-- /.box-header -->
               <!-- form start -->

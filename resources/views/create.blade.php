@@ -123,7 +123,9 @@
                 </div>
                 <div class="col-md-4">
                     <label>Birthplace</label>
-                    <input type="text" name="bp" id="bp" placeholder="Birthplace" required>
+                    <textarea class="form-control" rows="3" placeholder="Birthplace" style="width: 255px; height: 50px;"
+                    type="text" name="bp" id="bp" placeholder="Birthplace" required></textarea>
+                    {{-- <input type="text" name="bp" id="bp" placeholder="Birthplace" required> --}}
                     <h5 id="userBirthplace" style="color: red;">
 						**Birthplace is required
 					</h5>
@@ -145,7 +147,9 @@
                 
                 <div class="col-md-4">
                     <label>Address</label>
-                    <input type="text" name="address" id="ad" placeholder="Address" required>
+                    <textarea class="form-control" rows="3" placeholder="address" style="width: 255px; height: 50px;"
+                    name="address" id="ad" placeholder="Address" type="text" required></textarea>
+                    {{-- <input type="text-area" name="address" id="ad" placeholder="Address" required> --}}
                 </div>
 
                 <button type="submit" name="submit" id="submitbtn" class="btn btn-primary" > Create </button>

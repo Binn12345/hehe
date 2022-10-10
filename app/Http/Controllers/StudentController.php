@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Students;
-use PDF;
+use App\Exports\StudentExport;
+use App\Imports\StudentImport;
 use Excel;
+use PDF;     
+
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -13,8 +16,29 @@ class StudentController extends Controller
     //     $students = Students::all();
     //     return redirect()->with('students',$students);
     // }
+    //Export to EXCEL
+    public function exportToExcel()
+    {   
+        return Excel::download(new StudentExport,'Students.xlsx');
+    }
+    //Import to EXCEL
+    public function import(Request $request)
+    {
+        Excel::import(new StudentImport, $request->file);
+        return redirect('/');
+    }
+    //Export to CSV
+    public function exportToCsv()
+    {
+        return Excel::download(new StudentExport,'Students.csv');
+    }
     //export To PDF
-
+    public function getDataPDF()
+    {
+        $students = Students::all();
+        $pdf = PDF::loadView('index3', compact('students'))->setOptions(['defaultFont' => 'sans-serif']);
+        return $pdf->download('student-data.pdf');
+    }
     public function getAllStudent()
     {
         $students = Students::all();

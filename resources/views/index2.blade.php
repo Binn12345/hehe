@@ -1,23 +1,39 @@
 @extends('data')
 
 @section('content')
+<div class = "container">
 <div class = "row" >
         <div class ="pull-left">
             <label style="font-size: 20px;">
-                Users Data
+                Student Data
             </label>
          </div>
     
 </div>
-
-    <div class = "pull-left">
+   
+    <div class = "row">
+        <form method="POST" action="{{route('import')}}" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+                <label for="exampleInputFile">Import excel file</label>
+                <input type="file" id="exampleInputFile" name="file" accept=".xlsx, .xls, .csv">
+            </div>
+        <input type="submit" class="btn btn-primary" value="Submit"/>
+        </form>
+    </div>  
+</div>
+    <div class = "pull-left" style="margin-top: 10px;
+                                    margin-bottom: 10px;">                              
         
         <a class = "btn btn-success" href="{{ route('student.create') }}">Add New Data</a>
-        <a class = "btn btn-danger" href="{{ route('student.create') }}">Export</a>
-        {{-- <a class = "btn btn-info href="{{ route('i') }}">Add New Data</a> --}}
+        <a class = "btn btn-danger" href="{{ route('student.getDataPDF') }}">Export as PDF</a>
+        <a class = "btn btn-info" href="{{ route('student.getDataEXCEL')}}">Export as Excel</a>
+        <a class = "btn btn" href="{{ route('student.getDataCSV')}}" style="color: white;
+                                                                            background-color: rgb(86, 206, 246)">Export as CSV</a>
     </div>  
 
-
+<br>
+<br>
 @if ($message = Session::get('success'))
 
     <div class ="alert alert-success">
@@ -27,16 +43,16 @@
     <br>
     <br>
 @endif
-<table class ="table table-striped"> 
+<table class ="table table-striped row"> 
     <tr>
         <th>ID</th>
-        <th>NAME</th>
-        <th>GENDER</th>
-        <th>BIRTHDATE</th>
-        <th>BIRTHPLACE</th> 
-        <th>CONTACT</th>
-        <th>EMAIL</th>
-        <th>ADDRESS</th>  
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Birthdate</th>          
+        <th>Birthplace</th> 
+        <th>Contact</th>
+        <th>Email</th>
+        <th>Address</th>  
         <th>Action</th>
     </tr>
 
