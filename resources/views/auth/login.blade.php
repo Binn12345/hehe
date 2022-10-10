@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
-<div class="container" style="margin-top: 20vh;">
+<div class="container" style="margin-top: 30vh;">
     <div class="justify-content-center">
         <div class="col-md-12">
             <!-- Horizontal Form -->

@@ -81,7 +81,7 @@
                             <div class="inner">
                               <h3>0</h3>
                 
-                              <p>No. of Students</p>
+                              <p>Daily Student Apply</p>
                             </div>
                             <div class="icon">
                               <i class="ion ion-person-add"></i>

@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/data/student', 'dataController@showData')->name('student.sTable');
 // Route::get('/', 'dataController@showDataCopy')->name('student.copy');
-Route::get('/', 'StudentController@show');
+// Route::get('/', 'StudentController@show');
 Route::get('/student', 'StudentController@create')->name('student.create');
 Route::post('/student', 'StudentController@store')->name('student.store');
 Route::get('/download-data.pdf','StudentController@getDataPDF')->name('student.getDataPDF');
@@ -37,7 +37,7 @@ Route::get('/student/{student}', 'StudentController@edit')->name('student.edit')
 Route::delete('/student/{student}', 'StudentController@destroy')->name('student.destroy');
 Route::post('/student/{student}', 'StudentController@update')->name('student.update');
 
-
+//main web
 Route::get('/', 'StudentController@show')->name('student.show');
 
 
