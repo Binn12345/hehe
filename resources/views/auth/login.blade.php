@@ -4,9 +4,23 @@
 <div class="container" style="margin-top: 15vh;">
     <div class="justify-content-center">
         <div class="col-lg-12">
-
-            <div class="box box-info">
-                <div class="box-header with-border">
+            <div class="box box-info" style="margin-top: 10vh;">
+                <div class="box-body">
+                    
+                    <div class="alert alert-danger alert-dismissible" style="margin-top: 2vh;">
+                      <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                        <span style="font-family:'Times New Roman', Times, serif;
+                                     font-size: 30px;">
+                            Your session has timed out.
+                        </span> 
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div>
+</div>
+@endsection
+                {{-- <div class="box-header with-border">
                   <h2 class="box-title" style= "font-size: 20px; margin-left: 15px;">Login</h2>
                 </div>
                 <!-- /.box-header -->
@@ -62,13 +76,16 @@
                       </div>
                       
                   <!-- /.box-footer -->
-                </form> 
-              </div>    
+                </form> --}}
 
-        </div>
-    </div>
-</div>
-@endsection
+
+
+
+
+
+
+
+           <!--externsion-->
             <!-- Horizontal Form -->
             {{-- <div class="box box-info">
               <div class="box-header with-border">

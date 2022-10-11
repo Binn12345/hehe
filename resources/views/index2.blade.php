@@ -18,7 +18,7 @@
           <li><a href="#">Courses</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Register</a></li>
+          <li><a href=" {{route('student.create')}} "><span class="glyphicon glyphicon-user"></span>&nbsp;Register</a></li>
           <li><a data-toggle="modal" data-target="#modal-default"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Login</a></li>
         </ul> 
       </div>

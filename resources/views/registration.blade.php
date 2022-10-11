@@ -74,10 +74,6 @@
     <body>
     <div class="container">
        
-            
-                
-        
-            
             <form action="" id="myform" class="reg" method="POST">
                 <label class="l">
                     Registration &#33;
