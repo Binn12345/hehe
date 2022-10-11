@@ -1,31 +1,57 @@
 @extends('layouts/app2')
+<title>BCP - Registration</title>
+
 
 @section('content') 
-<div class="container" style="margin-top: 15vh;">
+
+
+<div class="container" style="margin-top: 5vh;
+                              margin-bottom:6vh">
     <div class="justify-content-center">
         <div class="col-lg-12">
         
             <div class="box box-info">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Register</h3>
+                  <h3 class="box-title" style="margin-left: 15px;
+                  font-family:'Courier New', Courier, monospace;
+                  font-size: 4rem;">Register</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
                 <form class="form-horizontal">
                   <div class="box-body">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-    
-                      <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                      </div>
+                    <div class="col-xs-4">
+                      {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
+                      {{-- <div class="col-sm-10"> --}}
+                        <input class="form-control input-lg" type="text" placeholder="Lastname" style="font-family:'Courier New', Courier, monospace;">
+                      {{-- </div> --}}
                     </div>
-                    <div class="form-group">
-                      <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-    
-                      <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                      </div>
+                    <div class="col-xs-4">
+                      {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
+                      {{-- <div class="col-sm-10"> --}}
+                        <input class="form-control input-lg" type="text" placeholder="Firstname" style="font-family:'Courier New', Courier, monospace;">
+                      {{--   --}}
+                    </div>
+                    <div class="col-xs-4">
+                      {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
+                      {{-- <div class="col-sm-10"> --}}
+                        <input class="form-control input-lg" type="text" placeholder="Middlename / Optional" style="font-family:'Courier New', Courier, monospace;">
+                    {{--   --}}
+                    </div>
+                    
+                    <div class="col-xs-6">
+                      {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
+                      {{-- <div class="col-sm-10"> --}}
+                        <input class="form-control input-lg" type="text" placeholder="Middlename / Optional" style="font-family:'Courier New', Courier, monospace;">
+                    {{--   --}}
+                    </div>
+                    <div class="col-xs-6">
+                      {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
+                      {{-- <div class="col-sm-10"> --}}
+                        <textarea class="form-control input-lg" type="text" placeholder="Middlename / Optional" style="font-family:'Courier New', Courier, monospace;">ssss
+                        </textarea>
+
+                    {{--   --}}
                     </div>
                     
                   </div>
