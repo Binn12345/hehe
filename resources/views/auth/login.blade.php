@@ -1,13 +1,78 @@
 @extends('layouts.app2')
 
 @section('content')
-<div class="container" style="margin-top: 30vh;">
+<div class="container" style="margin-top: 15vh;">
     <div class="justify-content-center">
-        <div class="col-md-12">
-            <!-- Horizontal Form -->
+        <div class="col-lg-12">
+
             <div class="box box-info">
+                <div class="box-header with-border">
+                  <h2 class="box-title" style= "font-size: 20px; margin-left: 15px;">Login</h2>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                
+                  <form method="POST" action="{{ route('login') }}" class="form-horizontal">
+                  @csrf
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    
+                      <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputEmail3" name="email"placeholder="Email">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputPassword3" class="col-sm-2 control-label" >Password</label>
+    
+                      <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword3" name="password"  placeholder="Password">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+  
+                              <label class="form-check-label" for="remember">
+                                  {{ __('Remember Me') }}
+                              </label>
+                          </div>      
+                          @guest
+                                @if (Route::has('password.request'))
+                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                {{ __('Forgot Your Password?') }}
+                            </a>
+                            @endif
+                            @endguest
+                      </div>
+                    </div>
+                   
+                  </div>
+                  <!-- /.box-body -->
+                  
+                      <div class="box-footer">
+                    
+                      <button type="submit" class="btn btn-primary" style="margin-right: 20px;  float: right; width: 96%; padding-top: 15px; padding-bottom: 15px;">
+                          {{ __('Login') }}
+                      </button>
+                      
+  
+                      
+                      </div>
+                      
+                  <!-- /.box-footer -->
+                </form> 
+              </div>    
+
+        </div>
+    </div>
+</div>
+@endsection
+            <!-- Horizontal Form -->
+            {{-- <div class="box box-info">
               <div class="box-header with-border">
-                <h2 class="box-title" style= "font-size: 20px;">Login</h2>
+                <h2 class="box-title" style= "font-size: 20px; margin-left: 15px;">Login</h2>
               </div>
               <!-- /.box-header -->
               <!-- form start -->
@@ -50,10 +115,10 @@
                  
                 </div>
                 <!-- /.box-body -->
-                <div class="form-group ">
-                <div class="box-footer">
+                <div class="form-group">
+                    <div class="box-footer">
                   
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" style="margin-right: 15px;  float: right; width: 96%; padding-top: 15px; padding-bottom: 15px;">
                         {{ __('Login') }}
                     </button>
                     @guest
@@ -64,14 +129,14 @@
                     @endif
 
 
-                    @endguest
+                    @endguest 
 
                     
-                </div>
+                    </div>
                 </div>
                 <!-- /.box-footer -->
               </form> 
-            </div>
+            </div> --}}
 
 
 
@@ -150,7 +215,5 @@
                     </form>
                 </div>
             </div>
-        </div>  --}}
-    </div>
-</div>
-@endsection
+        </div>  --}}'
+ 

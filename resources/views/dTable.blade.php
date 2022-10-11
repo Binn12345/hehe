@@ -4,12 +4,12 @@
 
 
 @include('inc.sidebar')
-<div class="content-wrapper" style="min-height: 9.75px;">
+<div class="content-wrapper" >
     <!-- Content Header (Page header) -->
     <section class="content-header">
         
       <h1>Student Data</h1>
-      <div class = "c   ">
+      <div class = " ">
         <form method="POST" action="{{route('import')}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">

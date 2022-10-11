@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="icon" href="https://bcpedu.elearningcommons.com/images/favicon-16x16.png" type="image/x-icon">
+    
     <title>
-        Data
-    </title>
+        BCP
+    </title>  
     <style>
     #customers {
         font-family: Arial, Helvetica, sans-serif;
@@ -34,11 +36,26 @@
         background-color: #037ec5;
         color: white;
       }
+      .example-modal .modal {
+      position: relative;
+      top: auto;
+      bottom: auto;
+      right: auto;
+      left: auto;
+      display: block;
+      z-index: 1;
+    }
+
+    .example-modal .modal {
+      background: transparent !important;
+    }
+      
     </style>
 </head>
-<body>
-    <div class = "container" style="margin-top:10vh">
+<body style="background: linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(2,0,36,0.3) 35%, rgba(2,0,36,0.3) 100%), url('dist/img/bg.jpg') no-repeat center/cover; height: 100vh; ">
+    
+
     @yield('content')
-    </div>
+    
 </body>
 </html>

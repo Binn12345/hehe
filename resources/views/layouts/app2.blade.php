@@ -7,11 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>BESEPE - Register Account</title>
-
+    <title>BCP</title>
+    
 
     <!-- Scripts -->
-     <!-- <script src="{{ asset('js/app.js') }}" defer></script>  -->
+        {{-- <!-- <script src="{{ asset('js/app.js') }}" defer></script>  --> --}}
 
     
     <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> -->
@@ -24,7 +24,7 @@
      {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body style="background: linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(2,0,36,0.3) 35%, rgba(2,0,36,0.3) 100%), url('../dist/img/bg.jpg') no-repeat center/cover; height: 100vh;">
     <div id="app">
         
       {{-- <nav class="navbar navbar-expand-md navbar-black bg-white shadow-sm" style="color: black;">
@@ -78,13 +78,16 @@
         </div>
     </nav> --}}
         
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+{{-- 
+    <main class="py-4">
+        
+    </main>
+    </div> --}}
+   
+    @yield('content')
 
     @include('inc.link2')
+</div>
 
 </body>
 </html>

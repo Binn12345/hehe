@@ -13,7 +13,7 @@
             font-family: 'Times New Roman', Times, serif;
             }
             .container{
-            background: url('asset{(src/HAHA.png)}');
+            
             top: auto;
             bottom: auto;
             width: 100%;

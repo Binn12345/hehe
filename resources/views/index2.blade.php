@@ -1,8 +1,149 @@
 @extends('data')
 
 @section('content')
-<div class = "container">
-<div class = "row" >
+    <nav class="navbar navbar-inverse" style="background-color:rgb(0, 0, 0);">
+      <div class="container"> 
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">BCP</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          {{-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Courses <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">--/--/--</a></li>
+              <li><a href="#">--/--/--</a></li>
+              <li><a href="#">--/--/--</a></li>
+            </ul>
+          </li> --}}
+          <li><a href="#">Courses</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Register</a></li>
+          <li><a data-toggle="modal" data-target="#modal-default"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Login</a></li>
+        </ul> 
+      </div>
+    </nav>
+
+
+    <div class="container" style="margin-top: 15vh;">
+        <div class="justify-content-center">
+            <div class="col-lg-12">
+
+                {{-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                  Launch Default Modal
+                </button> --}}
+              <div class="modal fade" id="modal-default">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title">Login</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                      <form method="POST" action="{{ route('login') }}" class="form-horizontal">
+                        @csrf
+                        <div class="box-body">
+                          <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+          
+                            <div class="col-sm-10">
+                              <input type="email" class="form-control" id="inputEmail3" name="email"placeholder="Email">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label" >Password</label>
+          
+                            <div class="col-sm-10">
+                              <input type="password" class="form-control" id="inputPassword3" name="password"  placeholder="Password">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+        
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                    @guest
+                                      @if (Route::has('password.request'))
+                                        <a class="btn btn-link" href="{{ route('password.request') }}" style="float: right;">
+                                            {{ __('Forgot Your Password?') }}
+                                        </a>
+                                      @endif  
+                                    @endguest
+                                </div>      
+                                
+                            </div>
+                          </div>
+                         
+                        </div>
+                        <!-- /.box-body -->
+                        
+                              {{-- <div class="box-footer">
+                            
+                              <button type="submit" class="btn btn-primary" style="margin-right: 20px;  float: right; width: 96%; padding-top: 15px; padding-bottom: 15px;">
+                                  {{ __('Login') }}
+                              </button>
+                              
+          
+                              
+                              </div> --}}
+                            
+                        <!-- /.box-footer -->
+                      
+
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary" style="margin-right: 15px;  float: right; width: 96%; padding-top: 15px; padding-bottom: 15px;">
+                        {{ __('Login') }}
+                     </button> 
+                    </div>
+                  </form>
+                  </div>
+                  <!-- /.modal-content -->
+                </div>
+
+              {{-- <a type="button" href="{{route('login')}}" class="btn btn-primary btn-block" style="margin-top: 20vh;
+                color: rgb(249, 247, 247);   padding-top: 20px;
+                padding-bottom: 20px;
+                font-size: 2rem;
+                text-align: center;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 20px;
+                font-family: sans-serif, arial;
+                ">Access to Login</a>
+                 --}}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- <div class = "row" >
         <div class ="pull-left">
             <label style="font-size: 20px;">
                 Student Data
@@ -78,6 +219,6 @@
         </tr>
       </tbody>
     @endforeach
-</table>
+</table> --}}
 
 @endsection
