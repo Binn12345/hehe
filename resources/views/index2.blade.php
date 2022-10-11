@@ -18,7 +18,7 @@
           <li><a href="#">Courses</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href=" {{route('student.create')}} "><span class="glyphicon glyphicon-user"></span>&nbsp;Register</a></li>
+          <li><a href=" {{ route('student.cre') }} "><span class="glyphicon glyphicon-user"></span>&nbsp;Register</a></li>
           <li><a data-toggle="modal" data-target="#modal-default"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Login</a></li>
         </ul> 
       </div>
@@ -32,7 +32,7 @@
                 {{-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
                   Launch Default Modal
                 </button> --}}
-              <div class="modal fade" id="modal-default">
+              <div class="modal fade" id="modal-default" style="margin-top: 5vh;">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">

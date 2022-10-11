@@ -39,7 +39,10 @@ Route::post('/student/{student}', 'StudentController@update')->name('student.upd
 
 //main web
 Route::get('/', 'StudentController@show')->name('student.show');
+// Route::get('/student/registration', 'StudentRegisController@cre')->name('student.cre');
+Route::get('/std/registration', 'StudentRegisterController@studRegis')->name('student.cre');
 
+// route::get('/student/registration', 'studRegController@cre')->name('student.cre');
 
 
 Route::get('/login', 'adminController@login');  
