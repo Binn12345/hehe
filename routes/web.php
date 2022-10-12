@@ -20,7 +20,11 @@ Route::get('/data/student', 'dataController@showData')->name('student.sTable');
 // Route::get('/', 'dataController@showDataCopy')->name('student.copy');
 // Route::get('/', 'StudentController@show');
 Route::get('/student', 'StudentController@create')->name('student.create');
-Route::post('/student', 'StudentController@store')->name('student.store');
+
+//create
+Route::post('/student/register', 'StudentController@store')->name('student.store');
+
+
 Route::get('/download-data.pdf','StudentController@getDataPDF')->name('student.getDataPDF');
 
 // Route::get('/login', function () {

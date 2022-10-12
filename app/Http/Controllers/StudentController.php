@@ -83,12 +83,18 @@ class StudentController extends Controller
 
         return redirect()->route('student.show')->with('success', 'Data has been Updated');
     }
+    //CREATE DATA 
     public function store(Request $request)
     {
 
         Students::create([
 
             'Fullname'      =>$request->fname,
+            'firstname'     =>$
+            'middlename'
+            'lastname'
+            'username'
+            'password'
             'Gender'        =>$request->gender,
             'Birthdate'     =>$request->dob,
             'Birthplace'    =>$request->bp,

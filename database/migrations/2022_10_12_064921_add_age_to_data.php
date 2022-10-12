@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFirstnameToData extends Migration
+class AddAgeToData extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,7 @@ class AddFirstnameToData extends Migration
     public function up()
     {
         Schema::table('data', function (Blueprint $table) {
-
-            $table->string('firstname')->nullable();
-            $table->string('lastname')->nullable();
-            $table->string('middlename')->nullable();
-            $table->string('username')->nullable();
-            $table->string('password')->nullable();
+            $table->string('age')->nullable();
         });
     }
 
