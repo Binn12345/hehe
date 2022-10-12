@@ -16,7 +16,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" ACTION="{{ route('student.store') }}" METHOD="POST">
+                <form class="form-horizontal" action="{{route('student.store')}}" method="POST">
                   @csrf
                   <div class="box-body">
                     <div class="col-xs-4">
@@ -130,5 +130,12 @@
         </div>
     </div>
 </div>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+@if ($message = Session::get('success'))
 
+    <script>
+      swal("Account!","{!!Session::get('success')!!}","success",{button:"OK",});
+    </script>
+    
+@endif --}}
 @endsection

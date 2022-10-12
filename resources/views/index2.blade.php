@@ -125,7 +125,14 @@
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+@if ($message = Session::get('success'))
 
+    <script>
+      swal("Account!","{!!Session::get('success')!!}","success",{button:"OK",});
+    </script>
+
+@endif
 
 
 

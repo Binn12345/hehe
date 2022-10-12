@@ -24,6 +24,8 @@ Route::get('/student', 'StudentController@create')->name('student.create');
 //create for data 
 Route::post('/std/register', 'StudentController@store')->name('student.store');
 
+//view CreateMessageDisplay
+Route::get('/receive/student/email', 'StudentController@receive')->name('student.receive');
 
 
 Route::get('/download-data.pdf','StudentController@getDataPDF')->name('student.getDataPDF');

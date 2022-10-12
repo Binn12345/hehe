@@ -53,6 +53,11 @@ class StudentController extends Controller
     //     $students = Students::all();
     //     return view('dTable', compact('students','students'));
     // }
+
+    public function receive()
+    {
+        return view('stdReceive');
+    }
     public function create()
     {
         return view('create');
@@ -110,7 +115,7 @@ class StudentController extends Controller
             'created_at'    =>now(),
         ]);
 
-        return redirect()->route('student.cre')->with('success', 'Data has been added');
+        return redirect()->route('student.show')->with('success', 'Your account has been successfully created.');
     }
 
 

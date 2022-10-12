@@ -23,7 +23,7 @@
      {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     
 </head>
-<body style="background: linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(2,0,36,0.3) 35%, rgba(2,0,36,0.3) 100%), url('../dist/img/bg.jpg') no-repeat center/cover; height: 100vh;">
+<body style="background: linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(2,0,36,0.3) 35%, rgba(2,0,36,0.3) 100%), url('../../dist/img/bg.jpg') no-repeat center/cover; height: 100vh;">
     <div id="app">
         
       {{-- <nav class="navbar navbar-expand-md navbar-black bg-white shadow-sm" style="color: black;">
