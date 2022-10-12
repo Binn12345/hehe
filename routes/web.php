@@ -21,8 +21,9 @@ Route::get('/data/student', 'dataController@showData')->name('student.sTable');
 // Route::get('/', 'StudentController@show');
 Route::get('/student', 'StudentController@create')->name('student.create');
 
-//create
-Route::post('/student/register', 'StudentController@store')->name('student.store');
+//create for data 
+Route::post('/std/register', 'StudentController@store')->name('student.store');
+
 
 
 Route::get('/download-data.pdf','StudentController@getDataPDF')->name('student.getDataPDF');

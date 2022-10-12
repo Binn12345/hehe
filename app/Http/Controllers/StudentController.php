@@ -57,6 +57,10 @@ class StudentController extends Controller
     {
         return view('create');
     }
+    public function collab()
+    {
+        return view('student/register');
+    }
     public function destroy(Students $student)
     {
         $student->delete();
@@ -83,18 +87,20 @@ class StudentController extends Controller
 
         return redirect()->route('student.show')->with('success', 'Data has been Updated');
     }
+
     //CREATE DATA 
     public function store(Request $request)
     {
 
         Students::create([
 
-            'Fullname'      =>$request->fname,
-            'firstname'     =>$
-            'middlename'
-            'lastname'
-            'username'
-            'password'
+            'Fullname'      =>$request->fname . " " .$request->mname . " " . $request->lname,
+            'firstname'     =>$request->fname,
+            'middlename'    =>$request->mname,
+            'lastname'      =>$request->lname,
+            // 'username'      =>$request-
+            'password'      =>$request->pw,
+            'age'           =>$request->age,
             'Gender'        =>$request->gender,
             'Birthdate'     =>$request->dob,
             'Birthplace'    =>$request->bp,
@@ -104,7 +110,7 @@ class StudentController extends Controller
             'created_at'    =>now(),
         ]);
 
-        return redirect()->route('student.show')->with('success', 'Data has been added');
+        return redirect()->route('student.cre')->with('success', 'Data has been added');
     }
 
 
