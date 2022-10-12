@@ -4,6 +4,7 @@
 
 
 @include('inc.sidebar')
+@include('layouts.outModal')
 <div class="content-wrapper" >
     <!-- Content Header (Page header) -->
     <section class="content-header">

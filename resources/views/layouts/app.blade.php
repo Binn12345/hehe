@@ -26,6 +26,18 @@
 <body class="hold-transition skin-blue sidebar-mini">
     <div id="app">
       @include('inc.navbar')
+
+
+
+      <main class="py-4">
+        @yield('content')
+    </main>
+</div>
+
+@include('inc.link2')
+
+</body>
+</html>
       {{-- <nav class="navbar navbar-expand-md navbar-black bg-white shadow-sm" style="color: black;">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
@@ -78,12 +90,4 @@
     </nav> --}}
         
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-
-    @include('inc.link2')
-
-</body>
-</html>
+       

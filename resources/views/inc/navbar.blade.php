@@ -215,7 +215,13 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../dist/img/user1-128x128.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{ Auth::user()->name }}</span>
+              <span class="hidden-xs">
+    
+              
+                {{ Auth::user()->name }}
+              
+              </span>
+              
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -224,7 +230,9 @@
 
                 <p>
                    {{ Auth::user()->name }}
+                   <br>Admin
                 </p>
+                
               </li>
               <!-- Menu Body -->
               <li class="user-body">
@@ -232,9 +240,9 @@
                   <div class="col-xs-4 text-center">
                     <a href="#">Followers</a>
                   </div>
-                  <div class="col-xs-4 text-center">
+                  {{-- <div class="col-xs-4 text-center">
                     <a href="#">Sales</a>
-                  </div>
+                  </div> --}}
                   <div class="col-xs-4 text-center">
                     <a href="#">Friends</a>
                   </div>
