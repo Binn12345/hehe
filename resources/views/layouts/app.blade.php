@@ -11,7 +11,7 @@
 
 
     <!-- Scripts -->
-      <script src="{{ asset('js/app.js') }}" defer></script> 
+    <script src="{{ asset('js/app.js') }}" defer></script> 
 
     
     <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> -->
@@ -23,15 +23,20 @@
      {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
+    
     <div id="app">
-      @include('inc.navbar')
-
-
-
-      <main class="py-4">
+        
+        @include('inc.navbar')
+        @include('inc.sidebar')
+        @include('layouts.outModal')
+        {{-- @include('lib.createModal') --}}
+       
+        <main class="py-4">
+        
         @yield('content')
-    </main>
+        </main>
 </div>
 
 @include('inc.link2')

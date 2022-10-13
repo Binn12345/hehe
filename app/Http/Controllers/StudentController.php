@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Students;
+use App\User;
 use App\Exports\StudentExport;
 use App\Imports\StudentImport;
 use Excel;
@@ -17,6 +18,15 @@ class StudentController extends Controller
     //     return redirect()->with('students',$students);
     // }
     //Export to EXCEL
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
+
+    public function adminData(){
+        return view('student.adminData');
+    }
     public function exportToExcel()
     {   
         return Excel::download(new StudentExport,'Students.xlsx');
@@ -114,6 +124,16 @@ class StudentController extends Controller
             'Address'       =>$request->address,
             'created_at'    =>now(),
         ]);
+
+
+        User::create([
+            'name' => $request->fname . " " .$request->mname . " " . $request->lname,
+            'email' => $request->email,
+            'password' => bcrypt($request->pw),
+            'username' => $request->username,
+            'role'  => $request->
+        ]);
+
 
         return redirect()->route('student.show')->with('success', 'Your account has been successfully created.');
     }

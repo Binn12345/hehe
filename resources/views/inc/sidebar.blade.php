@@ -44,8 +44,8 @@
               </span>
             </a>
             <ul class="treeview-menu" style="display: none;">
-              <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Pie Graph - Male / Female</a></li>
-              <li><a href="index2.html"><i class="fa fa-circle-o"></i> </a></li>
+              <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> #</a></li>
+              <li><a href="index2.html"><i class="fa fa-circle-o"></i> #</a></li>
             </ul>
           </li>
         
@@ -74,8 +74,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i>Create Announcement</a></li>
-            <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i>List</a></li>
+            <li><a data-toggle="modal" data-target="#modal-createAnnouncement" ><i class="fa fa-circle-o"></i>Create Announcement</a></li>
+            <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i>#</a></li>
               {{-- <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
               <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
               <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
@@ -90,9 +90,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> Create An Account</a></li>
-            {{-- <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li> --}}
+            <li><a data-toggle="modal" data-target="#modal-CREATE"><i class="fa fa-circle-o"></i> Create An Account</a></li>
+            <li><a href="{{route('dataResource')}}"><i class="fa fa-circle-o"></i>Data</a></li>
+            {{-- <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li> --}}
           </ul>
         </li>
         {{-- <li class="treeview">
@@ -187,3 +187,4 @@
     </section>
     <!-- /.sidebar -->
   </aside>
+  

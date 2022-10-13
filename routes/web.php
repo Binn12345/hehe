@@ -47,6 +47,8 @@ Route::post('/student/{student}', 'StudentController@update')->name('student.upd
 //main web
 Route::get('/', 'StudentController@show')->name('student.show');
 // Route::get('/student/registration', 'StudentRegisController@cre')->name('student.cre');
+
+//d
 Route::get('/std/registration', 'StudentRegisterController@studRegis')->name('student.cre');
 
 // route::get('/student/registration', 'studRegController@cre')->name('student.cre');
@@ -71,3 +73,6 @@ Route::get('/login', 'adminController@login');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/admin/data-resources/', 'StudentController@adminData')->name('dataResource');

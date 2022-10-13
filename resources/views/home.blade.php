@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+  <title>
+    BCP - Home
+  </title>
 @section('content')
 
 {{-- <div class="container">
@@ -22,10 +24,11 @@
         </div>
     </div>
 </div> --}}
-    @include('inc.sidebar')
-    @include('layouts.outModal')
+    
+
   <!--/Main-->
-  <div class="content-wrapper" style="min-height: 902.75px;">
+  <div class="content-wrapper" >
+    
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
