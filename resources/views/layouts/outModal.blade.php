@@ -184,9 +184,7 @@
             @csrf
             
           </form>
-        </div>
-      
-      
+        </div>   
         <div class="modal-footer">
           
             {{-- <button type="button" class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();

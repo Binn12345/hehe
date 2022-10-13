@@ -1,12 +1,33 @@
 @extends('layouts/app2')
 <title>BCP - Registration</title>
-
+<nav class="navbar navbar-inverse" style="background-color:rgb(0, 0, 0);">
+  <div class="container"> 
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{route('student.show')}}">BCP</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{{route('student.show')}}">Home</a></li>
+      {{-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Courses <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">--/--/--</a></li>
+          <li><a href="#">--/--/--</a></li>
+          <li><a href="#">--/--/--</a></li>
+        </ul>
+      </li> --}}
+      <li><a href="#">Courses</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{{route('student.cre')}}"><span class="glyphicon glyphicon-user"></span>&nbsp;Register</a></li>
+      {{-- <li><a data-toggle="modal" data-target="#modal-default"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Login</a></li> --}}
+    </ul> 
+  </div>
+</nav>
 
 @section('content') 
 <div class="container" style="margin-top: 5vh;
                               margin-bottom:6vh">
     <div class="justify-content-center">
-        <div class="col-lg-12">
+        <div class="col-lg-12">   
         
             <div class="box box-info">
                 <div class="box-header with-border">
@@ -99,6 +120,12 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body" style="display: none;">
+                          <div class="col-xs-12">
+                            {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
+                            {{-- <div class="col-sm-10"> --}}
+                              <input class="form-control input-lg" type="text" name="username" placeholder="username" style="font-family:'Courier New', Courier, monospace;">
+                          {{--   --}}
+                          </div>
                           <div class="col-xs-6">
                             {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                             {{-- <div class="col-sm-10"> --}}
@@ -110,7 +137,7 @@
                             {{-- <div class="col-sm-10"> --}}
                               <input class="form-control input-lg" type="password" name="pw" placeholder="Confirm Password" style="font-family:'Courier New', Courier, monospace;">
                           {{--   --}}
-                          </div
+                          </div>
                         </div>
                         <!-- /.box-body -->
                       </div>

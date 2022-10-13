@@ -76,7 +76,7 @@ class StudentController extends Controller
     public function destroy(Students $student)
     {
         $student->delete();
-        return redirect()->route('student.show')->with('success', 'Data has been deleted');
+        return redirect()->back()->with('success', 'Data has been deleted');
     }
     
     public function edit(Students $student)
@@ -125,7 +125,7 @@ class StudentController extends Controller
         User::create([
             'name' => $request->fname . " " .$request->mname . " " . $request->lname,
             'email' => $request->email,
-            'password' => bcrypt($request->pw),
+            'password' => bcrypt($request->username.$request->lname),
             'username' => $request->username,
             'role'  => 'student',
             
