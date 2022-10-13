@@ -43,6 +43,8 @@
 
 </body>
 </html>
+
+
       {{-- <nav class="navbar navbar-expand-md navbar-black bg-white shadow-sm" style="color: black;">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">

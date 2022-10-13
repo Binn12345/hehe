@@ -74,7 +74,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a data-toggle="modal" data-target="#modal-createAnnouncement" ><i class="fa fa-circle-o"></i>Create Announcement</a></li>
+            <li><a data-toggle="modal" data-target="#modal-Announcement" style="cursor: pointer"><i class="fa fa-circle-o"></i>Create Announcement</a></li>
             <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i>#</a></li>
               {{-- <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
               <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
@@ -90,7 +90,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a data-toggle="modal" data-target="#modal-CREATE"><i class="fa fa-circle-o"></i> Create An Account</a></li>
+            <li><a data-toggle="modal" data-target="#modal-CREATE" style="cursor: pointer"><i class="fa fa-circle-o"></i> Create An Account</a></li>
             <li><a href="{{route('dataResource')}}"><i class="fa fa-circle-o"></i>Data</a></li>
             {{-- <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li> --}}
           </ul>

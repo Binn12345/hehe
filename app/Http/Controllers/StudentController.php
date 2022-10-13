@@ -68,14 +68,11 @@ class StudentController extends Controller
     {
         return view('stdReceive');
     }
-    public function create()
-    {
-        return view('create');
-    }
-    public function collab()
-    {
-        return view('student/register');
-    }
+    // public function create()
+    // {
+    //     return view('create');
+    // }
+
     public function destroy(Students $student)
     {
         $student->delete();
@@ -103,10 +100,10 @@ class StudentController extends Controller
         return redirect()->route('student.show')->with('success', 'Data has been Updated');
     }
 
-    //CREATE DATA 
+    //CREATE DATA for student
     public function store(Request $request)
     {
-
+        
         Students::create([
 
             'Fullname'      =>$request->fname . " " .$request->mname . " " . $request->lname,
@@ -125,17 +122,51 @@ class StudentController extends Controller
             'created_at'    =>now(),
         ]);
 
-
         User::create([
             'name' => $request->fname . " " .$request->mname . " " . $request->lname,
             'email' => $request->email,
             'password' => bcrypt($request->pw),
             'username' => $request->username,
-            'role'  => $request->
+            'role'  => 'student',
+            
+        ]);
+        return redirect()->route('student.show')->with('success', 'Your account has been successfully created.');
+    }
+    //CREATE data for admin
+    
+    public function adminStore(Request $request)
+    {
+        
+        Students::create([
+
+            'Fullname'      =>$request->firstname . " " .$request->middlename . " " . $request->lastname,
+            'firstname'     =>$request->firstname,
+            'middlename'    =>$request->middlename,
+            'lastname'      =>$request->lastname,
+            // 'username'      =>$request-
+            'password'      =>$request->password,
+            'age'           =>$request->age,
+            'Gender'        =>$request->gen,
+            'Birthdate'     =>$request->dobb,
+            'Birthplace'    =>$request->bip,
+            'Contact'       =>$request->cont,
+            'Email'         =>$request->emaild,
+            'Address'       =>$request->add,
+            'created_at'    =>now(),
         ]);
 
 
-        return redirect()->route('student.show')->with('success', 'Your account has been successfully created.');
+       
+        
+        User::create([
+            'name' => $request->firstname . " " .$request->middlename . " " . $request->lastname,
+            'email' => $request->emaild,
+            'password' => bcrypt($request->pw),
+            'username' => $request->username,
+            'role'  => $request->role,
+            
+        ]);
+        return redirect()->route('dataResource')->with('successs', 'account has been successfully added.');
     }
 
 

@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal-defaults">
+  <div class="modal fade" id="modal-defaults">
     <div class="modal-dialog" style="margin-top: 30vh;">
       <div class="modal-content">
         <div class="modal-header">
@@ -21,42 +21,44 @@
   </div>
 
 
-  {{-- createModal --}}
+  {{-- createModalAdmin --}}
   <div class="modal fade" id="modal-CREATE">
     <div class="modal-dialog" style="margin-top: 10vh; width: 90%;">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Add new account</h4>
+          <h4 class="modal-title" style="margin-left: 15px;
+                  font-family:'Courier New', Courier, monospace;
+                  font-size: 4rem;">Add new account</h4>
         </div>
         <div class="modal-body">
   
-            <form class="form-horizontal" action="{{route('student.store')}}" method="POST">
+            <form class="form-horizontal" action="{{route('admin.store')}}" method="POST">
                 @csrf
                 <div class="box-body">
                   <div class="col-xs-4">
                     {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                     {{-- <div class="col-sm-10"> --}}
-                      <input class="form-control input-lg" type="text" name="lname" placeholder="Lastname" style="font-family:'Courier New', Courier, monospace;">
+                      <input class="form-control input-lg" type="text" name="lastname" placeholder="Lastname" style="font-family:'Courier New', Courier, monospace;">
                     {{-- </div> --}}
                   </div>
                   <div class="col-xs-4">
                     {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                     {{-- <div class="col-sm-10"> --}}
-                      <input class="form-control input-lg" type="text" name="fname" placeholder="Firstname" style="font-family:'Courier New', Courier, monospace;">
+                      <input class="form-control input-lg" type="text" name="firstname" placeholder="Firstname" style="font-family:'Courier New', Courier, monospace;">
                     {{--   --}}
                   </div>
                   <div class="col-xs-4">
                     {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                     {{-- <div class="col-sm-10"> --}}
-                      <input class="form-control input-lg" type="text" name="mname" placeholder="Middlename / Optional" style="font-family:'Courier New', Courier, monospace;">
+                      <input class="form-control input-lg" type="text" name="middlemname" placeholder="Middlename / Optional" style="font-family:'Courier New', Courier, monospace;">
                   {{--   --}}
                   </div>
                   
 
                   <div class="col-xs-12" style="margin-top: 10px; margin-bottom: 10px;">      
-                    <textarea class="form-control" placeholder="Present Address" name="address"style="font-family:'Courier New', Courier, monospace;" ></textarea>
+                    <textarea class="form-control" placeholder="Present Address" name="add"style="font-family:'Courier New', Courier, monospace;" ></textarea>
                   </div>
                   {{-- age based on datepicker --}}
                   <div class="col-xs-4">
@@ -69,34 +71,34 @@
                     {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                     {{-- <div class="col-sm-10"> --}}
                       
-                      <input class="form-control input-lg" type="date" name="dob" placeholder="Birthdate" style="font-family:'Courier New', Courier, monospace;">
+                      <input class="form-control input-lg" type="date" name="dobb" placeholder="Birthdate" style="font-family:'Courier New', Courier, monospace;">
                   {{--   --}}
                   </div>
                   <div class="col-xs-4" style="margin-bottom: 10px;">
                     
-                      <select name="gender" id="gender-select" type="text" name="gender" class="form-control input-lg" style="font-family:'Courier New', Courier, monospace;" >
+                      <select id="gender-select" type="text" name="gen" class="form-control input-lg" style="font-family:'Courier New', Courier, monospace;" >
                         <option value="">Choose your Gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
-                        <option value="custom">Custom</option>  
+                        <option value="Custom">Custom</option>  
                       </select>
                       
               
                   </div>
                   
                   <div class="col-xs-12" style="margin-bottom: 10px;">
-                    <textarea class="form-control" placeholder="Place of Birth" name="bp" style="font-family:'Courier New', Courier, monospace;" ></textarea>    
+                    <textarea class="form-control" placeholder="Place of Birth" name="bip" style="font-family:'Courier New', Courier, monospace;" ></textarea>    
                   </div>
                   <div class="col-xs-6" style=" " >
                   
                       
-                    <input class="form-control input-lg" type="email" name="email" placeholder="Personal Email Address" style="font-family:'Courier New', Courier, monospace;">
+                    <input class="form-control input-lg" type="email" name="emaild" placeholder="Personal Email Address" style="font-family:'Courier New', Courier, monospace;">
              
                   </div>
                     <div class="col-xs-6" style=" " >
                   
                       
-                    <input class="form-control input-lg" type="text " name="contact" placeholder="Contact" style="font-family:'Courier New', Courier, monospace;">
+                    <input class="form-control input-lg" type="text " name="cont" placeholder="Contact" style="font-family:'Courier New', Courier, monospace;">
              
                   </div> 
                   
@@ -130,11 +132,11 @@
                           <div class="col-xs-12" style="margin-top:10px;">
                             {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                             {{-- <div class="col-sm-10"> --}}
-                              <select name="gender" id="gender-select" type="text" name="role" class="form-control input-lg" style="font-family:'Courier New', Courier, monospace;" >
+                              <select id="gender-select" type="text" name="role" class="form-control input-lg" style="font-family:'Courier New', Courier, monospace;" >
                                 <option value="" hidden>Choose Role</option>
-                                <option value="Admin">Admin</option>
-                                <option value="Student">Student</option>
-                                
+                                <option value="admin">admin</option>
+                                <option value="student">student</option>
+                                  
                               </select>
                             </div>
                       </div>
@@ -159,11 +161,7 @@
         </div>
 
         
-        <div class="modal-footer">
-          
-          {{-- <button type="button" class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();" >Yes</button> --}}
-        </div>
+        
       </div>
       <!-- /.modal-content -->
     </div>
@@ -171,6 +169,35 @@
   </div>
   
   {{-- announcement --}}
+  <div class="modal fade" id="modal-Announcement">
+    <div class="modal-dialog" style="margin-top: 20vh; width: 90%;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" style="margin-left: 15px;
+          font-family:'Courier New', Courier, monospace;
+          font-size: 3rem;">Add Announcement</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" action="{{route('admin.store')}}" method="POST">
+            @csrf
+            
+          </form>
+        </div>
+      
+      
+        <div class="modal-footer">
+          
+            {{-- <button type="button" class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();" >Add</button> --}}
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+
 
 
 

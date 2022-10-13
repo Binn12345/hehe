@@ -74,5 +74,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+Route::post('/admin/register', 'StudentController@adminStore')->name('admin.store');
 Route::get('/admin/data-resources/', 'StudentController@adminData')->name('dataResource');
