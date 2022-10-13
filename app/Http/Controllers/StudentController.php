@@ -76,7 +76,7 @@ class StudentController extends Controller
     public function destroy(Students $student)
     {
         $student->delete();
-        return redirect()->back()->with('success', 'Data has been deleted');
+        return redirect()->back()->with('successs', 'Data has been deleted');
     }
     
     public function edit(Students $student)
@@ -97,7 +97,7 @@ class StudentController extends Controller
             'created_at'    =>now(),
         ]);
 
-        return redirect()->route('student.show')->with('success', 'Data has been Updated');
+        return redirect()->back()->with('successs', 'Data has been Updated');
     }
 
     //CREATE DATA for student
