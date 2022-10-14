@@ -38,20 +38,20 @@
             </ul>
           </li>
           
-          <li class="treeview">
-            <a href="{{route('student2.haha')}}">
-              <i class="fa fa-pie-chart"></i>
-              <span>Profile</span>
-            </a>
-          </li>
-          <li class="treeview">
-            <a href="{{route('student2.haha')}}">
-              <i class="fa fa-pie-chart"></i>
-              <span>Announcement</span>
-            </a>
-          </li> 
+          
       </ul>
-      
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-pie-chart"></i>
+          <span>Profile</span>
+        </a>
+      </li>
+      <li class="treeview">
+        <a href="{{route('student2.haha')}}">
+          <i class="fa fa-pie-chart"></i>
+          <span>Announcement</span>
+        </a>
+      </li> 
     </section>
     <!-- /.sidebar -->
   </aside>

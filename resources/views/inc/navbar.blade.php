@@ -230,7 +230,7 @@
 
                 <p>
                    {{ Auth::user()->name }}
-                   <br>Admin
+                   <br>{{ Auth::user()->role }}
                 </p>
                 
               </li>

@@ -135,6 +135,7 @@ class StudentController extends Controller
             'role'  => 'student',
             'key'   => $b,
             
+            
         ]);
         return redirect()->route('student.show')->with('success', 'Your account has been successfully created.');
     }
@@ -142,6 +143,10 @@ class StudentController extends Controller
     
     public function adminStore(Request $request)
     {
+
+        $x = rand();
+        $b = "";
+        $b = $x;
         
         Students::create([
 
@@ -158,7 +163,7 @@ class StudentController extends Controller
             'Contact'       =>$request->cont,
             'Email'         =>$request->emaild,
             'Address'       =>$request->add,
-            
+            'key'           =>$b,
             'created_at'    =>now(),
         ]);
 
@@ -171,6 +176,7 @@ class StudentController extends Controller
             'password' => bcrypt($request->pw),
             'username' => $request->username,
             'role'  => $request->role,
+            'key'   => $b,
             
         ]);
         return redirect()->route('dataResource')->with('successs', 'account has been successfully added.');

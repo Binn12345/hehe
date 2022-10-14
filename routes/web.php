@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ Route::get('/student/home', 'studController@index')->name('student2.index');
 Route::get('/student/announcement', 'studController@index2')->name('student2.haha'); 
 // Route::get('/', function () {
 //     return view('index2');
-// });
+// });  
 
 
 Route::get('/data/student', 'dataController@showData')->name('student.sTable');
