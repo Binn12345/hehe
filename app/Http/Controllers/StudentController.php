@@ -103,7 +103,11 @@ class StudentController extends Controller
     //CREATE DATA for student
     public function store(Request $request)
     {
-        
+        $x = rand();
+        $b = "";
+        $b = $x;
+
+
         Students::create([
 
             'Fullname'      =>$request->fname . " " .$request->mname . " " . $request->lname,
@@ -120,6 +124,7 @@ class StudentController extends Controller
             'Email'         =>$request->email,
             'Address'       =>$request->address,
             'created_at'    =>now(),
+            'key'           =>$b,
         ]);
 
         User::create([
@@ -128,6 +133,7 @@ class StudentController extends Controller
             'password' => bcrypt($request->username.$request->lname),
             'username' => $request->username,
             'role'  => 'student',
+            'key'   => $b,
             
         ]);
         return redirect()->route('student.show')->with('success', 'Your account has been successfully created.');
@@ -152,6 +158,7 @@ class StudentController extends Controller
             'Contact'       =>$request->cont,
             'Email'         =>$request->emaild,
             'Address'       =>$request->add,
+            
             'created_at'    =>now(),
         ]);
 

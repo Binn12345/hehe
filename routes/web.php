@@ -12,10 +12,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//studentSIDE
 
+Route::get('/student/home', 'studController@index')->name('student2.index');
+Route::get('/student/announcement', 'studController@index2')->name('student2.haha'); 
 // Route::get('/', function () {
 //     return view('index2');
 // });
+
+
 Route::get('/data/student', 'dataController@showData')->name('student.sTable');
 // Route::get('/', 'dataController@showDataCopy')->name('student.copy');
 // Route::get('/', 'StudentController@show');
@@ -70,9 +75,10 @@ Route::get('/login', 'adminController@login');
 // Route::get('/test', function () {
 //     return 'hahahah';
 // });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+//admin
 Route::post('/admin/register', 'StudentController@adminStore')->name('admin.store');
 Route::get('/admin/data-resources/', 'StudentController@adminData')->name('dataResource');

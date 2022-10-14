@@ -80,7 +80,7 @@
                     <div class="col-xs-4" style="margin-bottom: 10px;">
                       
                         <select name="gender" id="gender-select" type="text" class="form-control input-lg" style="font-family:'Courier New', Courier, monospace;" >
-                          <option value="">Choose your Gender</option>
+                          <option value="" hidden>Choose your Gender</option>
                           <option value="Male">Male</option>
                           <option value="Female">Female</option>
                           <option value="custom">Custom</option>  
