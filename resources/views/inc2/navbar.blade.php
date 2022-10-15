@@ -217,9 +217,8 @@
               <img src="../dist/img/user1-128x128.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs">
               
-                Vendetta
               
-                {{-- {{ Auth::user()->name }} --}}
+                {{ Auth::user()->name }}
               
               </span>
               
@@ -230,9 +229,9 @@
                 <img src="../dist/img/user1-128x128.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Vendetta
-                   {{-- {{ Auth::user()->name }} --}}
-                   <br>Student
+                  
+                   {{ Auth::user()->name }}
+                   <br>{{ Auth::user()->role }}
                 </p>
                 
               </li>

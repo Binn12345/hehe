@@ -22,7 +22,13 @@ class StudentController extends Controller
     // {
     //     $this->middleware('auth');
     // }
-
+    public function showData()
+    {
+        $students = Students::all();
+        return view('dtable', compact('students','students'));
+        // return view('home', compact('students','students'));
+    }
+    
 
     public function adminData(){
         return view('student.adminData');
