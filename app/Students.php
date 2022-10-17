@@ -13,5 +13,6 @@ class Students extends Model
     {
         $records = DB::table('data')->SELECT("id","Fullname","Gender","Birthdate","Birthplace","Contact","Email","Address")->OrderBy('id','asc')->get()->toArray();
         return $records;    
+
     }
 }

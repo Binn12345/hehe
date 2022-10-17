@@ -75,7 +75,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a data-toggle="modal" data-target="#modal-Announcement" style="cursor: pointer"><i class="fa fa-circle-o"></i>Create Announcement</a></li>
-            <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i>#</a></li>
+            <li><a href="{{route('admin.announce')}}"><i class="fa fa-circle-o"></i>#</a></li>
               {{-- <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
               <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
               <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
@@ -153,7 +153,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i>User LOGS</a></li>
+            <li><a href="{{route('logs')}}"><i class="fa fa-circle-o"></i>User LOGS</a></li>
              {{-- <li class="treeview">
               <a href="#"><i class="fa fa-circle-o"></i> Level One
                 <span class="pull-right-container">

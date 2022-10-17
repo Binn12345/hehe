@@ -39,8 +39,9 @@ use Illuminate\Support\Facades\Auth;
 
 
 //mainLOGIN
-Route::get('/std/registration', 'StudentRegisterController@studRegis')->name('student.cre');
-Route::get('/', 'StudentController@show')->name('student.show');
+Route::get('/student/registration', 'StudentRegisterController@studRegis')->name('student.cre');    
+Route::get('/', 'StudentController@show')->name('student.show');    
+
 // Route::get('/login', 'adminController@login');  
 //endOfMainLogin
 
@@ -99,7 +100,7 @@ Route::prefix('admin')->middleware(['auth','isUser'])->group(function()
 {
     Route::get('/get-create',           [StudentController::class, 'create'])->name('student.create');
     Route::post('/import',              [StudentController::class, 'import'])->name('import');
-    Route::get('/show',                 [StudentController::class, 'show'])->name('student.show');
+    // Route::get('/show',                 [StudentController::class, 'show'])->name('student.show');
     Route::post('/register',            [StudentController::class, 'adminStore'])->name('admin.store');
     Route::get('/data-resources',       [StudentController::class, 'adminData'])->name('dataResource');
     Route::get('/data/student',         [StudentController::class, 'showData'])->name('student.sTable');
@@ -107,18 +108,36 @@ Route::prefix('admin')->middleware(['auth','isUser'])->group(function()
     Route::get('/export-student-excel', [StudentController::class, 'exportToExcel'])->name('student.getDataEXCEL');
     Route::get('/export-student-CSV',   [StudentController::class, 'exportToCsv'])->name('student.getDataCSV');
     Route::delete('/destroy/{student}', [StudentController::class, 'destroy'])->name('student.destroy');
-    Route::get('/edit/{student}',    [StudentController::class, 'edit'])->name('student.edit');
+    Route::get('/edit/{student}',       [StudentController::class, 'edit'])->name('student.edit');
+    Route::get('/data-announcement',    [StudentController::class, 'showAnnouncement'])->name('admin.announce');
+    Route::get('/data-userlogs',        [StudentController::class, 'logs'])->name('logs');
+
+
+    
+
+   
+
+
+    Route::post('/admin/{student}', 'StudentController@update')->name('student.update'); 
+
+    //Announcement
+    Route::post('/announcement/posted/', [StudentController::class, 'announce'])->name('announcement');
 
 
 
 
+
+
+    //bug
+   
+    Route::post('/registesr', 'StudentController@store')->name('student.store'); 
 });     
 
 
 //studentSIDE
 Route::prefix('student')->middleware('auth','isCheck')->group(function(){
 
-        Route::get('/student/student', 'studController@index')->name('student2.index');
+        Route::get('/home', 'studController@index')->name('student2.index');
         Route::get('/student/announcement', 'studController@index2')->name('student2.haha'); 
 
 });

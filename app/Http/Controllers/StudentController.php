@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Students;
 use App\User;
+use App\announcement;
 use App\Exports\StudentExport;
 use App\Imports\StudentImport;
 use Excel;
@@ -22,14 +23,18 @@ class StudentController extends Controller
     // {
     //     $this->middleware('auth');
     // }
+    
     public function showData()
     {
-        $students = Students::all();
+        $students = Students::all();    
         return view('dtable', compact('students','students'));
         // return view('home', compact('students','students'));
     }
     
-
+    public function showAnnouncement()
+    {
+        return view('student.admin-announcement');
+    }
     public function adminData(){
         return view('student.adminData');
     }
@@ -69,7 +74,10 @@ class StudentController extends Controller
     //     $students = Students::all();
     //     return view('dTable', compact('students','students'));
     // }
-
+    public function logs()
+    {
+        return view('student.logs');
+    }
     public function receive()
     {
         return view('stdReceive');
@@ -145,11 +153,31 @@ class StudentController extends Controller
         ]);
         return redirect()->route('student.show')->with('success', 'Your account has been successfully created.');
     }
+    //CREATE admin Announcement
+    public function announce(Request $request)
+    {
+        $c_code = rand();
+        $def = "";
+        $def = $c_code;
+
+        announcement::create([
+
+            'title'             =>$request->title,
+            'content'           =>$request->content,
+            'actor'             =>$request->user()->name,
+            'code_content'      =>$def,
+            'created_at'        =>now(),
+            'actRole'           =>$request->user()->role,
+        ]);
+        return redirect()->route('admin.announce')->with('successs', 'Annoucement are successfully posted.');
+    }
+
+
+
+
     //CREATE data for admin
-    
     public function adminStore(Request $request)
     {
-
         $x = rand();
         $b = "";
         $b = $x;

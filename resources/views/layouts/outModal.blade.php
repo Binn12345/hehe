@@ -77,7 +77,7 @@
                   <div class="col-xs-4" style="margin-bottom: 10px;">
                     
                       <select id="gender-select" type="text" name="gen" class="form-control input-lg" style="font-family:'Courier New', Courier, monospace;" >
-                        <option value="">Choose your Gender</option>
+                        <option value="" hidden>Choose your Gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Custom">Custom</option>  
@@ -180,9 +180,30 @@
           font-size: 3rem;">Add Announcement</h4>
         </div>
         <div class="modal-body">
-          <form class="form-horizontal" action="{{route('admin.store')}}" method="POST">
+          <form class="form-horizontal" action="{{route('announcement')}}" method="POST">
             @csrf
-            
+            <div class="box-body">
+
+              <div class="col-xs-12">
+                {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
+                {{-- <div class="col-sm-10"> --}}
+                  <input class="form-control input-lg" type="text" name="title" placeholder="Title" style="font-family:'Courier New', Courier, monospace;
+                                                                                                            height: 70px;">
+                {{-- </div> --}}
+              </div>
+
+              <div class="col-xs-12" style="margin-top: 10px; margin-bottom: 10px;">     
+
+                <textarea class="form-control input-lg" type="text" placeholder="Content" name="content" style="font-family:'Courier New', Courier, monospace;
+                                                                                              height: 200px;"></textarea>
+              
+              </div>
+            </div>
+            <div class="box-footer">
+              <button type="submit" class="btn btn-primary" style="margin-right: 20px;   width: 100%; padding-top: 15px; padding-bottom: 15px;">
+                Submit
+              </button>
+            </div>
           </form>
         </div>   
         <div class="modal-footer">

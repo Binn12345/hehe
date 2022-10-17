@@ -35,11 +35,12 @@
 <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('dist/js/demo.js') }}"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 @if ($message = Session::get('successs'))
 
     <script>
-      swal("Account!","{!!Session::get('successs')!!}","successs",{button:"OK",});
+      swal("{{ Auth::user()->name}}","{!!Session::get('successs')!!}","successs",{button:"OK",});
     </script>
 
 @endif
