@@ -9,14 +9,9 @@
         <div class="pull-left info">
           <p>
             
-            
-            
-      
-              
+  
                 {{ Auth::user()->name }}
-              
-             
-          
+      
           
           </p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
@@ -145,6 +140,7 @@
             <li><a href="pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
           </ul>
         </li> --}} -->
+        {{-- @can('isAdmin') --}}
         <li class="treeview">
           <a href="#">
             <i class="fa fa-share"></i> <span>Audit trail</span>
@@ -178,6 +174,7 @@
             <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li> --}}
           </ul>
         </li>
+       {{-- @endcan  --}}
         {{-- <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li> --}}
         {{-- <li class="header">LABELS</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>

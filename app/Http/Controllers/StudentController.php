@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Helpers\Helper;
 use App\Students;
 use App\User;
 use App\announcement;
@@ -23,7 +24,12 @@ class StudentController extends Controller
     // {
     //     $this->middleware('auth');
     // }
-    
+    public function studentAccess()
+    {
+
+        return view('student2.index');
+
+    }
     public function showData()
     {
         $students = Students::all();    
@@ -120,7 +126,8 @@ class StudentController extends Controller
         $x = rand();
         $b = "";
         $b = $x;
-
+        $userID = Helper::IDGenerator(new User, 'user_id',5,'STD');
+        $year = date("Y");
 
         Students::create([
 
@@ -148,6 +155,7 @@ class StudentController extends Controller
             'username' => $request->username,
             'role'  => 'student',
             'key'   => $b,
+            'user_id' => $year.$userID,
             
             
         ]);
@@ -181,7 +189,8 @@ class StudentController extends Controller
         $x = rand();
         $b = "";
         $b = $x;
-        
+        // $userID = Helper::IDGenerator(new User, 'user_id',5,'ADM');
+
         Students::create([
 
             'Fullname'      =>$request->firstname . " " .$request->middlename . " " . $request->lastname,

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use App\User;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 class checkUser
@@ -34,7 +34,7 @@ class checkUser
             if (Auth::user()->role == 'admin') {
                 return $next($request);
             } else {
-                return redirect('/home');
+                return redirect('/shome');
             }
         } 
         else{

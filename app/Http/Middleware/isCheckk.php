@@ -1,5 +1,5 @@
 <?php
-
+use App\User;
 namespace App\Http\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Closure;
@@ -19,7 +19,7 @@ class isCheckk
             if (Auth::user()->role == 'student') {
                 return $next($request); 
             } else {
-                return redirect('/student/home');
+                return redirect('/home');
                 
             }
         } else {

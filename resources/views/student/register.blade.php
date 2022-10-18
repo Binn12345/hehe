@@ -126,18 +126,16 @@
                               <input class="form-control input-lg" type="text" name="username" placeholder="username" style="font-family:'Courier New', Courier, monospace;">
                           {{--   --}}
                           </div>
-                          <div class="col-xs-6">
-                            {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
-                            {{-- <div class="col-sm-10"> --}}
+                          {{-- <div class="col-xs-6">
+                            
                               <input class="form-control input-lg" type="password" name="pw" placeholder="Password" style="font-family:'Courier New', Courier, monospace;">
-                          {{--   --}}
+                          
                           </div>
                           <div class="col-xs-6">
-                            {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
-                            {{-- <div class="col-sm-10"> --}}
+                           
                               <input class="form-control input-lg" type="password" name="pw" placeholder="Confirm Password" style="font-family:'Courier New', Courier, monospace;">
-                          {{--   --}}
-                          </div>
+                        
+                          </div> --}}
                         </div>
                         <!-- /.box-body -->
                       </div>

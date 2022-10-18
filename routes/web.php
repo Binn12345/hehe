@@ -1,7 +1,9 @@
 <?php
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\testHelperController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +16,10 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index2');
-// });  
-
+Route::get('/', function () {
+    return view('index2');
+});  
+Route::get('test', [testHelperController::class , 'index']);
 // mod tester
 
 // Route::get('admin/data/student', 'dataController@showData')->name('student.sTable');
@@ -39,6 +41,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 //mainLOGIN
+Route::post('student_/register/', 'StudentController@store')->name('student.store'); 
 Route::get('/student/registration', 'StudentRegisterController@studRegis')->name('student.cre');    
 Route::get('/', 'StudentController@show')->name('student.show');    
 
@@ -89,12 +92,14 @@ Route::get('/', 'StudentController@show')->name('student.show');
 // Route::get('/test', function () {
 //     return 'hahahah';
 // });
-
+// Route::get('/student/home', 'studController@index')->name('student2.index');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/student', 'StudentDashController@index')->name('student')->middleware('student'); 
+// Route::get('/shome', [StudentController::class, 'studentAccess'])->name('student2.studentAccess'); 
 //admin
 
+// Route::get('/student/home', [StudentController::class, 'index'])->name('student2.index');    
 
 Route::prefix('admin')->middleware(['auth','isUser'])->group(function()
 {
@@ -130,14 +135,14 @@ Route::prefix('admin')->middleware(['auth','isUser'])->group(function()
 
     //bug
    
-    Route::post('/registesr', 'StudentController@store')->name('student.store'); 
+    
 });     
 
 
 //studentSIDE
-Route::prefix('student')->middleware('auth','isCheck')->group(function(){
-
-        Route::get('/home', 'studController@index')->name('student2.index');
+Route::prefix('student')->middleware(['auth','isCheckk'])->group(function(){
+        // 
+        Route::get('/shome', [StudentController::class, 'studentAccess'])->name('student2.studentAccess'); 
         Route::get('/student/announcement', 'studController@index2')->name('student2.haha'); 
 
 });

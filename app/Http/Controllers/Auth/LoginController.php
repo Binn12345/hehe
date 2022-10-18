@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\Auth;
+use App\User;
+use App\userlogs;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -35,6 +38,15 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        // $state= "You are now logged in";
+        // userlogs::create([
+
+        //     'actor'             =>$request->user()->name,
+        //     'state'             =>$state,
+        //     'role'              =>$request->user()->role,
+        //     'created_at'        =>now(),
+            
+        // ]);  
         $this->middleware('guest')->except('logout');
     }
 }
