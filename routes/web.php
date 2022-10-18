@@ -94,7 +94,7 @@ Route::get('/', 'StudentController@show')->name('student.show');
 // });
 // Route::get('/student/home', 'studController@index')->name('student2.index');
 Auth::routes();
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/student', 'StudentDashController@index')->name('student')->middleware('student'); 
 // Route::get('/shome', [StudentController::class, 'studentAccess'])->name('student2.studentAccess'); 
 //admin
@@ -142,7 +142,7 @@ Route::prefix('admin')->middleware(['auth','isUser'])->group(function()
 //studentSIDE
 Route::prefix('student')->middleware(['auth','isCheckk'])->group(function(){
         // 
-        Route::get('/shome', [StudentController::class, 'studentAccess'])->name('student2.studentAccess'); 
+        Route::get('/home', [StudentController::class, 'studentAccess'])->name('student2.studentAccess'); 
         Route::get('/student/announcement', 'studController@index2')->name('student2.haha'); 
 
 });
