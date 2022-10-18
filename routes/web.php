@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('index2');
-});  
+// Route::get('/', function () {
+//     return view('index2');
+// });  
 Route::get('test', [testHelperController::class , 'index']);
 // mod tester
 
@@ -94,8 +94,8 @@ Route::get('/', 'StudentController@show')->name('student.show');
 // });
 // Route::get('/student/home', 'studController@index')->name('student2.index');
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('/student', 'StudentDashController@index')->name('student')->middleware('student'); 
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/student', 'StudentDashController@index')->name('student')->middleware('student'); 
 // Route::get('/shome', [StudentController::class, 'studentAccess'])->name('student2.studentAccess'); 
 //admin
 

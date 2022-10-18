@@ -36,6 +36,6 @@ class HomeController extends Controller
             'created_at'        =>now(),
             
         ]);  
-        return view('home');
+        return view('/');
     }
 }
