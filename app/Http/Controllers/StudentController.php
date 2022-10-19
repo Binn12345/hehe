@@ -9,7 +9,7 @@ use App\Exports\StudentExport;
 use App\Imports\StudentImport;
 use Excel;
 use PDF;     
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -24,18 +24,17 @@ class StudentController extends Controller
     // {
     //     $this->middleware('auth');
     // }
+    // public function logs()
+    // {
+        
+    // }
     public function studentAccess()
     {
 
         return view('student2.index');
 
     }
-    public function showData()
-    {
-        $students = Students::all();    
-        return view('dtable', compact('students','students'));
-        // return view('home', compact('students','students'));
-    }
+    
     
     public function showAnnouncement()
     {
@@ -80,10 +79,7 @@ class StudentController extends Controller
     //     $students = Students::all();
     //     return view('dTable', compact('students','students'));
     // }
-    public function logs()
-    {
-        return view('student.logs');
-    }
+    
     public function receive()
     {
         return view('stdReceive');
@@ -126,9 +122,10 @@ class StudentController extends Controller
         $x = rand();
         $b = "";
         $b = $x;
-        $userID = Helper::IDGenerator(new User, 'user_id',5,'STD');
-        $year = date("Y");
-
+        $year = date("Y").'A';
+        $userID = Helper::IDGenerator(new User, 'user_id', 5, $year);
+        
+        
         Students::create([
 
             'Fullname'      =>$request->fname . " " .$request->mname . " " . $request->lname,
@@ -136,7 +133,7 @@ class StudentController extends Controller
             'middlename'    =>$request->mname,
             'lastname'      =>$request->lname,
             // 'username'      =>$request-
-            'password'      =>$request->pw,
+            'password'      =>$request->pw,     
             'age'           =>$request->age,
             'Gender'        =>$request->gender,
             'Birthdate'     =>$request->dob,
@@ -146,16 +143,17 @@ class StudentController extends Controller
             'Address'       =>$request->address,
             'created_at'    =>now(),
             'key'           =>$b,
+            // 'user_id' => $year.$userID,
         ]);
 
-        User::create([
+       User::create([
             'name' => $request->fname . " " .$request->mname . " " . $request->lname,
             'email' => $request->email,
             'password' => bcrypt($request->username.$request->lname),
             'username' => $request->username,
             'role'  => 'student',
             'key'   => $b,
-            'user_id' => $year.$userID,
+            'user_id' => $userID,
             
             
         ]);
@@ -187,10 +185,10 @@ class StudentController extends Controller
     public function adminStore(Request $request)
     {
         $x = rand();
-        $b = "";
-        $b = $x;
-        // $userID = Helper::IDGenerator(new User, 'user_id',5,'ADM');
-
+        $c = "";
+        $c = $x;
+        $year = date("Y").'ADM';
+        $userID = Helper::IDGenerator(new User, 'user_id', 5, $year);
         Students::create([
 
             'Fullname'      =>$request->firstname . " " .$request->middlename . " " . $request->lastname,
@@ -206,7 +204,7 @@ class StudentController extends Controller
             'Contact'       =>$request->cont,
             'Email'         =>$request->emaild,
             'Address'       =>$request->add,
-            'key'           =>$b,
+            'key'           =>$c,
             'created_at'    =>now(),
         ]);
 
@@ -219,10 +217,38 @@ class StudentController extends Controller
             'password' => bcrypt($request->pw),
             'username' => $request->username,
             'role'  => $request->role,
-            'key'   => $b,
+            'key'   => $c,
+            'user_id' => $userID,
             
         ]);
         return redirect()->route('dataResource')->with('successs', 'account has been successfully added.');
+    }
+
+
+
+    //logs
+    public function logs()
+    {
+
+        $students = DB::table('userlogs')
+        ->select('actor','state','created_at')
+        ->get();
+
+        return view('student.logs', compact('students','students'));
+        
+    }
+    //showStudentdata
+    public function showData()
+    {
+        // $students = Students::all();    
+        $students = DB::table('users')
+        ->select('users.id','users.user_id','name','gender','role')
+        ->join('data','users.key','data.key')
+        ->where('role', '=', 'student')
+        ->get();
+
+        return view('dtable', compact('students','students'));
+        // return view('home', compact('students','students'));
     }
 
 

@@ -19,7 +19,7 @@ class isCheckk
             if (Auth::user()->role == 'student') {
                 return $next($request); 
             } else {
-                return redirect('/home');
+                return redirect('/shome');
                 
             }
         } else {

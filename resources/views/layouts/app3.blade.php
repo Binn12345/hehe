@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="https://bcpedu.elearningcommons.com/images/favicon-16x16.png" type="image/x-icon">
-    
+      
 
 
     <!-- Scripts -->
@@ -33,5 +33,11 @@
 
     @yield('content')
     @include('inc.link2')
+    <script>
+        $(document).ready( function () {
+            $('#audit_unique').DataTable();
+        } );
+    </script>
+ 
 </body>
 </html>

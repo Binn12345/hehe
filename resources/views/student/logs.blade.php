@@ -14,27 +14,24 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body" style="margin-left:20px;">
-                <table class ="table table-striped row">
-                <tr>
-                    <th>Actor</th>
-                    <th>State</th>
-                    <th>Access</th>
-                </tr>
-            {{-- @foreach($students as $student)
-                <tbody>
-                    <tr>
-                    <td>{{$student->id}}</td>
-                    <td>{{$student->Fullname}}</td>
-                    <td>{{$student->Gender}}</td>
-                    <td>{{$student->Birthdate}}</td>
-                    <td>{{$student->Birthplace}}</td>
-                    <td>{{$student->Contact}}</td>
-                    <td>{{$student->Email}}</td>
-                    <td>{{$student->Address}}</td>
-                    </tr>
-                </tbody>
-            @endforeach  --}}
-            </table>
+                <div class="table-responsive-lg">
+                    <table class="table" id="audit_unique">
+                        <tr>
+                            <th>Actor</th>
+                            <th>State</th>
+                            <th>Access login</th>
+                        </tr>
+                        @foreach($students as $student)
+                            <tbody>
+                                <tr>
+                                    <td>{{$student->actor}}</td>
+                                    <td>{{$student->state}}</td>
+                                    <td>{{$student->created_at}}</td>
+                                </tr>
+                            </tbody>
+                        @endforeach 
+                    </table>
+        </div>
             </div>  
         </div>
     </section>
@@ -42,3 +39,10 @@
     </div>
     
 @endsection
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready( function () {
+        $('#audit_unique').DataTable();
+    } );
+</script>

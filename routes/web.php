@@ -103,6 +103,7 @@ Route::get('/student', 'StudentDashController@index')->name('student')->middlewa
 
 Route::prefix('admin')->middleware(['auth','isUser'])->group(function()
 {
+    // Route::get('/student', 'StudentDashController@index')->name('student')->middleware('student'); 
     Route::get('/get-create',           [StudentController::class, 'create'])->name('student.create');
     Route::post('/import',              [StudentController::class, 'import'])->name('import');
     // Route::get('/show',                 [StudentController::class, 'show'])->name('student.show');
@@ -142,7 +143,8 @@ Route::prefix('admin')->middleware(['auth','isUser'])->group(function()
 //studentSIDE
 Route::prefix('student')->middleware(['auth','isCheckk'])->group(function(){
         // 
-        Route::get('/home', [StudentController::class, 'studentAccess'])->name('student2.studentAccess'); 
+        Route::get('/student', 'StudentDashController@index')->name('student')->middleware('student'); 
+        // Route::get('/home', [StudentController::class, 'studentAccess'])->name('student2.studentAccess'); 
         Route::get('/student/announcement', 'studController@index2')->name('student2.haha'); 
 
 });

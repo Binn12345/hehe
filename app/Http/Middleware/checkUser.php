@@ -33,8 +33,13 @@ class checkUser
         if (Auth::check()) {
             if (Auth::user()->role == 'admin') {
                 return $next($request);
-            } else {
-                return redirect('/shome');
+            } 
+            // else if(Auth::user()-role=='student')
+            // {
+            //     return $next($request);
+            // }
+            else {
+                return redirect('/home');
             }
         } 
         else{

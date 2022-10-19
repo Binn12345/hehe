@@ -9,6 +9,7 @@
     <link rel="icon" href="https://bcpedu.elearningcommons.com/images/favicon-16x16.png" type="image/x-icon">
     <title>BCP</title>
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css">
 
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}" defer></script>  --}}
@@ -40,6 +41,8 @@
 </div>
 
 @include('inc.link2')
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
 
 </body>
 </html>
