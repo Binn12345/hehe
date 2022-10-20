@@ -9,16 +9,12 @@ class Students extends Model
     protected $table = 'data';
     protected $fillable = ["Fullname","Gender","Birthdate","Birthplace","Contact","Email","Address", "firstname", "middlename", "lastname","username","age","password","key","user_id",];
 
-    // public static function getStudents()
-    // {
-    //     $records =DB::table("users")
-    //     ->innerJoin("data", function($join){
-    //         $join->on("users.key", "=", "data.key");
-    //     })
-    //     ->select("fullname")
-    //     ->where("role", "=", student)
-    //     ->get();
-    //     return $records;    
-
-    // }
+    public static function getStudents()
+    {
+        $students = DB::table('data')
+        ->select("id","fullname","gender","birthdate","contact","email","address")
+        ->orderBy('id','asc')
+        ->get()
+        ->toArray();
+    }
 }

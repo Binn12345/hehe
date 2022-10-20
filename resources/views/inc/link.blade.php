@@ -19,3 +19,21 @@
   <link rel="stylesheet" href="{{asset('bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+
+  {{-- <script type="text/javascript">
+     var analytics ;
+  
+     google.charts.load('current', {'packages':['corechart']});
+  
+     google.charts.setOnLoadCallback(drawChart);
+  
+     function drawChart()
+     {
+      var data = google.visualization.arrayToDataTable(analytics);
+      var options = {
+       title : 'Percentage of Male and Female Employee'
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('pie_chart'));
+      chart.draw(data, options);
+     }
+  </script> --}}

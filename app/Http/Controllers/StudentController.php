@@ -28,6 +28,24 @@ class StudentController extends Controller
     // {
         
     // }
+
+    public function graph()
+    {
+       
+    $data = DB::table('user')
+      ->select(
+       DB::raw('gender as gender'),
+       DB::raw('count(*) as number'))
+      ->groupBy('gender')
+      ->get();
+    $array[] = ['Gender', 'Number'];
+    foreach($data as $key => $value)
+    {
+     $array[++$key] = [$value->gender, $value->number];
+    }
+    return view('index2')->with('gender', json_encode($array));
+
+    }
     public function studentAccess()
     {
 
@@ -91,7 +109,21 @@ class StudentController extends Controller
 
     public function destroy(Students $student)
     {
+
         $student->delete();
+        // $student->delete('DELETE users,data
+        // FROM users
+        // INNER JOIN data
+        // ON
+        // users.KEY = data.KEY
+        // WHERE 
+        // users.key = ? AND data.key = ?');
+
+        // $students = DB::table('users','data')
+        // ->select('users.id','users.user_id','name','gender','role')
+        // ->join('data','users.key','data.key')
+        // ->where('role', '=', 'student')
+        // ->get();
         return redirect()->back()->with('successs', 'Data has been deleted');
     }
     
@@ -160,69 +192,69 @@ class StudentController extends Controller
         return redirect()->route('student.show')->with('success', 'Your account has been successfully created.');
     }
     //CREATE admin Announcement
-    public function announce(Request $request)
-    {
-        $c_code = rand();
-        $def = "";
-        $def = $c_code;
+    // public function announce(Request $request)
+    // {
+    //     $c_code = rand();
+    //     $def = "";
+    //     $def = $c_code;
 
-        announcement::create([
+    //     announcement::create([
 
-            'title'             =>$request->title,
-            'content'           =>$request->content,
-            'actor'             =>$request->user()->name,
-            'code_content'      =>$def,
-            'created_at'        =>now(),
-            'actRole'           =>$request->user()->role,
-        ]);
-        return redirect()->route('admin.announce')->with('successs', 'Annoucement are successfully posted.');
-    }
-
-
+    //         'title'             =>$request->title,
+    //         'content'           =>$request->content,
+    //         'actor'             =>$request->user()->name,
+    //         'code_content'      =>$def,
+    //         'created_at'        =>now(),
+    //         'actRole'           =>$request->user()->role,
+    //     ]);
+    //     return redirect()->route('admin.announce')->with('successs', 'Annoucement are successfully posted.');
+    // }
 
 
-    //CREATE data for admin
-    public function adminStore(Request $request)
-    {
-        $x = rand();
-        $c = "";
-        $c = $x;
-        $year = date("Y").'ADM';
-        $userID = Helper::IDGenerator(new User, 'user_id', 5, $year);
-        Students::create([
 
-            'Fullname'      =>$request->firstname . " " .$request->middlename . " " . $request->lastname,
-            'firstname'     =>$request->firstname,
-            'middlename'    =>$request->middlename,
-            'lastname'      =>$request->lastname,
-            // 'username'      =>$request-
-            'password'      =>$request->password,
-            'age'           =>$request->age,
-            'Gender'        =>$request->gen,
-            'Birthdate'     =>$request->dobb,
-            'Birthplace'    =>$request->bip,
-            'Contact'       =>$request->cont,
-            'Email'         =>$request->emaild,
-            'Address'       =>$request->add,
-            'key'           =>$c,
-            'created_at'    =>now(),
-        ]);
+
+    // //CREATE data for admin
+    // public function adminStore(Request $request)
+    // {
+    //     $x = rand();
+    //     $c = "";
+    //     $c = $x;
+    //     // $year = date("Y").'M';
+    //     // $userID = Helper::IDGenerator(new User, 'user_id', 5, $year);
+    //     Students::create([
+
+    //         'Fullname'      =>$request->firstname . " " .$request->middlename . " " . $request->lastname,
+    //         'firstname'     =>$request->firstname,
+    //         'middlename'    =>$request->middlename,
+    //         'lastname'      =>$request->lastname,
+    //         // 'username'      =>$request-
+    //         'password'      =>$request->password,
+    //         'age'           =>$request->age,
+    //         'Gender'        =>$request->gen,
+    //         'Birthdate'     =>$request->dobb,
+    //         'Birthplace'    =>$request->bip,
+    //         'Contact'       =>$request->cont,
+    //         'Email'         =>$request->emaild,
+    //         'Address'       =>$request->add,
+    //         'key'           =>$c,
+    //         'created_at'    =>now(),
+    //     ]);
 
 
        
         
-        User::create([
-            'name' => $request->firstname . " " .$request->middlename . " " . $request->lastname,
-            'email' => $request->emaild,
-            'password' => bcrypt($request->pw),
-            'username' => $request->username,
-            'role'  => $request->role,
-            'key'   => $c,
-            'user_id' => $userID,
+    //     User::create([
+    //         'name' => $request->firstname . " " .$request->middlename . " " . $request->lastname,
+    //         'email' => $request->emaild,
+    //         'password' => bcrypt($request->pw),
+    //         'username' => $request->username,
+    //         'role'  => $request->role,
+    //         'key'   => $c,
+    //         // 'user_id' => $userID,
             
-        ]);
-        return redirect()->route('dataResource')->with('successs', 'account has been successfully added.');
-    }
+    //     ]);
+    //     return redirect()->route('dataResource')->with('successs', 'account has been successfully added.');
+    // }
 
 
 

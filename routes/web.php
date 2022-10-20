@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\testHelperController;
+use App\Http\Controllers\adController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -101,13 +102,16 @@ Route::get('/student', 'StudentDashController@index')->name('student')->middlewa
 
 // Route::get('/student/home', [StudentController::class, 'index'])->name('student2.index');    
 
-Route::prefix('admin')->middleware(['auth','isUser'])->group(function()
+// Route::post('/admin/registers', 'AdController@adminStore')->name('admin.store');
+
+Route::prefix('admin')->middleware(['auth','isCheckk'])->group(function()
 {
+    Route::get('/home', 'HomeController@index')->name('home')->middleware('isCheckk');
     // Route::get('/student', 'StudentDashController@index')->name('student')->middleware('student'); 
     Route::get('/get-create',           [StudentController::class, 'create'])->name('student.create');
     Route::post('/import',              [StudentController::class, 'import'])->name('import');
     // Route::get('/show',                 [StudentController::class, 'show'])->name('student.show');
-    Route::post('/register',            [StudentController::class, 'adminStore'])->name('admin.store');
+    Route::post('/register',            [AdController::class, 'adminStore'])->name('admin.store');
     Route::get('/data-resources',       [StudentController::class, 'adminData'])->name('dataResource');
     Route::get('/data/student',         [StudentController::class, 'showData'])->name('student.sTable');
     Route::get('/download-data.pdf',    [StudentController::class, 'getDataPDF'])->name('student.getDataPDF');
@@ -127,7 +131,7 @@ Route::prefix('admin')->middleware(['auth','isUser'])->group(function()
     Route::post('/admin/{student}', 'StudentController@update')->name('student.update'); 
 
     //Announcement
-    Route::post('/announcement/posted/', [StudentController::class, 'announce'])->name('announcement');
+    Route::post('/announcement/posted/', [AdController::class, 'announce'])->name('announcement');
 
 
 
@@ -143,7 +147,7 @@ Route::prefix('admin')->middleware(['auth','isUser'])->group(function()
 //studentSIDE
 Route::prefix('student')->middleware(['auth','isCheckk'])->group(function(){
         // 
-        Route::get('/student', 'StudentDashController@index')->name('student')->middleware('student'); 
+        Route::get('/student/{student}', 'StudentDashController@index')->name('student')->middleware('student'); 
         // Route::get('/home', [StudentController::class, 'studentAccess'])->name('student2.studentAccess'); 
         Route::get('/student/announcement', 'studController@index2')->name('student2.haha'); 
 

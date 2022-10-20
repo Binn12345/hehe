@@ -1,5 +1,6 @@
 <?php
 use App\User;
+use App\Student;
 namespace App\Http\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Closure;
@@ -16,10 +17,10 @@ class isCheckk
     public function handle($request, Closure $next)
     {
         if (Auth::check()) {
-            if (Auth::user()->role == 'student') {
+            if (Auth::user()->role == 'admin') {
                 return $next($request); 
             } else {
-                return redirect('/shome');
+                return back();
                 
             }
         } else {

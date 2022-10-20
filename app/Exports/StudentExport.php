@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 use App\Students;
+use App\User;
 use App\StudentExcel;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;

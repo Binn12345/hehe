@@ -2,6 +2,7 @@
   <title>
     BCP - Home
   </title>
+  
 @section('content')
 
 {{-- <div class="container">
@@ -49,7 +50,11 @@
         <div class="col-lg-6 col-xs-6">
           <div class="small-box bg-yellow">
             <div class="inner">
+           
+
               <h3>0</h3>
+
+
                 <p>Daily Student Apply</p>
             </div>
             <div class="icon">
@@ -91,6 +96,21 @@
         </div>
         <!-- /.box-body -->
       </div>
+      {{-- <div class="container">
+        <h3 align="center">Make Google Pie Chart in Laravel</h3><br />
+        
+        <div class="panel panel-default">
+         <div class="panel-heading">
+          <h3 class="panel-title">Percentage of Male and Female Employee</h3>
+         </div>
+         <div class="panel-body" align="center">
+          <div id="pie_chart" style="width:750px; height:450px;">
+     
+          </div>
+         </div>
+        </div>
+        
+       </div> --}}
     </section>
     
 @endsection

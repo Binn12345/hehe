@@ -16,17 +16,16 @@
                 <label for="exampleInputFile">Import excel file</label>
                 <input type="file" id="exampleInputFile" name="file" accept=".xlsx, .xls, .csv">
             </div>
-        <button type="submit" class="btn btn-primary">import</button>
+        <a type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-import"></span>&nbsp;import</a>
         </form>
     </div>  
       <div class = "pull-left" style="margin-top: 20px;
                                     margin-bottom: 50px;">                              
         
-        <a class = "btn btn-success" href="{{ route('student.create') }}">Add New Data</a>
-        <a class = "btn btn-danger" href="{{ route('student.getDataPDF') }}">Export as PDF</a>
-        <a class = "btn btn-info" href="{{ route('student.getDataEXCEL')}}">Export as Excel</a>
-        <a class = "btn btn" href="{{ route('student.getDataCSV')}}" style="color: white;
-                                                                            background-color: rgb(86, 206, 246)">Export as CSV</a>
+        <a class = "btn btn-success" href="{{ route('student.create') }}">&nbsp;Add New Data</a>
+        <a class = "btn btn-danger" href="{{ route('student.getDataPDF') }}"><span class="glyphicon glyphicon-export"></span>&nbsp;Export as PDF</a>
+        <a class = "btn btn-info" href="{{ route('student.getDataEXCEL')}}"><span class="glyphicon glyphicon-export"></span>&nbsp;Export as Excel</a>
+        <a class = "btn btn-primary" href="{{ route('student.getDataCSV')}}"><span class="glyphicon glyphicon-export"></span>&nbsp;Export as CSV</a>
     </div>  
       {{-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -64,14 +63,14 @@
                    
                     <td>
                         <form method="POST" action="{{ route('student.destroy',$student->id) }}">
+                            @csrf
                             <a class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#modal-studentView"></a>&nbsp;
-                            <a class="glyphicon glyphicon-pencil" href="{{ route ('student.edit',$student->id) }}"></a>&nbsp;
+                            <a class="glyphicon glyphicon-pencil" href="{{ route ('student.edit',$student->id) }}" style="color: green;"></a>&nbsp;
                             {{ csrf_field() }}
                             
                             {{ method_field('DELETE') }}
-                                <a type ="submit" class="glyphicon glyphicon-trash" value="Delete"></a>
-                               
-                                
+                                <a class="glyphicon glyphicon-trash" type ="submit" value="Delete" style="color: red"></a>
+
                         </form>
                     <td>
                     </tr>
