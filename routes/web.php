@@ -143,11 +143,10 @@ Route::prefix('admin')->middleware(['auth','isCheckk'])->group(function()
 
 // studentSIDE
 Route::prefix('student')->middleware(['auth','checkUser'])->group(function(){
-        //tester 
-        // Route::get('/',          [StudentController::class, 'main'])->name('mainView');
+        
         
         Route::get('/', 'ModsController@index')->name('student');
-        // Route::get('/home/{student}', 'StudentController@studentAccess')->name('student2.studentAccess'); 
-        // Route::get('/announcement', 'studController@index2')->name('student2.haha'); 
-        // Route::get('/', 'StudentController@show')->name('student.show');    
+        Route::get('/announcements', 'ModsController@announceByAdm')->name('announcements');
+        Route::get('/student-profile', 'ModsController@stdProfile')->name('stdProfile');
+       
 });

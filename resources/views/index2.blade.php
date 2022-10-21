@@ -3,8 +3,10 @@
 @section('content')
     <nav class="navbar navbar-inverse" style="background-color:rgb(0, 0, 0);">
       <div class="container"> 
+        
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">BCP</a>
+          <img src="https://bcp.edu.ph/images/logo50.png" alt="BCP" class="d-inline-block align-middle pt-2 pl-2">&nbsp;
+        
         </div>
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Home</a></li>

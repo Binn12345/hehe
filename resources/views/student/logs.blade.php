@@ -20,7 +20,7 @@
                             <th>Actor</th>
                             <th>State</th>
                             <th>Role</th>
-                            <th>Access login</th>
+                            <th>Last Access</th>
                         </tr>
                         @foreach($students as $student)
                             <tbody>

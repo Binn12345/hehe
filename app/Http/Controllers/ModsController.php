@@ -15,11 +15,22 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ModsController extends Controller
-{
+{   
 
+    public function stdProfile()
+    {
+        return view('std3.stdProfile');
+    }
+    //MOD Only For Announcements
+    public function announceByAdm()
+    {
+        return view('std3.stdAnnouncement');
+    }
+
+    //MOD for student home or dashboard
     public function index()
     {
-        return view('layouts.index');
+        return view('std3.stdBody');
     }
     // MOD ONLY FOR STUDENT
     public function store(Request $request)
