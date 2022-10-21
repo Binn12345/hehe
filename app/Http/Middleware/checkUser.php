@@ -35,7 +35,7 @@ class checkUser
                 if(Auth::user()->role == 'student'){
                     return $next($request);
                 }else{
-                    return redirect('/admin_access');
+                    return redirect('/admin');
                 }
             }else{
                 return redirect()->route('login');

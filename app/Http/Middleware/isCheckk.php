@@ -21,7 +21,7 @@ class isCheckk
             if(Auth::user()->role == 'admin'){
                 return $next($request);
             }else{
-                return redirect('/student_access');
+                return redirect('/student');
             }
             
         }else{

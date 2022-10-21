@@ -17,9 +17,9 @@ use Illuminate\Http\Request;
 class ModsController extends Controller
 {
 
-    public function index2()
+    public function index()
     {
-        return view('student2.stdAsk');
+        return view('layouts.index');
     }
     // MOD ONLY FOR STUDENT
     public function store(Request $request)
@@ -76,7 +76,7 @@ class ModsController extends Controller
         ]);
         return redirect()->route('student.show')->with('success', 'Your account has been successfully created.');
 
-
+    }
 
         
 }

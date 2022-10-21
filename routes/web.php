@@ -106,7 +106,7 @@ Auth::routes();
 
 // Route::post('/admin/registers', 'AdController@adminStore')->name('admin.store');
 
-Route::prefix('admin_access')->middleware(['auth','isCheckk'])->group(function()
+Route::prefix('admin')->middleware(['auth','isCheckk'])->group(function()
 {
    
     Route::get('/',                      [AdController::class, 'index'])->name('home');
@@ -142,12 +142,12 @@ Route::prefix('admin_access')->middleware(['auth','isCheckk'])->group(function()
 
 
 // studentSIDE
-Route::prefix('student_access')->middleware(['auth','checkUser'])->group(function(){
+Route::prefix('student')->middleware(['auth','checkUser'])->group(function(){
         //tester 
         // Route::get('/',          [StudentController::class, 'main'])->name('mainView');
         
-        Route::get('/', 'StudentDashController@index')->name('student');
-        Route::get('/home/{student}', 'StudentController@studentAccess')->name('student2.studentAccess'); 
-        Route::get('/announcement', 'studController@index2')->name('student2.haha'); 
+        Route::get('/', 'ModsController@index')->name('student');
+        // Route::get('/home/{student}', 'StudentController@studentAccess')->name('student2.studentAccess'); 
+        // Route::get('/announcement', 'studController@index2')->name('student2.haha'); 
         // Route::get('/', 'StudentController@show')->name('student.show');    
 });
