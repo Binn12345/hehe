@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Students;
 use App\User;
+use App\Admin;
+use App\userlogs;
 use App\announcement;
 use App\Exports\StudentExport;
 use App\Imports\StudentImport;
@@ -15,6 +17,36 @@ use Illuminate\Http\Request;
 
 class AdController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+
+
+    public function index(Request $request)
+    {
+
+        $state= "You are now logged in";
+        userlogs::create([
+
+            'actor'             =>$request->user()->name,
+            'state'             =>$state,
+            'role'              =>$request->user()->role,
+            'created_at'        =>now(),
+            
+        ]);  
+        return view('home');
+    }
+
+
+
 
     public function announce(Request $request)
      {
@@ -40,7 +72,7 @@ class AdController extends Controller
          $c = "";
          $c = $x;
          $year = date("Y").'M';
-         $userID = Helper::IDGenerator(new User, 'user_id', 5, $year);
+         $userID = Helper::IDGenerator(new Admin, 'user_id', 5, $year);
          Students::create([
  
              'Fullname'      =>$request->firstname . " " .$request->middlename . " " . $request->lastname,
@@ -61,9 +93,8 @@ class AdController extends Controller
          ]);
  
  
-        
-         
-         User::create([
+    
+         Admin::create([
              'name' => $request->firstname . " " .$request->middlename . " " . $request->lastname,
              'email' => $request->emaild,
              'password' => bcrypt($request->pw),
@@ -73,23 +104,42 @@ class AdController extends Controller
              'user_id' => $userID,
              
          ]);
-         return redirect()->route('dataResource')->with('successs', 'account has been successfully added.');
-     }
-     public function graph()
-     {
-        
-     $data = DB::table('user')
-       ->select(
-        DB::raw('gender as gender'),
-        DB::raw('count(*) as number'))
-       ->groupBy('gender')
-       ->get();
-     $array[] = ['Gender', 'Number'];
-     foreach($data as $key => $value)
-     {
-      $array[++$key] = [$value->gender, $value->number];
-     }
-     return view('index2')->with('gender', json_encode($array));
+       
     
-     }
+
+
+   
+        User::create([
+            'name' => $request->firstname . " " .$request->middlename . " " . $request->lastname,
+            'email' => $request->emaild,
+            'password' => bcrypt($request->pw),
+            'username' => $request->username,
+            'role'  => $request->role,
+            'key'   => $c,
+            'user_id' => $userID,
+            
+        ]);
+        return redirect()->route('dataResource')->with('successs', 'account has been successfully added.');
+        }
+
+
+
+
+     public function showAdmin()
+     {
+        // $students = Students::all();    
+        $admins = DB::table('admin')
+        ->select('admin.id','admin.user_id','name','gender','role')
+        ->join('data','admin.key','data.key')
+        ->where('role', '=', 'admin')
+        ->get();
+
+        return view('student.adminData', compact('admins','admins'));
+        // return view('home', compact('students','students'));
+    }
+     
+
+
+
+    
 }

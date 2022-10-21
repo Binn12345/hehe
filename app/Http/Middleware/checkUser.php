@@ -30,24 +30,17 @@ class checkUser
 
         // }   
         
-        if (Auth::check()) {
-            if (Auth::user()->role == 'admin') {
-                return $next($request);
-            } 
-            // else if(Auth::user()-role=='student')
-            // {
-            //     return $next($request);
-            // }
-            else {
-                return redirect('/home');
+        
+            if(Auth::check()){
+                if(Auth::user()->role == 'student'){
+                    return $next($request);
+                }else{
+                    return redirect('/admin_access');
+                }
+            }else{
+                return redirect()->route('login');
             }
-        } 
-        else{
-            return redirect('/login')->with('message', 'Access Denied'); 
-        }
+             
 
-
-        return $next($request);
-
-    }
+    }   
 }

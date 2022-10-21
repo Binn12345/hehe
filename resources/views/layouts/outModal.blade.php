@@ -218,7 +218,7 @@
   </div>
 
 
-  {{-- viewInfo --}}
+  {{-- Student viewInfo --}}
   <div class="modal fade" id="modal-studentView">
     <div class="modal-dialog" style="margin-top: 20vh; width: 90%;">
       <div class="modal-content">
@@ -234,8 +234,7 @@
         </div>
         <div class="modal-footer">
           
-          <button type="button" class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();" >Yes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
       <!-- /.modal-content -->
@@ -243,6 +242,31 @@
     <!-- /.modal-dialog -->
   </div>
 
+
+  {{-- admin profile --}}
+    {{-- Student viewInfo --}}
+    <div class="modal fade" id="modal-AdminView">
+      <div class="modal-dialog" style="margin-top: 20vh; width: 90%;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" style="margin-left: 15px;
+            font-family:'Courier New', Courier, monospace;
+            font-size: 3rem;">Admin Profile</h4>
+          </div>
+          <div class="modal-body">
+            <p>---&hellip;</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+  
 
 
 

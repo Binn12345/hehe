@@ -19,6 +19,7 @@
                         <tr>
                             <th>Actor</th>
                             <th>State</th>
+                            <th>Role</th>
                             <th>Access login</th>
                         </tr>
                         @foreach($students as $student)
@@ -26,6 +27,7 @@
                                 <tr>
                                     <td>{{$student->actor}}</td>
                                     <td>{{$student->state}}</td>
+                                    <td>{{$student->role}}</td>
                                     <td>{{$student->created_at}}</td>
                                 </tr>
                             </tbody>

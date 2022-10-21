@@ -1,9 +1,10 @@
 <?php
-
+use App\userlogs;
 namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Students;
 use App\User;
+use App\Stud;
 use App\announcement;
 use App\Exports\StudentExport;
 use App\Imports\StudentImport;
@@ -14,6 +15,9 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+    public function main(){
+        return 'hehe';
+    }
     // public function index2()
     // {
     //     $students = Students::all();
@@ -89,9 +93,9 @@ class StudentController extends Controller
         return view('index2', compact('students','students'));
     }
     public function show(){
-        $students = Students::all();
-        return view('index2', compact('students','students'));
-    }
+        // $students = Students::all();
+        return view('/welcome');
+    }   
     // public function showData()
     // {
     //     $students = Students::all();
@@ -102,10 +106,10 @@ class StudentController extends Controller
     {
         return view('stdReceive');
     }
-    // public function create()
-    // {
-    //     return view('create');
-    // }
+    public function create()
+    {
+        return view('create');
+    }
 
     public function destroy(Students $student)
     {
@@ -189,7 +193,18 @@ class StudentController extends Controller
             
             
         ]);
-        return redirect()->route('student.show')->with('success', 'Your account has been successfully created.');
+        Stud::create([
+            'name' => $request->fname . " " .$request->mname . " " . $request->lname,
+            'email' => $request->email,
+            'password' => bcrypt($request->username.$request->lname),
+            'username' => $request->username,
+            'role'  => 'student',
+            'key'   => $b,
+            'user_id' => $userID,
+            
+            
+        ]);
+        return back()->with('success', 'Your account has been successfully created.');
     }
     //CREATE admin Announcement
     // public function announce(Request $request)
@@ -259,11 +274,26 @@ class StudentController extends Controller
 
 
     //logs
+    
+    public function indexMod(Request $request)
+    {
+
+        $state= "You are now logged in";
+        userlogs::create([
+
+            'actor'             =>$request->user()->name,
+            'state'             =>$state,
+            'role'              =>$request->user()->role,
+            'created_at'        =>now(),
+            
+        ]);  
+        return view('home2');
+    }
     public function logs()
     {
 
         $students = DB::table('userlogs')
-        ->select('actor','state','created_at')
+        ->select('actor','state','role','created_at')
         ->get();
 
         return view('student.logs', compact('students','students'));

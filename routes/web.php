@@ -1,7 +1,9 @@
 <?php
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ModsController;
+use App\Http\Controllers\AdController;
 use App\Http\Controllers\testHelperController;
-use App\Http\Controllers\adController;
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,7 +46,7 @@ Route::get('test', [testHelperController::class , 'index']);
 //mainLOGIN
 Route::post('student_/register/', 'StudentController@store')->name('student.store'); 
 Route::get('/student/registration', 'StudentRegisterController@studRegis')->name('student.cre');    
-Route::get('/', 'StudentController@show')->name('student.show');    
+// Route::get('/', 'StudentController@show')->name('student.show');    
 
 // Route::get('/login', 'adminController@login');  
 //endOfMainLogin
@@ -63,9 +65,9 @@ Route::get('/', 'StudentController@show')->name('student.show');
 //view CreateMessageDisplay
 
 
-// Route::get('/login', function () {
-//       return view('welcome');
-// });
+    Route::get('/', function () {
+        return view('welcome');
+    });
 
 
 //main web
@@ -95,8 +97,8 @@ Route::get('/', 'StudentController@show')->name('student.show');
 // });
 // Route::get('/student/home', 'studController@index')->name('student2.index');
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/student', 'StudentDashController@index')->name('student')->middleware('student'); 
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/student', 'StudentDashController@index')->name('student')->middleware('student'); 
 // Route::get('/shome', [StudentController::class, 'studentAccess'])->name('student2.studentAccess'); 
 //admin
 
@@ -104,15 +106,26 @@ Route::get('/student', 'StudentDashController@index')->name('student')->middlewa
 
 // Route::post('/admin/registers', 'AdController@adminStore')->name('admin.store');
 
-Route::prefix('admin')->middleware(['auth','isCheckk'])->group(function()
+Route::prefix('admin_access')->middleware(['auth','isCheckk'])->group(function()
 {
-    Route::get('/home', 'HomeController@index')->name('home')->middleware('isCheckk');
+   
+    Route::get('/',                      [AdController::class, 'index'])->name('home');
+    Route::post('/register',             [AdController::class, 'adminStore'])->name('admin.store');
+    Route::get('/data-resources',        [AdController::class, 'showAdmin'])->name('dataResource');
+    Route::post('/announcement/posted/', [AdController::class, 'announce'])->name('announcement');
+
+
+
+
+
+
+    // Route::get('/index',                [StudentController::class, 'indexMod'])->name('home2');
+    // Route::get('/', 'HomeController@index')->name('home');
     // Route::get('/student', 'StudentDashController@index')->name('student')->middleware('student'); 
     Route::get('/get-create',           [StudentController::class, 'create'])->name('student.create');
     Route::post('/import',              [StudentController::class, 'import'])->name('import');
     // Route::get('/show',                 [StudentController::class, 'show'])->name('student.show');
-    Route::post('/register',            [AdController::class, 'adminStore'])->name('admin.store');
-    Route::get('/data-resources',       [StudentController::class, 'adminData'])->name('dataResource');
+    
     Route::get('/data/student',         [StudentController::class, 'showData'])->name('student.sTable');
     Route::get('/download-data.pdf',    [StudentController::class, 'getDataPDF'])->name('student.getDataPDF');
     Route::get('/export-student-excel', [StudentController::class, 'exportToExcel'])->name('student.getDataEXCEL');
@@ -121,34 +134,20 @@ Route::prefix('admin')->middleware(['auth','isCheckk'])->group(function()
     Route::get('/edit/{student}',       [StudentController::class, 'edit'])->name('student.edit');
     Route::get('/data-announcement',    [StudentController::class, 'showAnnouncement'])->name('admin.announce');
     Route::get('/data-userlogs',        [StudentController::class, 'logs'])->name('logs');
-
-
-    
-
-   
-
-
     Route::post('/admin/{student}', 'StudentController@update')->name('student.update'); 
 
-    //Announcement
-    Route::post('/announcement/posted/', [AdController::class, 'announce'])->name('announcement');
-
-
-
-
-
-
-    //bug
-   
+    
     
 });     
 
 
-//studentSIDE
-Route::prefix('student')->middleware(['auth','isCheckk'])->group(function(){
-        // 
-        Route::get('/student/{student}', 'StudentDashController@index')->name('student')->middleware('student'); 
-        // Route::get('/home', [StudentController::class, 'studentAccess'])->name('student2.studentAccess'); 
-        Route::get('/student/announcement', 'studController@index2')->name('student2.haha'); 
-
+// studentSIDE
+Route::prefix('student_access')->middleware(['auth','checkUser'])->group(function(){
+        //tester 
+        // Route::get('/',          [StudentController::class, 'main'])->name('mainView');
+        
+        Route::get('/', 'StudentDashController@index')->name('student');
+        Route::get('/home/{student}', 'StudentController@studentAccess')->name('student2.studentAccess'); 
+        Route::get('/announcement', 'studController@index2')->name('student2.haha'); 
+        // Route::get('/', 'StudentController@show')->name('student.show');    
 });

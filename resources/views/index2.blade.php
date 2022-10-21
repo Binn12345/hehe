@@ -4,10 +4,10 @@
     <nav class="navbar navbar-inverse" style="background-color:rgb(0, 0, 0);">
       <div class="container"> 
         <div class="navbar-header">
-          <a class="navbar-brand" href="{{route('student.show')}}">BCP</a>
+          <a class="navbar-brand" href="#">BCP</a>
         </div>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="{{route('student.show')}}">Home</a></li>
+          <li class="active"><a href="#">Home</a></li>
           {{-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Courses <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">--/--/--</a></li>

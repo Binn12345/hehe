@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Students;
 use App\User;
+use App\Admin;
 use App\announcement;
 use App\Exports\StudentExport;
 use App\Imports\StudentImport;
@@ -43,14 +44,14 @@ class AdminController extends Controller
          $c = "";
          $c = $x;
          $year = date("Y").'M';
-         $userID = Helper::IDGenerator(new User, 'user_id', 5, $year);
+         $userID = Helper::IDGenerator(new Admin, 'user_id', 5, $year);
          Students::create([
  
              'Fullname'      =>$request->firstname . " " .$request->middlename . " " . $request->lastname,
              'firstname'     =>$request->firstname,
              'middlename'    =>$request->middlename,
              'lastname'      =>$request->lastname,
-             // 'username'      =>$request-
+            //  'username'      =>$request->username,
              'password'      =>$request->password,
              'age'           =>$request->age,
              'Gender'        =>$request->gen,
@@ -66,7 +67,7 @@ class AdminController extends Controller
  
         
          
-         User::create([
+         Admin::create([
              'name' => $request->firstname . " " .$request->middlename . " " . $request->lastname,
              'email' => $request->emaild,
              'password' => bcrypt($request->pw),

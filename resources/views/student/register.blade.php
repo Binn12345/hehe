@@ -1,4 +1,5 @@
 @extends('layouts/app2')
+<link rel="icon" href="https://bcpedu.elearningcommons.com/images/favicon-16x16.png" type="image/x-icon">
 <title>BCP - Registration</title>
 <nav class="navbar navbar-inverse" style="background-color:rgb(0, 0, 0);">
   <div class="container"> 
