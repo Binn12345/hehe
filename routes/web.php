@@ -18,11 +18,108 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+                                            Auth::routes();
+                                            Route::get('test', [testHelperController::class , 'index']);
+                                            Route::post('student_/register/', 'StudentController@store')->name('student.store'); 
+                                            Route::get('/student/registration', 'StudentRegisterController@studRegis')->name('student.cre');  
+                                            
+                                            
+                                            Route::get('/', function () {
+                                                return view('welcome');
+                                            });
+
+
+                                           
+                                            Route::get('test', [testHelperController::class , 'index']);  
+                                            
+                                            //adminSIDE
+                                            Route::prefix('admin')->middleware(['auth','isCheckk'])->group(function()
+                                            {
+                                                
+                                                Route::get('/',                      [AdController::class, 'index'])            ->name('home');
+                                                Route::post('/register',             [AdController::class, 'adminStore'])       ->name('admin.store');
+                                                Route::get('/data-resources',        [AdController::class, 'showAdmin'])        ->name('dataResource');
+                                                Route::post('/announcement/posted/', [AdController::class, 'announce'])         ->name('announcement');
+                                                Route::get('/register/account/',     [AdController::class, 'StdAcct'])          ->name('stdReg');
+
+
+                                                
+                                                Route::get('/get-create',           [StudentController::class, 'create'])           ->name('student.create');
+                                                Route::post('/import',              [StudentController::class, 'import'])           ->name('import');
+                                                Route::get('/data/student',         [StudentController::class, 'showData'])         ->name('student.sTable');
+                                                Route::get('/download-data.pdf',    [StudentController::class, 'getDataPDF'])       ->name('student.getDataPDF');
+                                                Route::get('/export-student-excel', [StudentController::class, 'exportToExcel'])    ->name('student.getDataEXCEL');
+                                                Route::get('/export-student-CSV',   [StudentController::class, 'exportToCsv'])      ->name('student.getDataCSV');
+                                                Route::delete('/destroy/{student}', [StudentController::class, 'destroy'])          ->name('student.destroy');
+                                                Route::get('/edit/{student}',       [StudentController::class, 'edit'])             ->name('student.edit');
+                                                Route::get('/data-announcement',    [StudentController::class, 'showAnnouncement']) ->name('admin.announce');
+                                                Route::get('/data-userlogs',        [StudentController::class, 'logs'])             ->name('logs');
+                                                Route::post('/admin/{student}',     [StudentController::class, 'update'])           ->name('student.update'); 
+
+                                                
+                                                
+                                            });     
+
+
+                                            // studentSIDE
+                                            Route::prefix('student')->middleware(['auth','checkUser'])->group(function()
+                                            {
+                                                    
+                                                    
+                                                    Route::get('/',                 [ModsController::class, 'index'])           ->name('student');
+                                                    Route::get('/announcements',    [ModsController::class, 'announceByAdm'])   ->name('announcements');
+                                                    Route::get('/student-profile',  [ModsController::class, 'stdProfile'])      ->name('stdProfile');
+
+
+
+
+                                            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Route::get('/', function () {
 //     return view('index2');
 // });  
-Route::get('test', [testHelperController::class , 'index']);
+
 // mod tester
 
 // Route::get('admin/data/student', 'dataController@showData')->name('student.sTable');
@@ -44,8 +141,7 @@ Route::get('test', [testHelperController::class , 'index']);
 
 
 //mainLOGIN
-Route::post('student_/register/', 'StudentController@store')->name('student.store'); 
-Route::get('/student/registration', 'StudentRegisterController@studRegis')->name('student.cre');    
+
 // Route::get('/', 'StudentController@show')->name('student.show');    
 
 // Route::get('/login', 'adminController@login');  
@@ -60,14 +156,11 @@ Route::get('/student/registration', 'StudentRegisterController@studRegis')->name
 
 
 //create for data 
-;
+
 
 //view CreateMessageDisplay
 
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
 
 
 //main web
@@ -75,7 +168,10 @@ Route::get('/student/registration', 'StudentRegisterController@studRegis')->name
 // Route::get('/student/registration', 'StudentRegisController@cre')->name('student.cre');
 
 //d
-
+ // Route::get('/show',                 [StudentController::class, 'show'])->name('student.show');
+    // Route::get('/index',                [StudentController::class, 'indexMod'])->name('home2');__
+    // Route::get('/', 'HomeController@index')->name('home');
+    // Route::get('/student', 'StudentDashController@index')->name('student')->middleware('student'); 
 
 // route::get('/student/registration', 'studRegController@cre')->name('student.cre');
 
@@ -96,7 +192,7 @@ Route::get('/student/registration', 'StudentRegisterController@studRegis')->name
 //     return 'hahahah';
 // });
 // Route::get('/student/home', 'studController@index')->name('student2.index');
-Auth::routes();
+
 // Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/student', 'StudentDashController@index')->name('student')->middleware('student'); 
 // Route::get('/shome', [StudentController::class, 'studentAccess'])->name('student2.studentAccess'); 
@@ -106,47 +202,6 @@ Auth::routes();
 
 // Route::post('/admin/registers', 'AdController@adminStore')->name('admin.store');
 
-Route::prefix('admin')->middleware(['auth','isCheckk'])->group(function()
-{
-   
-    Route::get('/',                      [AdController::class, 'index'])->name('home');
-    Route::post('/register',             [AdController::class, 'adminStore'])->name('admin.store');
-    Route::get('/data-resources',        [AdController::class, 'showAdmin'])->name('dataResource');
-    Route::post('/announcement/posted/', [AdController::class, 'announce'])->name('announcement');
 
 
 
-
-
-
-    // Route::get('/index',                [StudentController::class, 'indexMod'])->name('home2');
-    // Route::get('/', 'HomeController@index')->name('home');
-    // Route::get('/student', 'StudentDashController@index')->name('student')->middleware('student'); 
-    Route::get('/get-create',           [StudentController::class, 'create'])->name('student.create');
-    Route::post('/import',              [StudentController::class, 'import'])->name('import');
-    // Route::get('/show',                 [StudentController::class, 'show'])->name('student.show');
-    
-    Route::get('/data/student',         [StudentController::class, 'showData'])->name('student.sTable');
-    Route::get('/download-data.pdf',    [StudentController::class, 'getDataPDF'])->name('student.getDataPDF');
-    Route::get('/export-student-excel', [StudentController::class, 'exportToExcel'])->name('student.getDataEXCEL');
-    Route::get('/export-student-CSV',   [StudentController::class, 'exportToCsv'])->name('student.getDataCSV');
-    Route::delete('/destroy/{student}', [StudentController::class, 'destroy'])->name('student.destroy');
-    Route::get('/edit/{student}',       [StudentController::class, 'edit'])->name('student.edit');
-    Route::get('/data-announcement',    [StudentController::class, 'showAnnouncement'])->name('admin.announce');
-    Route::get('/data-userlogs',        [StudentController::class, 'logs'])->name('logs');
-    Route::post('/admin/{student}', 'StudentController@update')->name('student.update'); 
-
-    
-    
-});     
-
-
-// studentSIDE
-Route::prefix('student')->middleware(['auth','checkUser'])->group(function(){
-        
-        
-        Route::get('/', 'ModsController@index')->name('student');
-        Route::get('/announcements', 'ModsController@announceByAdm')->name('announcements');
-        Route::get('/student-profile', 'ModsController@stdProfile')->name('stdProfile');
-       
-});

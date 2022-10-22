@@ -34,8 +34,23 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{ asset('dist/js/demo.js') }}"></script>
 
+<script src="{{ asset('../../bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{ asset('../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script src="{{ asset('dist/js/demo.js') }}"></script>
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true
+    })
+  })
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 @if ($message = Session::get('successs'))
 
@@ -46,6 +61,6 @@
 @endif
 
 
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
+{{-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script> --}}
     

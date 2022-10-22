@@ -29,7 +29,19 @@ class AdController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
+    public function StdAcct()
+    {   
+        // $state= "Successfully created account for student";
+        // userlogs::create([
 
+        //     'actor'             =>$request->user()->name,
+        //     'state'             =>$state,
+        //     'role'              =>$request->user()->role,
+        //     'created_at'        =>now(),
+            
+        // ]); 
+        return view('student.regAsStudent');
+    }
     public function index(Request $request)
     {
 

@@ -6,6 +6,7 @@ use App\Students;
 use App\User;
 use App\Admin;
 use App\Stud;
+use App\userlogs;
 use App\announcement;
 use App\Exports\StudentExport;
 use App\Imports\StudentImport;
@@ -16,6 +17,19 @@ use Illuminate\Http\Request;
 
 class ModsController extends Controller
 {   
+
+    // public function showData()
+    // {
+    //     // $students = Students::all();    
+    //     $students = DB::table('users')
+    //     ->select('users.id','users.user_id','name','gender','role')
+    //     ->join('data','users.key','data.key')
+    //     ->where('role', '=', 'student')
+    //     ->get();
+
+    //     return view('dtable', compact('students','students'));
+    //     // return view('home', compact('students','students'));
+    // }
 
     public function stdProfile()
     {
@@ -28,9 +42,26 @@ class ModsController extends Controller
     }
 
     //MOD for student home or dashboard
-    public function index()
+    public function index(Request $request)
     {
-        return view('std3.stdBody');
+        $state= "You are now logged in";
+        userlogs::create([
+
+            'actor'             =>$request->user()->name,
+            'state'             =>$state,
+            'role'              =>$request->user()->role,
+            'created_at'        =>now(),
+            
+        ]);  
+
+
+        $students = DB::table('userlogs')
+        ->select('actor','state','role','created_at')
+        ->get();
+
+        
+
+        return view('std3.stdBody', compact('students','students'));
     }
     // MOD ONLY FOR STUDENT
     public function store(Request $request)
@@ -85,7 +116,7 @@ class ModsController extends Controller
             
             
         ]);
-        return redirect()->route('student.show')->with('success', 'Your account has been successfully created.');
+        return redirect()->route('home')->with('success', 'Your account has been successfully created.');
 
     }
 

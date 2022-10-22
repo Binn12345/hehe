@@ -270,7 +270,7 @@ class StudentController extends Controller
     //     ]);
     //     return redirect()->route('dataResource')->with('successs', 'account has been successfully added.');
     // }
-
+        
 
 
     //logs

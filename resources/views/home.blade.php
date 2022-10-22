@@ -28,89 +28,130 @@
     
 
   <!--/Main-->
-  <div class="content-wrapper" >
+  <div class="wrapper">
+
+   
     
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Dashboard
-        
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
-    <br>
-
-    <!-- Main content -->
-    <section class="content">
-
-      <div class="row">
-        <div class="col-lg-6 col-xs-6">
-          <div class="small-box bg-yellow">
-            <div class="inner">
-           
-
-              <h3>0</h3>
-
-
-                <p>Daily Student Apply</p>
+  
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Dashboard
+          <small>Control panel</small>
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">Dashboard</li>
+        </ol>
+      </section>
+  
+      <!-- Main content -->
+      <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          
+          <!-- ./col -->
+          
+          <!-- ./col -->
+          <div class="col-lg-6 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+              <div class="inner">
+                <h3>44</h3>
+  
+                <p>Daily Apply Students</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-6 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+              <div class="inner">
+                <h3>65</h3>
+  
+                <p>Audit Trail</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
-               <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
+          <!-- ./col -->
         </div>
-
-        <div class="col-lg-6 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3>0   </h3>
-
-              <p>Audit trail</p>
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-12 connectedSortable">
+            <!-- Custom tabs (Charts with tabs)-->
+            <div class="nav-tabs-custom">
+              <!-- Tabs within a box -->
+              <ul class="nav nav-tabs pull-right">
+                <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
+                <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
+                <li class="pull-left header"><i class="fa fa-inbox"></i> Overview</li>
+              </ul>
+              <div class="tab-content no-padding">
+                <!-- Morris chart - Sales -->
+                <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
+                <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
+              </div>
             </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>         
-      </div>
-      {{-- cHART --}}
-      <div class="box box-info">
-        <div class="box-header with-border">
-          <h3 class="box-title">Line Chart</h3>
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-          </div>
+            <!-- /.nav-tabs-custom -->
+  
+            <!-- Chat box -->
+            
+            <!-- /.box (chat box) -->
+  
+            <!-- TO DO List -->
+            
+            <!-- /.box -->
+  
+            <!-- quick email widget -->
+            
+  
+          </section>
+          <!-- /.Left col -->
+          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+          <section class="col-lg-5 connectedSortable">
+  
+            <!-- Map box -->
+            
+            <!-- /.box -->
+  
+            <!-- solid sales graph -->
+            
+            <!-- /.box -->
+  
+            <!-- Calendar -->
+            
+            <!-- /.box -->
+  
+          </section>
+          <!-- right col -->
         </div>
-        <div class="box-body">
-          <div class="chart">
-            <canvas id="lineChart" style="height:250px"></canvas>
-          </div>
-        </div>
-        <!-- /.box-body -->
-      </div>
-      {{-- <div class="container">
-        <h3 align="center">Make Google Pie Chart in Laravel</h3><br />
-        
-        <div class="panel panel-default">
-         <div class="panel-heading">
-          <h3 class="panel-title">Percentage of Male and Female Employee</h3>
-         </div>
-         <div class="panel-body" align="center">
-          <div id="pie_chart" style="width:750px; height:450px;">
-     
-          </div>
-         </div>
-        </div>
-        
-       </div> --}}
-    </section>
+        <!-- /.row (main row) -->
+  
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    
+  
+    <!-- Control Sidebar -->
+    
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+  </div>
     
 @endsection

@@ -27,22 +27,30 @@
 
 <body class="hold-transition skin-blue sidebar-mini">
     
-    <div id="app">
-        
-        @include('inc.navbar')
+    
+
+
+
+         @include('inc.navbar')
         @include('inc.sidebar')
         @include('layouts.outModal')
         {{-- @include('lib.createModal') --}}
        
-        <main class="py-4">
+        
         
         @yield('content')
-        </main>
-</div>
+        @include('inc.cb')
+        @include('inc.footer')
+        @include('inc.link2')
+    
+  
+       
+        
 
-@include('inc.link2')
+{{-- 
+
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script> --}}
 
 </body>
 </html>
