@@ -32,6 +32,7 @@
                     <th>State</th>
                     <th>Role</th>
                     <th>Last Access</th>
+                    
                   </tr>
                   </thead>
                   @foreach($students as $student)
@@ -40,6 +41,7 @@
                                 <td>{{$student->actor}}</td>
                                 <td>{{$student->state}}</td>
                                 <td>{{$student->role}}</td>
+                                {{-- <td>{{$student->ip_address}}</td> --}}
                                 <td>{{$student->created_at}}</td>
                             </tr>
                         </tbody>

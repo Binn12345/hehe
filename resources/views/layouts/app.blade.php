@@ -42,6 +42,8 @@
         @include('inc.cb')
         @include('inc.footer')
         @include('inc.link2')
+
+    
     
   
        

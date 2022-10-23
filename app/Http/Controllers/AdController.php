@@ -54,7 +54,7 @@ class AdController extends Controller
             'created_at'        =>now(),
             
         ]);  
-        return view('home');
+        return view('home')->with('successs', 'Welcome.');
     }
 
 
@@ -75,7 +75,17 @@ class AdController extends Controller
              'created_at'        =>now(),
              'actRole'           =>$request->user()->role,
          ]);
-         return redirect()->route('admin.announce')->with('successs', 'Annoucement are successfully posted.');
+
+         $state= "Announcement is successfully created";
+        userlogs::create([
+
+            'actor'             =>$request->user()->name,
+            'state'             =>$state,
+            'role'              =>$request->user()->role,
+            'created_at'        =>now(),
+            
+        ]);  
+         return redirect()->route('admin.announce')->with('successs', 'Annoucement is successfully posted.');
      }
      
     public function adminStore(Request $request)
@@ -131,6 +141,19 @@ class AdController extends Controller
             'user_id' => $userID,
             
         ]);
+
+
+
+        $state= "ADMIN ACCOUNT is successfully created!";
+        userlogs::create([
+
+            'actor'             =>$request->user()->name,
+            'state'             =>$state,
+            'role'              =>$request->user()->role,
+            'created_at'        =>now(),
+            
+        ]); 
+
         return redirect()->route('dataResource')->with('successs', 'account has been successfully added.');
         }
 

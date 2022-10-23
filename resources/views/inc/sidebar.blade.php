@@ -59,7 +59,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a data-toggle="modal" data-target="#modal-CreateStudent" style="cursor: pointer"><i class="fa fa-circle-o"></i>Create</a></li>
+          <li><a data-toggle="modal" data-target="#modal-CREATE" style="cursor: pointer"><i class="fa fa-circle-o"></i>Create</a></li>
           <li><a href="{{route('dataResource')}}"><i class="fa fa-circle-o"></i> Data</a></li>
         </ul>
       </li>
