@@ -106,7 +106,6 @@
                   <select id="gender-select" type="text" name="role" class="form-control input-lg" style="font-family:'Courier New', Courier, monospace;" >
                     <option value="" hidden>Choose Role</option>
                     <option value="admin">admin</option>
-                    <option value="student">student</option>
                       
                   </select>
                 </div>

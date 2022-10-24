@@ -112,6 +112,8 @@ class AdController extends Controller
              'Address'       =>$request->add,
              'key'           =>$c,
              'created_at'    =>now(),
+
+             
          ]);
  
  
@@ -171,6 +173,10 @@ class AdController extends Controller
 
         return view('student.adminData', compact('admins','admins'));
         // return view('home', compact('students','students'));
+    }
+    public function edit(Students $student)
+    {
+        return view('edit')->with('student',$student);
     }
      
 

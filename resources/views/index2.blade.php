@@ -9,7 +9,7 @@
         
         </div>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
+          <li class="active"><a href="{{route('bug')}}">Home</a></li>
           {{-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Courses <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">--/--/--</a></li>

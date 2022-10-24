@@ -24,9 +24,8 @@ use Illuminate\Support\Facades\Auth;
                                             Route::get('/student/registration', 'StudentRegisterController@studRegis')->name('student.cre');  
                                             
                                             
-                                            Route::get('/', function () {
-                                                return view('welcome');
-                                            });
+                                            Route::get('/', 'bugController@bug')->name('bug');
+                                            
 
 
                                            
@@ -42,6 +41,14 @@ use Illuminate\Support\Facades\Auth;
                                                 Route::post('/announcement/posted/', [AdController::class, 'announce'])         ->name('announcement');
                                                 Route::get('/register/account/',     [AdController::class, 'StdAcct'])          ->name('stdReg');
 
+                                                
+
+
+
+                                                Route::get('/edit/{student}',       [AdController::class, 'edit'])             ->name('student.edit');
+
+
+
 
                                                 
                                                 Route::get('/get-create',           [StudentController::class, 'create'])           ->name('student.create');
@@ -51,7 +58,7 @@ use Illuminate\Support\Facades\Auth;
                                                 Route::get('/export-student-excel', [StudentController::class, 'exportToExcel'])    ->name('student.getDataEXCEL');
                                                 Route::get('/export-student-CSV',   [StudentController::class, 'exportToCsv'])      ->name('student.getDataCSV');
                                                 Route::delete('/destroy/{student}', [StudentController::class, 'destroy'])          ->name('student.destroy');
-                                                Route::get('/edit/{student}',       [StudentController::class, 'edit'])             ->name('student.edit');
+                                                
                                                 Route::get('/data-announcement',    [StudentController::class, 'showAnnouncement']) ->name('admin.announce');
                                                 Route::get('/data-userlogs',        [StudentController::class, 'logs'])             ->name('logs');
                                                 Route::post('/admin/{student}',     [StudentController::class, 'update'])           ->name('student.update'); 

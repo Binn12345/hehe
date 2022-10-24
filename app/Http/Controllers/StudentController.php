@@ -83,7 +83,12 @@ class StudentController extends Controller
     //export To PDF
     public function getDataPDF()
     {
-        $students = Students::all();
+        // $students = Students::all();
+        $students = DB::table('admin')
+        ->select('admin.id','admin.user_id','name','gender','role')
+        ->join('data','admin.key','data.key')
+        ->where('role', '=', 'admin')
+        ->get();
         $pdf = PDF::loadView('index3', compact('students'))->setOptions(['defaultFont' => 'sans-serif']);
         return $pdf->download('student-data.pdf');
     }
