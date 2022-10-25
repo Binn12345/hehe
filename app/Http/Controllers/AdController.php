@@ -173,7 +173,21 @@ class AdController extends Controller
 
         return view('student.adminData', compact('admins','admins'));
         // return view('home', compact('students','students'));
+    }   
+
+
+    public function getDataPDF()
+    {
+        // $students = Students::all();
+        $students = DB::table('student')
+        ->select('student.id','student.user_id','Fullname','gender','Address','Contact','Birthdate','student.email')
+        ->join('data','student.key','data.key')
+        ->where('role', '=', 'student')
+        ->get();
+        $pdf = PDF::loadView('index3', compact('students'))->setOptions(['defaultFont' => 'sans-serif'])->setPaper('a4', 'landscape');;
+        return $pdf->download('student-data.pdf');
     }
+
     public function edit(Students $student)
     {
         return view('edit')->with('student',$student);

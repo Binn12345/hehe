@@ -1,4 +1,4 @@
-@extends('data')
+@extends('layouts.pdfSupport')
 
 @section('content')
 <div class = "container">
@@ -17,9 +17,9 @@
                             top: 5px;
                             border: none;
                             height: 3px;
-                            background: black;
+                            /* background: black; */
                             margin-bottom: 10px;">
-@if ($message = Session::get('success'))
+{{-- @if ($message = Session::get('success'))
 
     <div class ="alert alert-success">
         <p>{{ $message }}</p>
@@ -27,31 +27,30 @@
     </div>
     <br>
     <br>
-@endif
+@endif --}}
 <table class ="table table-striped" id="customers">
     <tr>
-        <th>ID</th>
-        <th>Fullname</th>
+        <th>#</th>
+        <th>Email</th>
+        <th>Name</th>
         <th>Gender</th>
         <th>Birthdate</th>
-        <th>Birthplace</th> 
-        <th>Contact</th>
-        <th>Email</th>
-        <th>Address</th>  
+        <th>PNO</th>
+        <th>Address</th> 
        
     </tr>
 
     @foreach($students as $student)
     <tbody>
         <tr>
-          <td>{{$student->id}}</td>
+          <td>{{$student->user_id}}</td>
+          <td>{{$student->email}}</td>
           <td>{{$student->Fullname}}</td>
-          <td>{{$student->Gender}}</td>
+          <td>{{$student->gender}}</td>
           <td>{{$student->Birthdate}}</td>
-          <td>{{$student->Birthplace}}</td>
-          <td>{{$student->Contact}}</td>
-          <td>{{$student->Email}}</td>
-          <td>{{$student->Address}}</td>
+          <td>{{$student->Contact}}</td>    
+          <td>{{$student->Address}}</td>    
+
           
         </tr>
       </tbody>
@@ -59,3 +58,4 @@
 </table>
 
 @endsection
+

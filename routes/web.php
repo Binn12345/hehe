@@ -46,7 +46,7 @@ use Illuminate\Support\Facades\Auth;
 
 
                                                 Route::get('/edit/{student}',       [AdController::class, 'edit'])             ->name('student.edit');
-
+                                                Route::get('/download-data.pdf',    [AdController::class, 'getDataPDF'])       ->name('student.getDataPDF');
 
 
 
@@ -54,7 +54,7 @@ use Illuminate\Support\Facades\Auth;
                                                 Route::get('/get-create',           [StudentController::class, 'create'])           ->name('student.create');
                                                 Route::post('/import',              [StudentController::class, 'import'])           ->name('import');
                                                 Route::get('/data/student',         [StudentController::class, 'showData'])         ->name('student.sTable');
-                                                Route::get('/download-data.pdf',    [StudentController::class, 'getDataPDF'])       ->name('student.getDataPDF');
+                                                
                                                 Route::get('/export-student-excel', [StudentController::class, 'exportToExcel'])    ->name('student.getDataEXCEL');
                                                 Route::get('/export-student-CSV',   [StudentController::class, 'exportToCsv'])      ->name('student.getDataCSV');
                                                 Route::delete('/destroy/{student}', [StudentController::class, 'destroy'])          ->name('student.destroy');
