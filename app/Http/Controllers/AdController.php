@@ -196,6 +196,7 @@ class AdController extends Controller
         ->join('data','student.key','data.key')
         ->where('role', '=', 'student')
         ->get();
+        // dd($students);
         $pdf = PDF::loadView('index3', compact('students'))->setOptions(['defaultFont' => 'sans-serif'])->setPaper('a4', 'landscape');;
         return $pdf->download('student-data.pdf');
     }

@@ -24,7 +24,7 @@
 }
 @endif
 <div class="row">
-    <form action="{{ route('student.update', $student->id)
+    <form action="{{ route('student.update', $student)
      }}" method="POST">
      
                 <hr style="
@@ -42,7 +42,7 @@
      @csrf
     <div class="col-md-4">
                     <label class="fname">Fullname</label>
-                    <input type="text" name="fname" id="fname" placeholder="Firstname" value="{{ $student->Fullname }}" required>
+                    <input type="text" name="fname" id="fname" placeholder="Firstname" value="{{$student->Fullname }}" required>
                     <h5 id="userFname" style="color: red;">
 						**Fullname is missing
 					</h5>

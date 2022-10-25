@@ -11,17 +11,11 @@ class StudentExport implements FromCollection,WithHeadings
 {
     public function headings():array{
         return [
-            "id",
+            
             'fullname',
             'gender',
-            'birthdate',
-            'birthplace',
-            'contact',
-            'email',
-            'address',
-            'firstname',
-            'middlename',
-            'lastname', 
+            'role',
+           
         ];
     }
     /**
@@ -29,7 +23,7 @@ class StudentExport implements FromCollection,WithHeadings
     */
     public function collection()
     {
-        return collect(Students::getStudents());
+        return collect(Students::getStudentExcel());
         // return StudentExcel::all();
     }
 }
