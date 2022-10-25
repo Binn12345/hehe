@@ -40,7 +40,7 @@ use Illuminate\Support\Facades\Auth;
                                                 Route::get('/data-resources',        [AdController::class, 'showAdmin'])        ->name('dataResource');
                                                 Route::post('/announcement/posted/', [AdController::class, 'announce'])         ->name('announcement');
                                                 Route::get('/register/account/',     [AdController::class, 'StdAcct'])          ->name('stdReg');
-
+                                                Route::get('/data/studenst',          [AdController::class, 'showStudent'])         ->name('student.sTable');
                                                 
 
 

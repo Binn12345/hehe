@@ -164,7 +164,7 @@ class StudentController extends Controller
         $b = "";
         $b = $x;
         $year = date("Y").'A';
-        $userID = Helper::IDGenerator(new User, 'user_id', 5, $year);
+        $userID = Helper::IDGenerator(new Stud, 'user_id', 5, $year);
         
         
         Students::create([
@@ -194,7 +194,7 @@ class StudentController extends Controller
             'username' => $request->username,
             'role'  => 'student',
             'key'   => $b,
-            'user_id' => $userID,
+            // 'user_id' => $userID,
             
             
         ]);
@@ -209,7 +209,7 @@ class StudentController extends Controller
             
             
         ]);
-        return back()->with('success', 'Your account has been successfully created.');
+        return redirect()->route('bug')->with('success', 'Your account has been successfully created.');
     }
     //CREATE admin Announcement
     // public function announce(Request $request)
@@ -308,9 +308,9 @@ class StudentController extends Controller
     public function showData()
     {
         // $students = Students::all();    
-        $students = DB::table('users')
-        ->select('users.id','users.user_id','name','gender','role')
-        ->join('data','users.key','data.key')
+        $students = DB::table('student')
+        ->select('student.id','student.user_id','name','gender','role')
+        ->join('data','student.key','data.key')
         ->where('role', '=', 'student')
         ->get();
 

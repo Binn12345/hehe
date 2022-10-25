@@ -70,7 +70,7 @@ class ModsController extends Controller
         $b = "";
         $b = $x;
         $year = date("Y").'A';
-        $userID = Helper::IDGenerator(new User, 'user_id', 5, $year);
+        $userIDd = Helper::IDGenerator(new Stud, 'user_id', 5, $year);
         
         
         Students::create([
@@ -101,7 +101,7 @@ class ModsController extends Controller
             'username' => $request->username,
             'role'  => 'student',
             'key'   => $b,
-            'user_id' => $userID,
+            'user_id' => $userIDd,
             
             
         ]);
@@ -112,7 +112,7 @@ class ModsController extends Controller
             'username' => $request->username,
             'role'  => 'student',
             'key'   => $b,
-            'user_id' => $userID,
+            // 'user_id' => $userID,
             
             
         ]);

@@ -140,7 +140,7 @@ class AdController extends Controller
             'username' => $request->username,
             'role'  => $request->role,
             'key'   => $c,
-            'user_id' => $userID,
+            // 'user_id' => $userID,
             
         ]);
 
@@ -173,7 +173,19 @@ class AdController extends Controller
 
         return view('student.adminData', compact('admins','admins'));
         // return view('home', compact('students','students'));
-    }   
+    }  
+    public function showStudent()
+    {
+        // $students = Students::all();    
+        $students = DB::table('student')
+        ->select('student.id','student.user_id','name','gender','role')
+        ->join('data','student.key','data.key')
+        ->where('role', '=', 'student')
+        ->get();
+
+        return view('dtable', compact('students','students'));
+        // return view('home', compact('students','students'));
+    } 
 
 
     public function getDataPDF()
