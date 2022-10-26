@@ -15,6 +15,17 @@
                   font-size: 2rem;">Announcement</h3>
 
                   </center>
+
+                  @php
+                      
+                      $image = DB::table('announcement')->where('id',32)->first();
+                      $images = explode('|', $image->image);
+                  @endphp
+                  @foreach($images as $item)
+                    <img src ="{{URL::to($item)}}" style="height:60%; width:60%;" alt="">
+                    <br>
+                  @endforeach
+                  
                   <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>

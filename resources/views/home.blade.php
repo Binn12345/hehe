@@ -59,7 +59,7 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
               <div class="inner">
-                <h3>--/--/--</h3>
+                <h3>{{$categories}}</h3>
   
                 <p>Daily Apply Students</p>
               </div>
@@ -74,7 +74,7 @@
             <!-- small box -->
             <div class="small-box bg-red">
               <div class="inner">
-                <h3>--/--/--</h3>
+                <h3>{{$cat}}</h3>
   
                 <p>Audit Trail</p>
               </div>

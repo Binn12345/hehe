@@ -8,8 +8,8 @@ use Illuminate\Notifications\Notifiable;
 
 class Students extends Model
 { 
-    protected $table = 'student';
-    protected $table1 = 'data';
+    protected $table = 'data';
+    
     protected $fillable = ["Fullname","Gender","Birthdate","Birthplace","Contact","Email","Address", "firstname", "middlename", "lastname","username","age","password","key","user_id",];
 
     public static function getStudents()
@@ -21,25 +21,27 @@ class Students extends Model
         // ->toArray();
 
         $students = DB::table('student')
-        ->select('student.id','student.user_id','name','gender','role','Fullname')
-        ->join('data','student.key','data.key')
-        ->where('role', '=', 'student')
-        ->orderBy('id','asc')
-        ->get()
-        ->toArray();    
+        ->select('student.user_id','data.Fullname','data.Gender','data.Address')
+        ->join('data','data.key','student.key')
+        ->where('student.role', '=', 'student')
+        ->orderBy('student.id','asc')
+        ->get();
+        
+
+        return $students;
     }
 
 
-     public static function getStudentExcel()
-     {
+    //  public static function getStudentExcel()
+    //  {
 
         
-        $students = DB::table('data')
-        ->select('Fullname','gender','age')
-        ->orderBy('id','asc')
-        ->get()
-        ->toArray(); 
+    //     $students = DB::table('data')
+    //     ->select('Fullname','gender','age')
+    //     ->orderBy('id','asc')
+    //     ->get()
+    //     ->toArray(); 
 
 
-     }
+    //  }
 }

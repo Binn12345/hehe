@@ -1,8 +1,77 @@
-@extends('data')
+@extends('layouts.app')
+<title>
 
+        BCP - Edit data
+
+</title>
 @section('content')
 
-<div class = "row" >
+
+
+<div class="content-wrapper">
+
+    <div class = "col-lg-12" style = "margin-top: 50px;" >
+
+
+        <div class="box box-primary">
+            
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form action="{{ route('studentt.update', $student) }}" method="POST">
+
+                @csrf
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Name</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="adfname" value="{{$student->Fullname}}" required> 
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Gender</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1" name="adgender" value="{{$student->Gender}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Birthdate</label>
+                    <input type="date" class="form-control" id="exampleInputPassword1" name="addob" value="{{$student->Birthdate}}"required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Birthplace</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="adbp" value="{{$student->Birthplace}}"required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Contact</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="adcontact" value="{{$student->Contact}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Email</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="ademail" value="{{$student->Email}}"required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Address</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="adaddress" value="{{$student->Address}}"required>
+                </div>
+
+                
+                
+              </div>
+              <!-- /.box-body -->
+    
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Update</button>
+              </div>
+            </form>
+          </div>
+
+    </div>
+
+</div>
+
+@endsection
+
+
+
+
+
+{{-- <div class = "row" >
         <div class ="pull-left">
             <label style="font-size: 20px;">
             <span style="margin-bottom: 200px;">
@@ -21,10 +90,10 @@
             @endforeach
         </ul>
     </div>
-}
-@endif
+} --}}
+{{-- @endif
 <div class="row">
-    <form action="{{ route('student.update', $student)
+    <form action="{{ route('studentt.update', $student)
      }}" method="POST">
      
                 <hr style="
@@ -39,8 +108,8 @@
                 <br>
                 <br>
                 
-     @csrf
-    <div class="col-md-4">
+     @csrf --}}
+    {{-- <div class="col-md-4">
                     <label class="fname">Fullname</label>
                     <input type="text" name="fname" id="fname" placeholder="Firstname" value="{{$student->Fullname }}" required>
                     <h5 id="userFname" style="color: red;">
@@ -296,5 +365,4 @@
                 });
                     
                     </script>  
-</div>
-@endsection
+</div> --}}

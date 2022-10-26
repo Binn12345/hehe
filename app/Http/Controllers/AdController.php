@@ -2,10 +2,12 @@
 
 
 namespace App\Http\Controllers;
+
 use App\Helpers\Helper;
 use App\Students;
 use App\User;
 use App\Admin;
+use App\Stud;
 use App\userlogs;
 use App\announcement;
 use App\Exports\StudentExport;
@@ -15,6 +17,22 @@ use PDF;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+
+
+
+// use App\userLogs;
+// namespace App\Http\Controllers;
+// use App\Helpers\Helper;
+// use App\Students;
+// use App\User;
+// use App\Stud;
+// use App\announcement;
+// use App\Exports\StudentExport;
+// use App\Imports\StudentImport;
+// use Excel;
+// use PDF;     
+// use Illuminate\Support\Facades\DB;
+// use Illuminate\Http\Request;
 class AdController extends Controller
 {
 
@@ -54,7 +72,15 @@ class AdController extends Controller
             'created_at'        =>now(),
             
         ]);  
-        return view('home')->with('successs', 'Welcome.');
+
+
+        $categories = Stud::count();
+        $cat        = userlogs::count();
+
+
+
+        // $log        = userlogs::count();
+        return view('home', compact('categories','cat'))->with('successs', 'Welcome.');
     }
 
 
@@ -65,17 +91,34 @@ class AdController extends Controller
          $c_code = rand();
          $def = "";
          $def = $c_code;
- 
-         announcement::create([
- 
+
+
+            $image = array();
+            if($files = $request->file('image'))
+            {
+                foreach($files as $file)
+                {
+                    $image_name = md5($file->getClientOriginalName());
+                    $ext = strtolower($file->getClientOriginalExtension());
+                    $image_full_name = $image_name.'.'.$ext;
+                    $upload_path = 'public/multiple_image/';
+                    $image_url = $upload_path.$image_full_name;
+                    $file->move($upload_path, $image_full_name);
+                    $image[] = $image_url;
+                }
+            }
+
+         announcement::CREATE([
+             
              'title'             =>$request->title,
              'content'           =>$request->content,
              'actor'             =>$request->user()->name,
              'code_content'      =>$def,
              'created_at'        =>now(),
              'actRole'           =>$request->user()->role,
+             'image'             =>implode('|', $image),
          ]);
-
+       
          $state= "Announcement is successfully created";
         userlogs::create([
 
@@ -166,7 +209,7 @@ class AdController extends Controller
      {
         // $students = Students::all();    
         $admins = DB::table('admin')
-        ->select('admin.id','admin.user_id','name','gender','role')
+        ->select('admin.id','admin.user_id','data.Fullname','gender','role')
         ->join('data','admin.key','data.key')
         ->where('role', '=', 'admin')
         ->get();
@@ -186,7 +229,46 @@ class AdController extends Controller
         return view('dtable', compact('students','students'));
         // return view('home', compact('students','students'));
     } 
+    public function updatee(Request $request, Students $student)
+    {
 
+        $student->update([
+
+            'Fullname'      =>$request->fname,
+            'Gender'        =>$request->gender,
+            'Birthdate'     =>$request->dob,
+            'Birthplace'    =>$request->bp,
+            'Contact'       =>$request->contact,
+            // 'Email'         =>$request->email,
+            'Address'       =>$request->address,
+            'created_at'    =>now(),
+        ]);
+
+        // $user->update([
+
+        //     'name'          =>$request->fname,
+        //     'email'         =>$request->email,
+        //     // 'Birthdate'     =>$request->dob,
+        //     // 'Birthplace'    =>$request->bp,
+        //     // 'Contact'       =>$request->contact,
+        //     // 'Email'         =>$request->email,
+        //     // 'Address'       =>$request->address,
+        //     'created_at'    =>now(),
+        // ]);
+        
+
+        $state= "Successfully Data Updated.";
+        userlogs::create([
+
+            'actor'             =>$request->user()->name,
+            'state'             =>$state,
+            'role'              =>$request->user()->role,
+            'created_at'        =>now(),
+            
+        ]); 
+        
+        return redirect()->route('dataResource')->with('successs', 'Data has been Updated');
+    }
 
     public function getDataPDF()
     {
@@ -203,11 +285,66 @@ class AdController extends Controller
 
     public function edit(Students $student)
     {
-        return view('edit')->with('student',$student);
+        return view('student.edit')->with('student',$student);
     }
      
+    public function editStudent(Student $student)
+    {
+        return view('student.editAdmin')->with('student',$student);
+    }
 
+    public function studStore(Request $request)
+    {
+        $x = rand();
+        $b = "";
+        $b = $x;
+        $year = date("Y").'A';
+        $userID = Helper::IDGenerator(new Stud, 'user_id', 5, $year);
+        
+        
+        Students::create([
 
+            'Fullname'      =>$request->fname . " " .$request->mname . " " . $request->lname,
+            'firstname'     =>$request->fname,
+            'middlename'    =>$request->mname,
+            'lastname'      =>$request->lname,
+            // 'username'      =>$request-
+            'password'      =>$request->pw,     
+            'age'           =>$request->age,
+            'Gender'        =>$request->gender,
+            'Birthdate'     =>$request->dob,
+            'Birthplace'    =>$request->bp,
+            'Contact'       =>$request->contact,
+            'Email'         =>$request->email,
+            'Address'       =>$request->address,
+            'created_at'    =>now(),
+            'key'           =>$b,
+            // 'user_id' => $year.$userID,
+        ]);
 
+       User::create([
+            'name' => $request->fname . " " .$request->mname . " " . $request->lname,
+            'email' => $request->email,
+            'password' => bcrypt($request->username.$request->lname),
+            'username' => $request->username,
+            'role'  => 'student',
+            'key'   => $b,
+            // 'user_id' => $userID,
+            
+            
+        ]);
+        Stud::create([
+            'name' => $request->fname . " " .$request->mname . " " . $request->lname,
+            'email' => $request->email,
+            'password' => bcrypt($request->username.$request->lname),
+            'username' => $request->username,
+            'role'  => 'student',
+            'key'   => $b,
+            'user_id' => $userID,
+            
+            
+        ]);
+        return redirect()->route('student.sTable')->with('successs', 'Your account has been successfully created.');
+    }
     
 }

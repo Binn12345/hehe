@@ -48,14 +48,14 @@
                 <tbody>
                     <tr>
                     <td>{{$admin->user_id}}</td>
-                    <td>{{$admin->name}}</td>
+                    <td>{{$admin->Fullname}}</td>
                     <td>{{$admin->gender}}</td>
                     <td>{{$admin->role}}</td>
                    
                     <td>
                         <form method="POST" action="{{ route('student.destroy',$admin->id) }}">
                             @csrf
-                            <a class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#modal-AdminView"></a>&nbsp;
+                            {{-- <a class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#modal-AdminView"></a>&nbsp; --}}
                             <a class="glyphicon glyphicon-pencil" href="{{ route ('student.edit',$admin->id) }}" style="color: green;"></a>&nbsp;
                             {{ csrf_field() }}
                             

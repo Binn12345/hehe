@@ -140,22 +140,22 @@ class StudentController extends Controller
     {
         return view('edit')->with('student',$student);
     }
-    public function update(Request $request, Students $student)
-    {
-        $student->update([
+    // public function update(Request $request, Students $student)
+    // {
+    //     $student->update([
 
-            'Fullname'      =>$request->fname,
-            'Gender'        =>$request->gender,
-            'Birthdate'     =>$request->dob,
-            'Birthplace'    =>$request->bp,
-            'Contact'       =>$request->contact,
-            'Email'         =>$request->email,
-            'Address'       =>$request->address,
-            'created_at'    =>now(),
-        ]);
+    //         'Fullname'      =>$request->fname,
+    //         'Gender'        =>$request->gender,
+    //         'Birthdate'     =>$request->dob,
+    //         'Birthplace'    =>$request->bp,
+    //         'Contact'       =>$request->contact,
+    //         'Email'         =>$request->email,
+    //         'Address'       =>$request->address,
+    //         'created_at'    =>now(),
+    //     ]);
 
-        return redirect()->back()->with('successs', 'Data has been Updated');
-    }
+    //     return redirect()->back()->with('successs', 'Data has been Updated');
+    // }
 
     //CREATE DATA for student
     public function store(Request $request)

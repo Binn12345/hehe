@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
                                             Auth::routes();
-                                            Route::get('test', [testHelperController::class , 'index']);
+                                            // Route::get('test', [testHelperController::class , 'index']);
                                             Route::post('student_/register/', 'StudentController@store')->name('student.store'); 
                                             Route::get('/student/registration', 'StudentRegisterController@studRegis')->name('student.cre');  
                                             
@@ -40,22 +40,33 @@ use Illuminate\Support\Facades\Auth;
                                                 Route::get('/data-resources',        [AdController::class, 'showAdmin'])        ->name('dataResource');
                                                 Route::post('/announcement/posted/', [AdController::class, 'announce'])         ->name('announcement');
                                                 Route::get('/register/account/',     [AdController::class, 'StdAcct'])          ->name('stdReg');
-                                                Route::get('/data/student',         [AdController::class, 'showStudent'])         ->name('student.sTable');
+                                                Route::get('/data/student',          [AdController::class, 'showStudent'])       ->name('student.sTable');
+                                                Route::get('/edit/student',          [AdController::class, 'editStudent'])        ->name('admin.edit');
+
+
+
+
+                                                Route::post('/store',               [AdController::class, 'studStore'])          ->name('student.studStore');
+
+                                                //student
+                                                Route::post('/update/{student}',    [AdController::class, 'updatee'])           ->name('studentt.update'); 
+
                                                 
 
+                                                
 
 
                                                 Route::get('/edit/{student}',       [AdController::class, 'edit'])             ->name('student.edit');
                                                 Route::get('/download-data.pdf',    [AdController::class, 'getDataPDF'])       ->name('student.getDataPDF');
-
+                                                Route::get('/export-student-excel', [StudentController::class, 'exportToExcel'])    ->name('student.getDataEXCEL');
 
 
                                                 
                                                 Route::get('/get-create',           [StudentController::class, 'create'])           ->name('student.create');
                                                 Route::post('/import',              [StudentController::class, 'import'])           ->name('import');
-                                                Route::get('/data/student',         [StudentController::class, 'showData'])         ->name('student.sTable');
+                                               
                                                 
-                                                Route::get('/export-student-excel', [StudentController::class, 'exportToExcel'])    ->name('student.getDataEXCEL');
+                                                
                                                 Route::get('/export-student-CSV',   [StudentController::class, 'exportToCsv'])      ->name('student.getDataCSV');
                                                 Route::delete('/destroy/{student}', [StudentController::class, 'destroy'])          ->name('student.destroy');
                                                 
@@ -64,6 +75,8 @@ use Illuminate\Support\Facades\Auth;
                                                 Route::post('/admin/{student}',     [StudentController::class, 'update'])           ->name('student.update'); 
 
                                                 
+
+                                                 // Route::get('/data/student',         [StudentController::class, 'showData'])         ->name('student.sTable');
                                                 
                                             });     
 

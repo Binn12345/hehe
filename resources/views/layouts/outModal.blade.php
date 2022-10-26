@@ -183,7 +183,7 @@
           font-size: 3rem;">Add Announcement</h4>
         </div>
         <div class="modal-body">
-          <form class="form-horizontal" action="{{route('announcement')}}" method="POST">
+          <form class="form-horizontal" action="{{route('announcement')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="box-body">
 
@@ -201,10 +201,18 @@
                                                                                               height: 200px;"></textarea>
               
               </div>
+              <div class="col-xs-12">
+                {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
+                {{-- <div class="col-sm-10"> --}}
+                  <input class="form-control input-lg" type="file" name="image[]" multiple style="font-family:'Courier New', Courier, monospace;
+                                                                                                            height: 70px;">
+                {{-- </div> --}}
+              </div>
+
             </div>
             <div class="box-footer">
               <button type="submit" class="btn btn-primary" style="margin-right: 20px;   width: 100%; padding-top: 15px; padding-bottom: 15px;">
-                Submit
+                POST
               </button>
             </div>
           </form>

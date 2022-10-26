@@ -44,19 +44,22 @@
                     <div class="col-xs-4">
                       {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                       {{-- <div class="col-sm-10"> --}}
-                        <input class="form-control input-lg" type="text" name="lname" placeholder="Lastname" style="font-family:'Courier New', Courier, monospace;">
+                        <input class="form-control input-lg" type="text" name="lname" id="lname" placeholder="Lastname" style="font-family:'Courier New', Courier, monospace;" required>
+                        {{-- <h5 id="userLname" style="color: red;">
+                          **lastname is missing
+                        </h5> --}}
                       {{-- </div> --}}
                     </div>
                     <div class="col-xs-4">
                       {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                       {{-- <div class="col-sm-10"> --}}
-                        <input class="form-control input-lg" type="text" name="fname" placeholder="Firstname" style="font-family:'Courier New', Courier, monospace;">
+                        <input class="form-control input-lg" type="text" name="fname" placeholder="Firstname" style="font-family:'Courier New', Courier, monospace;" required>
                       {{--   --}}
                     </div>
                     <div class="col-xs-4">
                       {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                       {{-- <div class="col-sm-10"> --}}
-                        <input class="form-control input-lg" type="text" name="mname" placeholder="Middlename / Optional" style="font-family:'Courier New', Courier, monospace;">
+                        <input class="form-control input-lg" type="text" name="mname" placeholder="Middlename / Optional" style="font-family:'Courier New', Courier, monospace;" required>
                     {{--   --}}
                     </div>
                     
@@ -68,14 +71,14 @@
                     <div class="col-xs-4">
                       {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                       {{-- <div class="col-sm-10"> --}}
-                        <input class="form-control input-lg" type="text" name="age" placeholder="99" style="font-family:'Courier New', Courier, monospace;" >
+                        <input class="form-control input-lg" type="text" name="age" placeholder="99" style="font-family:'Courier New', Courier, monospace;" required>
                     {{--   --}}
                     </div>
                     <div class="col-xs-4">
                       {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                       {{-- <div class="col-sm-10"> --}}
                         
-                        <input class="form-control input-lg" type="date" name="dob" placeholder="Birthdate" style="font-family:'Courier New', Courier, monospace;">
+                        <input class="form-control input-lg" type="date" name="dob" placeholder="Birthdate" style="font-family:'Courier New', Courier, monospace;" required>
                     {{--   --}}
                     </div>
                     <div class="col-xs-4" style="margin-bottom: 10px;">
@@ -96,13 +99,13 @@
                     <div class="col-xs-6" style=" " >
                     
                         
-                      <input class="form-control input-lg" type="email" name="email" placeholder="Personal Email Address" style="font-family:'Courier New', Courier, monospace;">
+                      <input class="form-control input-lg" type="email" name="email" placeholder="Personal Email Address" style="font-family:'Courier New', Courier, monospace;" required>
                
                     </div>
                       <div class="col-xs-6" style=" " >
                     
                         
-                      <input class="form-control input-lg" type="text " name="contact" placeholder="Contact" style="font-family:'Courier New', Courier, monospace;">
+                      <input class="form-control input-lg" type="text " name="contact" placeholder="Contact" style="font-family:'Courier New', Courier, monospace;" required>
                
                     </div> 
                     
@@ -124,7 +127,7 @@
                           <div class="col-xs-12">
                             {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                             {{-- <div class="col-sm-10"> --}}
-                              <input class="form-control input-lg" type="text" name="username" placeholder="username" style="font-family:'Courier New', Courier, monospace;">
+                              <input class="form-control input-lg" type="text" name="username" placeholder="username" style="font-family:'Courier New', Courier, monospace;" required>
                           {{--   --}}
                           </div>
                           {{-- <div class="col-xs-6">
@@ -156,6 +159,7 @@
         </div>
     </div>
 </div>
+
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 @if ($message = Session::get('success'))
 
@@ -165,3 +169,34 @@
     
 @endif --}}
 @endsection
+{{-- <script>
+
+$(document).ready(function () {
+
+
+           $("#userLname").hide();
+            let userLnameError = true;
+            $("#lname").keyup(function () {
+                validatelname();
+            });
+    
+            function validatelname() {
+                let usernameValue = $("#lname").val();
+                if (usernameValue.length == "") {
+                $("#userLname").show();
+                LnError = false;
+                return false;
+                } else if (usernameValue.length < 3 || usernameValue.length > 100) {
+                $("#userLname").show();
+                $("#useLname").html("*maximum of 100 character");
+                usernameError = false;
+                return false;
+                } else {
+                $("#userLname").hide();
+                }
+            }
+
+
+});
+
+</script> --}}

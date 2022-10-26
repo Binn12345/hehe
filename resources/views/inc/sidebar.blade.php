@@ -67,7 +67,7 @@
         <a href="{{ route('student.sTable') }}">
           <i class="fa fa-th"></i> <span>Student Profile</span>
           <span class="pull-right-container">
-            <small class="label pull-right bg-orange">new</small>
+            <small class="label pull-right bg-orange"></small>
           </span>
         </a>
       </li>
@@ -78,8 +78,8 @@
         <a href="{{route('logs')}}">
           <i class="fa fa-calendar"></i> <span>Audit Trail</span>
           <span class="pull-right-container">
-            <small class="label pull-right bg-red">3</small>
-            <small class="label pull-right bg-blue">17</small>
+            <small class="label pull-right bg-red"></small>
+            <small class="label pull-right bg-blue"></small>
           </span>
         </a>
       </li>

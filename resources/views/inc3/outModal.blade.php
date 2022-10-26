@@ -204,7 +204,7 @@
             </div>
             <div class="box-footer">
               <button type="submit" class="btn btn-primary" style="margin-right: 20px;   width: 100%; padding-top: 15px; padding-bottom: 15px;">
-                Submit
+                
               </button>
             </div>
           </form>
