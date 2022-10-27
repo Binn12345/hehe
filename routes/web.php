@@ -36,7 +36,7 @@ use Illuminate\Support\Facades\Auth;
                                             {
                                                 
                                                 Route::get('/',                      [AdController::class, 'index'])            ->name('home');
-                                                Route::post('/registers',             [AdController::class, 'adminStore'])       ->name('admin.store');
+                                                Route::post('/registers',            [AdController::class, 'adminStore'])       ->name('admin.store');
                                                 Route::get('/data-resources',        [AdController::class, 'showAdmin'])        ->name('dataResource');
                                                 Route::post('/announcement/posted/', [AdController::class, 'announce'])         ->name('announcement');
                                                 Route::get('/register/account/',     [AdController::class, 'StdAcct'])          ->name('stdReg');
@@ -80,9 +80,9 @@ use Illuminate\Support\Facades\Auth;
 
 
                                                 //  announcement deleted
-                                                Route::delete('/data-announcement/{announcement}',      [AdController::class, 'destroyAnnouncement'])      ->name('announcement.destroy');
-                                                Route::get   ('/data-announcement/edit/{announcement}',    [AdController::class, 'editAnnouncement'])         ->name('announcement.edit');
-                                                
+                                                Route::delete('/data-announcement/{announcement}',         [AdController::class, 'destroyAnnouncement'])               ->name('announcement.destroy');
+                                                Route::get   ('/data-announcement/edit/{announcement}',    [AdController::class, 'editAnnouncement'])                  ->name('announcement.edit');
+                                                Route::post  ('/data-announcement/update/{student}',       [StudentController::class, 'updateAnnouncement'])           ->name('announcement.update'); 
                                             });     
 
 
