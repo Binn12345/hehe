@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 <title>
-    BCP - logs
+    BCP - Audit Trail
 </title>
 @section('content')
     {{-- <section class="content-header">

@@ -1,4 +1,4 @@
-<aside class="main-sidebar" style="font-size: 10px;">
+<aside class="main-sidebar">
   <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar" >
     <!-- Sidebar user panel -->
@@ -23,7 +23,7 @@
     </form> --}}
     <!-- /.search form -->
     <!-- sidebar menu: : style can be found in sidebar.less -->
-    <ul class="sidebar-menu" data-widget="tree">
+    <ul class="sidebar-menu" data-widget="tree" style="font-size: 10px;">
       <li class="header">MAIN NAVIGATION</li>
       <li class="active treeview">
         <a href="#">
@@ -32,15 +32,15 @@
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
-        <ul class="treeview-menu">
-          <li class="active"><a href="{{Route('home')}}"><i class="fa fa-circle-o"></i>Overview</a></li>
+        <ul class="treeview-menu" >
+          <li class="active" ><a href="{{Route('home')}}"><i class="fa fa-circle-o"></i>Overview</a></li>
           {{-- <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li> --}}
         </ul>
       </li>
       
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-laptop"></i>  
+          <i class="fa fa-bell"></i>  
           <span>Announcement</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
@@ -53,7 +53,7 @@
       </li>
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-table"></i> <span>Accounts</span>
+          <i class="fa fa-user"></i> <span>Accounts</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -65,7 +65,7 @@
       </li>
       <li>
         <a href="{{ route('student.sTable') }}">
-          <i class="fa fa-th"></i> <span>Student Profile</span>
+          <i class="fa fa-user"></i> <span>Student Profile</span>
           <span class="pull-right-container">
             <small class="label pull-right bg-orange"></small>
           </span>
@@ -76,7 +76,7 @@
       
       <li>
         <a href="{{route('logs')}}">
-          <i class="fa fa-calendar"></i> <span>Audit Trail</span>
+          <i class="fa fa-table"></i> <span>Audit Trail</span>
           <span class="pull-right-container">
             <small class="label pull-right bg-red"></small>
             <small class="label pull-right bg-blue"></small>

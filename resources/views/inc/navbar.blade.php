@@ -1,4 +1,4 @@
-<header class="main-header">
+<header class="main-header" sty>
   <!-- Logo -->
   <a href="{{Route('home')}}" class="logo">
     

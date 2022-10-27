@@ -232,7 +232,7 @@ class AdController extends Controller
     {
         // $students = Students::all();    
         $students = DB::table('student')
-        ->select('student.id','student.user_id','name','gender','role')
+        ->select('student.id','student.user_id','name','gender','role','age')
         ->join('data','student.key','data.key')
         ->where('role', '=', 'student')
         ->get();

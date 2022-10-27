@@ -236,12 +236,44 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" style="margin-left: 15px;
-          font-family:'Courier New', Courier, monospace;
-          font-size: 3rem;">Student Profile</h4>
+          <center>
+
+            <h4 class="modal-title" style="margin-left: 15px;
+            font-family:'Courier New', Courier, monospace;
+            font-size: 3rem;">Student Profile</h4>
+
+          </center>
         </div>
         <div class="modal-body">
-          <p>---&hellip;</p>
+
+
+          <div class="box box-widget widget-user-2">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-aqua">
+              <div class="widget-user-image">
+                <img class="img-circle" src="../../dist/img/avatar5.png" alt="User Avatar">
+              </div>
+              <!-- /.widget-user-image -->
+              <h3 class="widget-user-username">Nadia Carmichael</h3>
+              <h5 class="widget-user-desc">Lead Developer</h5>
+            </div>
+            <div class="box-footer no-padding">
+              <ul class="nav nav-stacked">
+                <li><a href="#">Projects <span class="pull-right badge bg-blue">31</span></a></li>
+                <li><a href="#">Tasks <span class="pull-right badge bg-aqua">5</span></a></li>
+                <li><a href="#">Completed Projects <span class="pull-right badge bg-green">12</span></a></li>
+                <li><a href="#">Followers <span class="pull-right badge bg-red">842</span></a></li>
+              </ul>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
         </div>
         <div class="modal-footer">
           
@@ -281,8 +313,30 @@
 
 
 
-    {{-- CREATE STUDENT UNDER ADMIN DASHBOARD --}}
-    
+    {{-- Destory india --}}
+    {{-- <div class="modal fade" id="modal-DestroyAnnouncement">
+      <div class="modal-dialog" style="margin-top: 30vh;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Log out?</h4>
+          </div>
+          <div class="modal-body">
+            <form method="GET" action="{{ route('announcement.destroy',$announcement->id) }}">
+              @csrf
+            <p>Are you sure you want to log out?&hellip;</p>
+          </div>
+          <div class="modal-footer">
+            {{ method_field('DELETE') }}
+            <input type="button" class="btn btn-primary">Yes</input>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div> --}}
+  
 
 
 

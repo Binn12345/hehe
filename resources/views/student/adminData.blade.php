@@ -32,7 +32,8 @@
         <a class = "btn btn-primary" data-toggle="modal" data-target="#modal-CREATE" >&nbsp;Add New Data</a>
           </div>
                   <div class="table-responsive-lg">
-                    <table class="table">
+                    <table class="table" style="font-size:10px;
+                                                font-family:'Times New Roman', Times, serif">
                 <tr>
                     
                     <th>AD#</th>
@@ -44,6 +45,7 @@
                 {{-- @php
                 dd($admins);
                 @endphp --}}
+            @if(!empty($admins) && $admins->count() )
             @foreach($admins as $admin)
                 <tbody>
                     <tr>
@@ -65,8 +67,24 @@
                         </form>
                     <td>
                     </tr>
+
+
+                    @endforeach
+                    @else
+                    <tr>
+                        <td colspan="10">
+                            <div class="callout callout-danger" style="margin-top:10px;">
+                                
+            
+                            <center>
+                                <p>No data Found.</p>   
+                            </center>
+                          </div>
+                        </td> 
+                    </tr>
+                    @endif
                 </tbody>
-            @endforeach
+            
             </table>
             </div> 
                   <div class="chart">
@@ -87,3 +105,4 @@
     </div>
     
 @endsection
+{{-- {!! $admins->links() !!} --}}

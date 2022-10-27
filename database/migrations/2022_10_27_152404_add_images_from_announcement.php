@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImgToAnnouncement extends Migration
+class AddImagesFromAnnouncement extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddImgToAnnouncement extends Migration
      */
     public function up()
     {
-        Schema::table('announcement', function (Blueprint $table) {
-
-            $table->longblob('image');
+        Schema::table('anouncement', function (Blueprint $table) {
+            $table->LONGBLOB('images')->nullable();
         });
     }
 
@@ -26,7 +25,7 @@ class AddImgToAnnouncement extends Migration
      */
     public function down()
     {
-        Schema::table('announcement', function (Blueprint $table) {
+        Schema::table('anouncement', function (Blueprint $table) {
             //
         });
     }

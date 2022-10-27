@@ -7,6 +7,15 @@
     <div class="content-wrapper" >
         <section class="content-header">
             <div class="box box-info">
+                <section class="content-header">
+                    <div class="pad margin no-print">
+                            <div class="callout callout-info" style="margin-bottom: 0!important;">
+                              <h4><i class="fa fa-info"></i> Note:</h4>
+                              This page has been enhanced for adding annonuncement, 
+                            </div>
+                          </div>
+              
+            </section>
                 <div class="box-header with-border">
                   <center>
 
@@ -24,11 +33,20 @@
                     {{-- <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button> --}}
                   </div>
 
-
+                  
+                  
                   <section class="content" style="margin-top:30px;">
                     <div class="box" style="margin-top: 10px;">
                         <div class="box-header">
-                            <h3 class="box-title"></h3>
+                            <h3 class="box-title">
+
+                                
+                                {{-- <a class="fa fa-bell" data-toggle="modal" data-target="#modal-Announcement" style="cursor: pointer"></a>   --}}
+                                <button class="btn btn-primary"  data-toggle="modal" data-target="#modal-Announcement" >
+                                    <i class="fa fa-bell"style="cursor: pointer;"></i>  &nbsp; Add new
+                                </button>
+
+                            </h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body" >
@@ -45,6 +63,7 @@
                                 <th>Date Posted</th>
                                 <th>Action</th>
                             </tr>
+                        @if(!empty($announcements) && $announcements->count() )
                         @foreach($announcements as $announcement)
                             <tbody>
                                 <tr>
@@ -63,15 +82,29 @@
                                         {{ csrf_field() }}
                                         
                                         {{ method_field('DELETE') }}
-                                            <a class="btn btn-danger" type ="submit"  value="Delete" style="color: red">
+                                       
+                                            <input class="btn btn-danger" type ="submit"  value="Delete" >
                                             
-                                            </a>
+                                            </input>
             
                                     </form>
                                 <td>
                                 </tr>
                             </tbody>
                         @endforeach
+                        @else
+                            <tr>
+                                <td colspan="10">
+                                    <div class="callout callout-danger" style="margin-top:10px;">
+                                        
+                    
+                                    <center>
+                                        <p>No data Found.</p>   
+                                    </center>
+                                </div>
+                                </td> 
+                            </tr>
+                            @endif
                         </table>
                         </div>  
                     </div>

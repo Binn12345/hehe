@@ -42,22 +42,26 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <div class="table-responsive-lg">
-                    <table class="table">
+                    <table class="table" style="font-size:10px;
+                                                font-family:'Times New Roman', Times, serif">   
                 <tr>
                     {{-- @php
                     dd($students);    
                     @endphp --}}
                     <th>SNO</th>
                     <th>Name</th>
+                    <th>Age</th>
                     <th>Gender</th>
                     <th>Role</th>  
                     <th>Action</th>
                 </tr>
+            @if(!empty($students) && $students->count()) 
             @foreach($students as $student)
                 <tbody>
                     <tr>
                     <td>{{$student->user_id}}</td>
                     <td>{{$student->name}}</td>
+                    <td>{{$student->age}}</td>
                     <td>{{$student->gender}}</td>
                     <td>{{$student->role}}</td>
                    
@@ -74,8 +78,24 @@
                         </form>
                     <td>
                     </tr>
+                @endforeach
+            @else
+            <tr>
+                <td colspan="10">
+                    <div class="callout callout-danger" style="margin-top:10px;">
+                        
+    
+                    <center>
+                        <p>No data Found.</p>   
+                    </center>
+                  </div>
+                </td> 
+            </tr>
+            @endif
                 </tbody>
-            @endforeach
+            
+           
+                
             </table>
             </div>  
         </div>

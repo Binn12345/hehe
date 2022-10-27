@@ -21,7 +21,7 @@ class Students extends Model
         // ->toArray();
 
         $students = DB::table('student')
-        ->select('student.user_id','data.Fullname','data.Gender','data.Address')
+        ->select('student.user_id','data.Fullname','data.Gender','data.Address','data.age')
         ->join('data','data.key','student.key')
         ->where('student.role', '=', 'student')
         ->orderBy('student.id','asc')
