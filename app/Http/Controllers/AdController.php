@@ -98,7 +98,7 @@ class AdController extends Controller
             {
                 foreach($files as $file)
                 {
-                    $image_name = md5($file->getClientOriginalName());
+                    $image_name = md5($file->getClientOriginalName().rand(1,1000));
                     $ext = strtolower($file->getClientOriginalExtension());
                     $image_full_name = $image_name.'.'.$ext;
                     $upload_path = 'public/multiple_image/';
@@ -217,6 +217,17 @@ class AdController extends Controller
         return view('student.adminData', compact('admins','admins'));
         // return view('home', compact('students','students'));
     }  
+
+    public function showAnnouncement()
+    {
+        $announcements = announcement::all();
+        return view('student.admin-announcement', compact('announcement','announcements'));
+    }
+    // public function showAdminPosted()
+    // {
+    //     $announcements = announcement::all();
+    //     return view('admin.announce', compact('announcements','announcements'));
+    // }
     public function showStudent()
     {
         // $students = Students::all();    
@@ -345,6 +356,25 @@ class AdController extends Controller
             
         ]);
         return redirect()->route('student.sTable')->with('successs', 'Your account has been successfully created.');
+    }
+
+
+
+
+    // admin announcement edit && delete
+    public function destroyAnnouncement(announcement $announcement)
+    {
+
+        $announcement->delete();
+        return redirect()->back()->with('successs', 'Data has been deleted');
+    }
+    public function editAnnouncement(announcement $announcement)
+    {
+        return view('student.editAnnounce')->with('announcement',$announcement);
+    }
+    public function updateAnnouncement(announcement $announcement)
+    {
+        return view('student.editAnnounce')->with('announcement',$announcement);
     }
     
 }

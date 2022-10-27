@@ -58,10 +58,10 @@ class StudentController extends Controller
     }
     
     
-    public function showAnnouncement()
-    {
-        return view('student.admin-announcement');
-    }
+        // public function showAnnouncement()
+        // {
+        //     return view('student.admin-announcement');
+        // }
     public function adminData(){
         return view('student.adminData');
     }

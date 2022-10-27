@@ -42,7 +42,7 @@
           <!-- /.box -->
 
           <!-- About Me Box -->
-          <div class="box box-primary">
+          {{-- <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">About Me</h3>
             </div>
@@ -65,11 +65,11 @@
               <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
 
               <p>
-                {{-- <span class="label label-danger">UI Design</span> --}}
+                
                 <span class="label label-success">Coding</span>
-                {{-- <span class="label label-info">Javascript</span> --}}
+    
                 <span class="label label-warning">PHP</span>
-                {{-- <span class="label label-primary">Node.js</span> --}}
+               
               </p>
 
               <hr>
@@ -79,7 +79,7 @@
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
             </div>
             <!-- /.box-body -->
-          </div>
+          </div> --}}
           <!-- /.box -->
         </div>
         <!-- /.col -->
@@ -95,20 +95,16 @@
                 <!-- Post -->
                 <div class="post">
                   <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
+                    <img class="img-circle img-bordered-sm" src="../../dist/img/avatar5.png" alt="user image">
                         <span class="username">
-                          <a href="#">Jonathan Burke Jr.</a>
+                          <a href="#">{{Auth::user()->name}}</a>
                           <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
                         </span>
-                    <span class="description">Shared publicly - 7:30 PM today</span>
+                    <span class="description">Shared publicly - 7:30 PM</span>
                   </div>
                   <!-- /.user-block -->
                   <p>
-                    Lorem ipsum represents a long-held tradition for designers,
-                    typographers and the like. Some people hate it and argue for
-                    its demise, but others ignore the hate as they create awesome
-                    tools to help create filler text for everyone from bacon lovers
-                    to Charlie Sheen fans.
+                    HAHAHHAHA xD  .
                   </p>
                   <ul class="list-inline">
                     <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
@@ -124,7 +120,7 @@
                 <!-- /.post -->
 
                 <!-- Post -->
-                <div class="post clearfix">
+                {{-- <div class="post clearfix">
                   <div class="user-block">
                     <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
                         <span class="username">
@@ -152,11 +148,11 @@
                       </div>
                     </div>
                   </form>
-                </div>
+                </div> --}}
                 <!-- /.post -->
 
                 <!-- Post -->
-                <div class="post">
+                {{-- <div class="post">
                   <div class="user-block">
                     <img class="img-circle img-bordered-sm" src="../../dist/img/user6-128x128.jpg" alt="User Image">
                         <span class="username">
@@ -202,13 +198,13 @@
                   </ul>
 
                   <input class="form-control input-sm" type="text" placeholder="Type a comment">
-                </div>
+                </div> --}}
                 <!-- /.post -->
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="timeline">
                 <!-- The timeline -->
-                <ul class="timeline timeline-inverse">
+                {{-- <ul class="timeline timeline-inverse">
                   <!-- timeline time label -->
                   <li class="time-label">
                         <span class="bg-red">
@@ -298,7 +294,7 @@
                   <li>
                     <i class="fa fa-clock-o bg-gray"></i>
                   </li>
-                </ul>
+                </ul> --}}
               </div>
               <!-- /.tab-pane -->
 
@@ -308,14 +304,14 @@
                     <label for="inputName" class="col-sm-2 control-label">Name</label>
 
                     <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputName" placeholder="Name">
+                      <input type="email" class="form-control" id="inputName" placeholder="Name" value="{{Auth::user()->name}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputEmail" class="col-sm-2 control-label">Email</label>
 
                     <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                      <input type="email" class="form-control" id="inputEmail" placeholder="Email" value="{{Auth::user()->email}}">
                     </div>
                   </div>
                   <div class="form-group">
@@ -350,7 +346,7 @@
                   </div>
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-danger">Submit</button>
+                      <button type="submit" class="btn btn-danger">Update</button>
                     </div>
                   </div>
                 </form>

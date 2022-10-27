@@ -36,7 +36,7 @@ use Illuminate\Support\Facades\Auth;
                                             {
                                                 
                                                 Route::get('/',                      [AdController::class, 'index'])            ->name('home');
-                                                Route::post('/register',             [AdController::class, 'adminStore'])       ->name('admin.store');
+                                                Route::post('/registers',             [AdController::class, 'adminStore'])       ->name('admin.store');
                                                 Route::get('/data-resources',        [AdController::class, 'showAdmin'])        ->name('dataResource');
                                                 Route::post('/announcement/posted/', [AdController::class, 'announce'])         ->name('announcement');
                                                 Route::get('/register/account/',     [AdController::class, 'StdAcct'])          ->name('stdReg');
@@ -44,7 +44,7 @@ use Illuminate\Support\Facades\Auth;
                                                 Route::get('/edit/student',          [AdController::class, 'editStudent'])        ->name('admin.edit');
 
 
-
+                                                
 
                                                 Route::post('/store',               [AdController::class, 'studStore'])          ->name('student.studStore');
 
@@ -70,13 +70,18 @@ use Illuminate\Support\Facades\Auth;
                                                 Route::get('/export-student-CSV',   [StudentController::class, 'exportToCsv'])      ->name('student.getDataCSV');
                                                 Route::delete('/destroy/{student}', [StudentController::class, 'destroy'])          ->name('student.destroy');
                                                 
-                                                Route::get('/data-announcement',    [StudentController::class, 'showAnnouncement']) ->name('admin.announce');
+                                                Route::get('/data-announcement',    [AdController::class, 'showAnnouncement'])      ->name('admin.announce');
                                                 Route::get('/data-userlogs',        [StudentController::class, 'logs'])             ->name('logs');
                                                 Route::post('/admin/{student}',     [StudentController::class, 'update'])           ->name('student.update'); 
 
                                                 
 
                                                  // Route::get('/data/student',         [StudentController::class, 'showData'])         ->name('student.sTable');
+
+
+                                                //  announcement deleted
+                                                Route::delete('/data-announcement/{announcement}',      [AdController::class, 'destroyAnnouncement'])      ->name('announcement.destroy');
+                                                Route::get   ('/data-announcement/edit/{announcement}',    [AdController::class, 'editAnnouncement'])         ->name('announcement.edit');
                                                 
                                             });     
 

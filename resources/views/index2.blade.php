@@ -20,7 +20,7 @@
           <li><a href="#">Courses</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="{{route('student.cre')}}" style="color: white;"><span class="glyphicon glyphicon-user"></span>&nbsp;Register Online</a></li>
+          <li><a data-toggle="modal" data-target="#modal-defaults"style="color: white;"><span class="glyphicon glyphicon-user"></span>&nbsp;Register Online</a></li>
           <li><a data-toggle="modal" data-target="#modal-default"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Login</a></li>
         </ul> 
       </div>
@@ -51,14 +51,14 @@
                             <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
           
                             <div class="col-sm-10">
-                              <input type="email" class="form-control" id="inputEmail3" name="email"placeholder="Email">
+                              <input type="email" class="form-control" id="inputEmail3" name="email"placeholder="Email" required>
                             </div>
                           </div>
                           <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label" >Password</label>
           
                             <div class="col-sm-10">
-                              <input type="password" class="form-control" id="inputPassword3" name="password"  placeholder="Password">
+                              <input type="password" class="form-control" id="inputPassword3" name="password"  placeholder="Password" required>
                             </div>
                           </div>
                           <div class="form-group">
@@ -110,7 +110,7 @@
                   </div>
                   <!-- /.modal-content -->
                 </div>
-
+              </div>
               {{-- <a type="button" href="{{route('login')}}" class="btn btn-primary btn-block" style="margin-top: 20vh;
                 color: rgb(249, 247, 247);   padding-top: 20px;
                 padding-bottom: 20px;
@@ -123,10 +123,40 @@
                 ">Access to Login</a>
                  --}}
 
+              
+                {{-- picker --}}
+
+                <div class="modal fade" id="modal-defaults" style="margin-top: 5vh;">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Choose Panel</h4>
+                      </div>
+                      
+                      <div class="modal-body">
+
+                        <div class="modal-footer">
+                          <a href ={{route('register')}} class="btn btn-primary" style="margin-right: 15px;  float: right; width: 96%; padding-top: 15px; padding-bottom: 15px; margin-bottom:10px;">
+                          Register as Admin
+                         </a> 
+                         <a href={{route('student.cre')}} class="btn btn-info" style="margin-right: 15px;  float: right; width: 96%; padding-top: 15px; padding-bottom: 15px;">
+                          Register as Student
+                          </a> 
+                        </div>
+
+                      </div>
+                    <!-- /.modal-content -->
+                    </div>
+                  </div>
+                </div>
+
+                 
             </div>
         </div>
     </div>
-</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 @if ($message = Session::get('success'))
 
