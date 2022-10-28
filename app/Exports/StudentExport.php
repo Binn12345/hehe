@@ -17,6 +17,7 @@ class StudentExport implements FromCollection,WithHeadings
             'Fullname',
             'Gender',
             'Address',
+            'Age',
 
            
         ];

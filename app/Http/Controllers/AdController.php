@@ -361,6 +361,80 @@ class AdController extends Controller
 
 
 
+
+    //student Panel
+
+
+
+
+        // ACCOUNT ADMIN EDIT DELETE
+           public function DestroyAdminAccount(Admin $admin)
+            {
+            
+                $admin_id = $admin->key;
+                $user = Students::where("key", $admin_id)->first();
+                $admin_id->delete();
+                $user->delete();
+                // return redirect()->back()->with('successs', 'Data has been deleted');
+            }
+
+            public function EditAdminAccount(Admin $admin)
+            {
+                return view('student.editAnnounce')->with('admin',$admin);
+            }
+
+
+            //UPDATE ADMIN ACCOUNT
+            public function UpdateAdminAccount(Request $request, Admin $admin)
+            {
+                $admin->update([
+
+                    'Fullname'      =>$request->fname,
+                    'Gender'        =>$request->gender,
+                    'Birthdate'     =>$request->dob,
+                    'Birthplace'    =>$request->bp,
+                    'Contact'       =>$request->contact,
+                    // 'Email'         =>$request->email,
+                    'Address'       =>$request->address,
+                    'created_at'    =>now(),
+                ]);
+        
+                // $user->update([
+        
+                //     'name'          =>$request->fname,
+                //     'email'         =>$request->email,
+                //     // 'Birthdate'     =>$request->dob,
+                //     // 'Birthplace'    =>$request->bp,
+                //     // 'Contact'       =>$request->contact,
+                //     // 'Email'         =>$request->email,
+                //     // 'Address'       =>$request->address,
+                //     'created_at'    =>now(),
+                // ]);
+                
+        
+                $state= "Successfully Data Updated.";
+                userlogs::create([
+        
+                    'actor'             =>$request->user()->name,
+                    'state'             =>$state,
+                    'role'              =>$request->user()->role,
+                    'created_at'        =>now(),
+                    
+                ]); 
+                
+                return redirect()->route('dataResource')->with('successs', 'Data has been Updated');
+                // return view('student.editAnnounce')->with('admin',$admin);
+            }
+
+
+
+
+
+
+
+
+
+
     // admin announcement edit && delete
     public function destroyAnnouncement(announcement $announcement)
     {
@@ -370,11 +444,48 @@ class AdController extends Controller
     }
     public function editAnnouncement(announcement $announcement)
     {
+
+
         return view('student.editAnnounce')->with('announcement',$announcement);
     }
-    public function updateAnnouncement(announcement $announcement)
+
+
+
+    public function updateAnnouncement(Request $request, announcement $announcement)
     {
-        return view('student.editAnnounce')->with('announcement',$announcement);
+
+        
+        $image = array();
+        
+        if($request->hasFile('images')){
+            $files = $request->file('images');
+            
+
+            foreach($files as $file)
+            {
+                $image_name = md5($file->getClientOriginalName().rand(1,1000));
+                $ext = strtolower($file->getClientOriginalExtension());
+                $image_full_name = $image_name.'.'.$ext;
+                $upload_path = 'public/multiple_image/';
+                $image_url = $upload_path.$image_full_name;
+                $file->move($upload_path, $image_full_name);
+                $image[] = $image_url;
+            }
+            
+            $announcement->update([
+                'image'     =>implode('|', $image),
+            ]);
+
+        }
+        
+        $announcement->update([
+            'title'         =>$request->title,
+            'content'       =>$request->content,
+            'created_at'    =>now(),
+        ]);
+
+            
+        return redirect()->route('admin.announce')->with('successs', 'hahaha');
     }
     
 }

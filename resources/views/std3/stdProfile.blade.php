@@ -17,7 +17,7 @@
           <div class="box box-primary">
             <div class="box-body box-profile">
               
-              <img class="profile-user-img img-responsive img-circle" src="../../dist/img/avatar5.png" alt="User profile picture">
+              <img class="profile-user-img img-responsive img-circle" src="{{Auth::user()->image}}" alt="User profile picture">
 
               <h3 class="profile-username text-center">{{ Auth::user()->name }}</h3>
 
@@ -95,7 +95,7 @@
                 <!-- Post -->
                 <div class="post">
                   <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="../../dist/img/avatar5.png" alt="user image">
+                    <img class="img-circle img-bordered-sm" src="{{Auth::user()->image}}" alt="user image">
                         <span class="username">
                           <a href="#">{{Auth::user()->name}}</a>
                           <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
@@ -299,12 +299,14 @@
               <!-- /.tab-pane -->
 
               <div class="tab-pane" id="settings">
-                <form class="form-horizontal">
+                <form action="{{route('stdProfile.update')}}" enctype="multipart/form-data" method="POST">
+                  @csrf
+                  @method('PUT')  
                   <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">Name</label>
 
                     <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputName" placeholder="Name" value="{{Auth::user()->name}}">
+                      <input type="text" class="form-control" id="inputName" placeholder="Name" value="{{Auth::user()->name}}">
                     </div>
                   </div>
                   <div class="form-group">
@@ -315,13 +317,13 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Name</label>
+                    <label for="inputName" class="col-sm-2 control-label">Choose a PROFILE</label>
 
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputName" placeholder="Name">
+                      <input type="file" class="form-control" accept="image/png, image/gif, image/jpeg"  name="images[]" id="inputName" placeholder="Name">
                     </div>
                   </div>
-                  <div class="form-group">
+                  {{-- <div class="form-group">
                     <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
 
                     <div class="col-sm-10">
@@ -343,7 +345,7 @@
                         </label>
                       </div>
                     </div>
-                  </div>
+                  </div> --}}
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                       <button type="submit" class="btn btn-danger">Update</button>

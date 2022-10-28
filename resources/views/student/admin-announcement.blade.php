@@ -77,7 +77,7 @@
                                      <form method="POST" action="{{ route('announcement.destroy',$announcement->id) }}"> 
                                       
                                          @csrf
-                                        <a class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#modal-studentView"></a>&nbsp;
+                                        {{-- <a class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#modal-studentView"></a>&nbsp; --}}
                                         <a class="glyphicon glyphicon-pencil" href="{{ route ('announcement.edit',$announcement->id) }}" style="color: green;"></a>&nbsp;
                                         {{ csrf_field() }}
                                         

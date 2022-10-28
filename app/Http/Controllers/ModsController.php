@@ -120,5 +120,42 @@ class ModsController extends Controller
 
     }
 
+
+
+
+    public function updateProfile(Request $request, User $user)
+    {
+        $image = array();
+        
+        if($request->hasFile('images')){
+            $files = $request->file('images');
+            
+
+            foreach($files as $file)
+            {
+                $image_name = md5($file->getClientOriginalName().rand(1,1000));
+                $ext = strtolower($file->getClientOriginalExtension());
+                $image_full_name = $image_name.'.'.$ext;
+                $upload_path = 'public/multiple_image/';
+                $image_url = $upload_path.$image_full_name;
+                $file->move($upload_path, $image_full_name);
+                $image[] = $image_url;
+            }
+            
+            $user->update([
+                'image'     =>implode('|', $image),
+            ]);
+            
+        }
+        $user->update([
+            'name'         =>$request->title,
+            'email'       =>$request->content,
+            'created_at'    =>now(),
+        ]);
+
+            
+        return redirect()->route('student')->with('successs', 'hahaha');    
+    }
+
         
 }

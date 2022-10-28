@@ -70,6 +70,8 @@ use Illuminate\Support\Facades\Auth;
                                                 Route::get('/export-student-CSV',   [StudentController::class, 'exportToCsv'])      ->name('student.getDataCSV');
                                                 Route::delete('/destroy/{student}', [StudentController::class, 'destroy'])          ->name('student.destroy');
                                                 
+
+
                                                 Route::get('/data-announcement',    [AdController::class, 'showAnnouncement'])      ->name('admin.announce');
                                                 Route::get('/data-userlogs',        [StudentController::class, 'logs'])             ->name('logs');
                                                 Route::post('/admin/{student}',     [StudentController::class, 'update'])           ->name('student.update'); 
@@ -77,12 +79,18 @@ use Illuminate\Support\Facades\Auth;
                                                 
 
                                                  // Route::get('/data/student',         [StudentController::class, 'showData'])         ->name('student.sTable');
+                                                // admin edit delete account
+                                                Route::DELETE('/destroy/{admin}',   [AdController::class, 'DestroyAdminAccount'])          ->name('admin.DestroyAdminAccount');
+                                                Route::POST('/update/{admin}',       [AdController::class, 'EditAdminAccount'])             ->name('EditAdminAccount');
+                                                
+
+
 
 
                                                 //  announcement deleted
-                                                Route::delete('/data-announcement/{announcement}',         [AdController::class, 'destroyAnnouncement'])               ->name('announcement.destroy');
-                                                Route::get   ('/data-announcement/edit/{announcement}',    [AdController::class, 'editAnnouncement'])                  ->name('announcement.edit');
-                                                Route::post  ('/data-announcement/update/{student}',       [StudentController::class, 'updateAnnouncement'])           ->name('announcement.update'); 
+                                                Route::DELETE ('/data-announcement/{announcement}',              [AdController::class, 'destroyAnnouncement'])               ->name('announcement.destroy');
+                                                Route::GET    ('/data-announcement/edit/{announcement}',         [AdController::class, 'editAnnouncement'])                  ->name('announcement.edit');
+                                                Route::put   ('/data-announcement/{announcement}',               [AdController::class, 'updateAnnouncement'])                ->name('announcement.update'); 
                                             });     
 
 
@@ -94,6 +102,14 @@ use Illuminate\Support\Facades\Auth;
                                                     Route::get('/',                 [ModsController::class, 'index'])           ->name('student');
                                                     Route::get('/announcements',    [ModsController::class, 'announceByAdm'])   ->name('announcements');
                                                     Route::get('/student-profile',  [ModsController::class, 'stdProfile'])      ->name('stdProfile');
+
+
+
+
+
+                                                    //EDIT PROFILE 
+
+                                                    Route::PUT('/update',         [ModsController::class, 'updateProfile'])      ->name('stdProfile.update');
 
 
 

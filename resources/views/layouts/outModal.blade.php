@@ -132,15 +132,10 @@
                             <input class="form-control input-lg" type="password" name="pw" placeholder="Confirm Password" style="font-family:'Courier New', Courier, monospace;">
                         {{--   --}}
                           </div>
-                          <div class="col-xs-12" style="margin-top:10px;">
+                          <div class="col-xs-12" style="margin-top:10px;" hidden>
                             {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                             {{-- <div class="col-sm-10"> --}}
-                              <select id="gender-select" type="text" name="role" class="form-control input-lg" style="font-family:'Courier New', Courier, monospace;" >
-                                <option value="" hidden>Choose Role</option>
-                                <option value="admin">admin</option>
-                                <option value="student">student</option>
-                                  
-                              </select>
+                              <input class="form-control input-lg" type="text" name="role" value="admin" placeholder="Confirm Password" style="font-family:'Courier New', Courier, monospace;" >
                             </div>
                       </div>
                       <!-- /.box-body -->
