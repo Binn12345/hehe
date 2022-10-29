@@ -9,9 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="icon" href="https://bcpedu.elearningcommons.com/images/favicon-16x16.png" type="image/x-icon">
     
-    <title>
-        BCP
-    </title>  
+    
     <style>
     #customers {
         font-family: Arial, Helvetica, sans-serif;

@@ -51,18 +51,21 @@
                     <tr>
                     <td>{{$admin->id}}</td>
                     <td>{{$admin->user_id}}</td>
-                    <td>{{$admin->Fullname}}</td>
+                    <td>{{$admin->name}}</td>
                     <td>{{$admin->gender}}</td>
                     <td>{{$admin->role}}</td>
                     <td>
                         <form method="POST" action="{{ route('admin.DestroyAdminAccount',$admin->id) }}">
                             @csrf
-                            {{-- <a class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#modal-AdminView"></a>&nbsp; --}}
-                            {{-- <a class="glyphicon glyphicon-pencil" href="{{ route ('student.edit',$admin->key) }}" style="color: green;"></a>&nbsp; --}}
+                            <a class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#modal-AdminView"></a>&nbsp;
+                            <a class="glyphicon glyphicon-pencil" href="{{ route ('student.edit',$admin->id) }}" style="color: green;"></a>&nbsp;
                             {{ csrf_field() }}
                             
-                            {{ method_field('DELETE') }}
-                                <input class="glyphicon glyphicon-trash" type ="submit" value="Delete" style="color: red"></input>
+                            
+                            <a class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#modal-del" style="color:red" ></a>
+                            @include('confirm.modalConfirm')
+                            
+                                {{-- <input class="glyphicon glyphicon-trash" type ="submit" value="Delete" style="color: red"></input> --}}
 
                         </form>
                     <td>

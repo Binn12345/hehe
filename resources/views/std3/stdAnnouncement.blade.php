@@ -1,5 +1,7 @@
 @extends('layouts.index')
-
+<title>
+  BCP - Announcement
+</title>
 @section('content')
 
 
@@ -34,11 +36,13 @@
             
             
             <!-- /.box-header -->
+            @if(!empty($announcements) && $announcements->count()) 
             @foreach ($announcements as $image)
                 @php
                         $images = explode('|', $image->image); 
                 @endphp
               <br>
+              
                 <div class="box-body">
                   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -46,11 +50,12 @@
                       <li data-target="#carousel-example-generic" data-slide-to="1" class=" "></li>
                       <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
                       <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li> --}}
+                     
                       @foreach ($images as $key => $item)
                         <li data-target="#carousel-example-generic" data-slide-to="{{$key}}" class="{{$key==0 ? 'active' : ''}}"></li>
                       @endforeach
                     </ol>
-                    
+                     
                     <div class="carousel-inner">
                       @foreach($images as $key => $item)
                       <div class="item {{ $key == 0 ? 'active' : ''}}">
@@ -68,7 +73,7 @@
                         <img class="img-circle img-bordered-sm" src="../../dist/img/avatar5.png" alt="user image">
                             <span class="username">
                               <a href="#">{{$image->actRole}}.</a>
-                              <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                              <a href="#" class="pull-right btn-box-tool"><i class="f"></i></a>
                             </span>
                         <span class="description">Shared publicly - {{$image->created_at}}</span>
                       </div>
@@ -87,36 +92,17 @@
 
                       <input class="form-control input-sm" type="text" placeholder="Type a comment">
                     </div>
-
-                    {{-- <span>
-                      <label>
-                        Posted by  : 
-                      </label>
-                    </span>
-                    <label>{{$image->actRole}}</label><br>
-                    <span>
-                      <label>
-                        Content  : 
-                      </label>
-                    </span>
-                    <label>{{$image->actRole}}</label><br>
-                    <span>
-                      <label>
-                        Date Posted : 
-                      </label>
-                    </span>
-                    <label>{{$image->created_at}}</label> --}}
-                
-                  
-                    {{-- <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                      <span class="fa fa-angle-left"></span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                      <span class="fa fa-angle-right"></span>
-                    </a> --}}
                   </div>
             @endforeach
-              
+            @else
+            <div class="callout callout-danger" style="margin-top:100px; padding: 50px;">
+                        
+    
+              <center>
+                  <p>There are no more announcements to show right now  .</p>   
+              </center>
+            </div>
+            @endif
             </div>
                
             <!-- /.box-body -->

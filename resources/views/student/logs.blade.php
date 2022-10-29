@@ -16,18 +16,18 @@
         </ol>
     </section> --}}
 
-<div class = "content-wrapper">
-    <section class="content-header">
+<div class = "content-wrapper" style="font-size: 10px;">
+    <section class="content-header"style="font-size: 10px;">
         <div class="row">
           <div class="col-xs-12">
             
   
             <div class="box">
  
-              <div class="box-body">
+              <div class="box-body" style="font-size: 10px;">
                 <table id="example2" class="table table-bordered table-striped">
                   <thead>
-                  <tr>
+                  <tr style="font-size: 10px;">
                     <th>Actor</th>
                     <th>State</th>
                     <th>Role</th>
@@ -36,7 +36,7 @@
                   </tr>
                   </thead>
                   @foreach($students as $student)
-                        <tbody>
+                        <tbody style="font-size: 10px;">
                             <tr>
                                 <td>{{$student->actor}}</td>
                                 <td>{{$student->state}}</td>

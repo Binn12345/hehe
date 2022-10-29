@@ -18,103 +18,119 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-                                            Auth::routes();
-                                            // Route::get('test', [testHelperController::class , 'index']);
-                                            Route::post('student_/register/', 'StudentController@store')->name('student.store'); 
-                                            Route::get('/student/registration', 'StudentRegisterController@studRegis')->name('student.cre');  
-                                            
-                                            
-                                            Route::get('/', 'bugController@bug')->name('bug');
-                                            
+            Auth::routes();
+            // Route::get('test', [testHelperController::class , 'index']);
+            Route::post('student_/register/', 'StudentController@store')->name('student.store'); 
+            Route::get('/student/registration', 'StudentRegisterController@studRegis')->name('student.cre');  
+            
+            
+            Route::get('/', 'bugController@bug')->name('bug');
+            
 
 
-                                           
-                                            Route::get('test', [testHelperController::class , 'index']);  
-                                            
-                                            //adminSIDE
-                                            Route::prefix('admin')->middleware(['auth','isCheckk'])->group(function()
-                                            {
-                                                
-                                                Route::get('/',                      [AdController::class, 'index'])            ->name('home');
-                                                Route::post('/registers',            [AdController::class, 'adminStore'])       ->name('admin.store');
-                                                Route::get('/data-resources',        [AdController::class, 'showAdmin'])        ->name('dataResource');
-                                                Route::post('/announcement/posted/', [AdController::class, 'announce'])         ->name('announcement');
-                                                Route::get('/register/account/',     [AdController::class, 'StdAcct'])          ->name('stdReg');
-                                                Route::get('/data/student',          [AdController::class, 'showStudent'])       ->name('student.sTable');
-                                                Route::get('/edit/student',          [AdController::class, 'editStudent'])        ->name('admin.edit');
+            
+            Route::get('test', [testHelperController::class , 'index']);  
+            
+            //adminSIDE
+            Route::prefix('admin')->middleware(['auth','isCheckk'])->group(function()
+            {
+                
+                Route::get('/',                      [AdController::class, 'index'])            ->name('home');
+                Route::post('/registers',            [AdController::class, 'adminStore'])       ->name('admin.store');
+                Route::get('/data-resources',        [AdController::class, 'showAdmin'])        ->name('dataResource');
+                Route::post('/announcement/posted/', [AdController::class, 'announce'])         ->name('announcement');
+                Route::get('/register/account/',     [AdController::class, 'StdAcct'])          ->name('stdReg');
+                Route::get('/data/student',          [AdController::class, 'showStudent'])       ->name('student.sTable');
+                Route::get('/edit/student',          [AdController::class, 'editStudent'])        ->name('admin.edit');
 
 
-                                                
+                
 
-                                                Route::post('/store',               [AdController::class, 'studStore'])          ->name('student.studStore');
+                Route::post('/store',               [AdController::class, 'studStore'])          ->name('student.studStore');
 
-                                                //student
-                                                Route::post('/update/{student}',    [AdController::class, 'updatee'])           ->name('studentt.update'); 
+                //student
+                Route::post('/update/{student}',    [AdController::class, 'updatee'])           ->name('studentt.update'); 
 
-                                                
+                
 
-                                                
-
-
-                                                Route::get('/edit/{student}',       [AdController::class, 'edit'])             ->name('student.edit');
-                                                Route::get('/download-data.pdf',    [AdController::class, 'getDataPDF'])       ->name('student.getDataPDF');
-                                                Route::get('/export-student-excel', [StudentController::class, 'exportToExcel'])    ->name('student.getDataEXCEL');
+                
 
 
-                                                
-                                                Route::get('/get-create',           [StudentController::class, 'create'])           ->name('student.create');
-                                                Route::post('/import',              [StudentController::class, 'import'])           ->name('import');
-                                               
-                                                
-                                                
-                                                Route::get('/export-student-CSV',   [StudentController::class, 'exportToCsv'])      ->name('student.getDataCSV');
-                                                Route::delete('/destroy/{student}', [StudentController::class, 'destroy'])          ->name('student.destroy');
-                                                
+                Route::get('/edit/{student}',       [AdController::class, 'edit'])             ->name('student.edit');
+                Route::get('/download-data.pdf',    [AdController::class, 'getDataPDF'])       ->name('student.getDataPDF');
+                Route::get('/export-student-excel', [StudentController::class, 'exportToExcel'])    ->name('student.getDataEXCEL');
 
 
-                                                Route::get('/data-announcement',    [AdController::class, 'showAnnouncement'])      ->name('admin.announce');
-                                                Route::get('/data-userlogs',        [StudentController::class, 'logs'])             ->name('logs');
-                                                Route::post('/admin/{student}',     [StudentController::class, 'update'])           ->name('student.update'); 
+                
+                Route::get('/get-create',           [StudentController::class, 'create'])           ->name('student.create');
+                Route::post('/import',              [StudentController::class, 'import'])           ->name('import');
+                
+                
+                
+                Route::get('/export-student-CSV',   [StudentController::class, 'exportToCsv'])      ->name('student.getDataCSV');
+                // Route::delete('/destroy/{student}', [StudentController::class, 'destroy'])          ->name('student.destroy');
+                
 
-                                                
 
-                                                 // Route::get('/data/student',         [StudentController::class, 'showData'])         ->name('student.sTable');
-                                                // admin edit delete account
-                                                Route::DELETE('/destroy/{admin}',   [AdController::class, 'DestroyAdminAccount'])          ->name('admin.DestroyAdminAccount');
-                                                Route::POST('/update/{admin}',       [AdController::class, 'EditAdminAccount'])             ->name('EditAdminAccount');
-                                                
+                Route::get('/data-announcement',    [AdController::class, 'showAnnouncement'])      ->name('admin.announce');
+                Route::get('/data-userlogs',        [StudentController::class, 'logs'])             ->name('logs');
+                Route::post('/admin/{student}',     [StudentController::class, 'update'])           ->name('student.update'); 
+
+                
+
+                //  Route::get('/data/student',         [StudentController::class, 'showData'])         ->name('student.sTable');  
+                
 
 
 
-
-                                                //  announcement deleted
-                                                Route::DELETE ('/data-announcement/{announcement}',              [AdController::class, 'destroyAnnouncement'])               ->name('announcement.destroy');
-                                                Route::GET    ('/data-announcement/edit/{announcement}',         [AdController::class, 'editAnnouncement'])                  ->name('announcement.edit');
-                                                Route::put   ('/data-announcement/{announcement}',               [AdController::class, 'updateAnnouncement'])                ->name('announcement.update'); 
-                                            });     
+                // admin edit delete account
+                Route::DELETE('/destroy/{admin}',   [AdController::class, 'destroy'])                       ->name('admin.DestroyAdminAccount');
+                Route::POST('/update/{admin}',      [AdController::class, 'EditAdminAccount'])             ->name('EditAdminAccount');
+                
 
 
-                                            // studentSIDE
-                                            Route::prefix('student')->middleware(['auth','checkUser'])->group(function()
-                                            {
-                                                    
-                                                    
-                                                    Route::get('/',                 [ModsController::class, 'index'])           ->name('student');
-                                                    Route::get('/announcements',    [ModsController::class, 'announceByAdm'])   ->name('announcements');
-                                                    Route::get('/student-profile',  [ModsController::class, 'stdProfile'])      ->name('stdProfile');
+
+
+                //  announcement deleted
+                Route::DELETE ('/data-announcement/{announcement}',              [AdController::class, 'destroyAnnouncement'])     ->name('announcement.destroy');
+                Route::GET    ('/data-announcement/edit/{announcement}',         [AdController::class, 'editAnnouncement'   ])     ->name('announcement.edit');
+                Route::put    ('/data-announcement/{announcement}',              [AdController::class, 'updateAnnouncement' ])      ->name('announcement.update');
+                
+                
 
 
 
 
 
-                                                    //EDIT PROFILE 
-
-                                                    Route::PUT('/update',         [ModsController::class, 'updateProfile'])      ->name('stdProfile.update');
-
+                // ADMIN DESTROY,EDIT, VIEW STUDENT ACCOUNT
+                Route::DELETE('/destroy/STUDENT/{student}',           [AdController::class, 'destroyStudent'])                       ->name('admin.DestroyStudentAccount');
 
 
 
-                                            });
+            });     
+
+
+            // studentSIDE
+            Route::prefix('student')->middleware(['auth','checkUser'])->group(function()
+            {
+                    
+                    
+                    Route::get('/',                 [ModsController::class, 'index'])           ->name('student');
+                    Route::get('/announcements',    [ModsController::class, 'announceByAdm'])   ->name('announcements');
+                    Route::get('/student-profile',  [ModsController::class, 'stdProfile'])      ->name('stdProfile');
+
+
+
+
+
+                    //EDIT PROFILE 
+
+                    Route::PUT('/update',         [ModsController::class, 'updateProfile'])      ->name('stdProfile.update');
+
+
+
+
+            });
 
 
 

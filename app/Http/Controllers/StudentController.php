@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Students;
 use App\User;
+use App\studentModel;
 use App\Stud;
 use App\announcement;
 use App\Exports\StudentExport;
@@ -116,25 +117,25 @@ class StudentController extends Controller
         return view('create');
     }
 
-    public function destroy(Students $student)
-    {
+        // public function destroy(Students $student)
+        // {
 
-        $student->delete();
-        // $student->delete('DELETE users,data
-        // FROM users
-        // INNER JOIN data
-        // ON
-        // users.KEY = data.KEY
-        // WHERE 
-        // users.key = ? AND data.key = ?');
+        //     $student->delete();
+        //     // $student->delete('DELETE users,data
+        //     // FROM users
+        //     // INNER JOIN data
+        //     // ON
+        //     // users.KEY = data.KEY
+        //     // WHERE 
+        //     // users.key = ? AND data.key = ?');
 
-        // $students = DB::table('users','data')
-        // ->select('users.id','users.user_id','name','gender','role')
-        // ->join('data','users.key','data.key')
-        // ->where('role', '=', 'student')
-        // ->get();
-        return redirect()->back()->with('successs', 'Data has been deleted');
-    }
+        //     // $students = DB::table('users','data')
+        //     // ->select('users.id','users.user_id','name','gender','role')
+        //     // ->join('data','users.key','data.key')
+        //     // ->where('role', '=', 'student')
+        //     // ->get();
+        //     return redirect()->back()->with('successs', 'Data has been deleted');
+        // }
     
     public function edit(Students $student)
     {
@@ -164,48 +165,37 @@ class StudentController extends Controller
         $b = "";
         $b = $x;
         $year = date("Y").'A';
-        $userID = Helper::IDGenerator(new Stud, 'user_id', 5, $year);
+        $userID = Helper::IDGenerator(new studentModel, 'user_id', 5, $year);
         
-        
-        Students::create([
 
-            'Fullname'      =>$request->fname . " " .$request->mname . " " . $request->lname,
+
+       User::create([
+            'name'          =>$request->fname . " " .$request->mname . " " . $request->lname,
+            'email'         =>$request->email,
+            'password'      =>bcrypt($request->username.$request->lname),
+            'username'      =>$request->username,
             'firstname'     =>$request->fname,
             'middlename'    =>$request->mname,
             'lastname'      =>$request->lname,
-            // 'username'      =>$request-
-            'password'      =>$request->pw,     
             'age'           =>$request->age,
-            'Gender'        =>$request->gender,
-            'Birthdate'     =>$request->dob,
-            'Birthplace'    =>$request->bp,
-            'Contact'       =>$request->contact,
-            'Email'         =>$request->email,
-            'Address'       =>$request->address,
+            'gender'        =>$request->gender,
+            'birthdate'     =>$request->dob,
+            'birthplace'    =>$request->bp,
+            'contact'       =>$request->contact,
+            'email'         =>$request->email,
+            'address'       =>$request->address,
             'created_at'    =>now(),
+            'role'          =>'student',
             'key'           =>$b,
-            // 'user_id' => $year.$userID,
-        ]);
-
-       User::create([
-            'name' => $request->fname . " " .$request->mname . " " . $request->lname,
-            'email' => $request->email,
-            'password' => bcrypt($request->username.$request->lname),
-            'username' => $request->username,
-            'role'  => 'student',
-            'key'   => $b,
             // 'user_id' => $userID,
             
             
         ]);
-        Stud::create([
-            'name' => $request->fname . " " .$request->mname . " " . $request->lname,
-            'email' => $request->email,
-            'password' => bcrypt($request->username.$request->lname),
-            'username' => $request->username,
-            'role'  => 'student',
-            'key'   => $b,
-            'user_id' => $userID,
+        studentModel::create([
+            'key'          =>$b,
+            'role'         =>'student',
+            'user_id'      => $userID,
+            'created_at'    =>now(),    
             
             
         ]);
@@ -305,18 +295,18 @@ class StudentController extends Controller
         
     }
     //showStudentdata
-    public function showData()
-    {
-        // $students = Students::all();    
-        $students = DB::table('student')
-        ->select('student.id','student.user_id','name','gender','role')
-        ->join('data','student.key','data.key')
-        ->where('role', '=', 'student')
-        ->get();
+    // public function showData()
+    // {
+    //     // $students = Students::all();    
+    //     $students = DB::table('student')
+    //     ->select('student.id','student.user_id','users.name','gender','age','student.role')
+    //     ->join('users','student.key','users.key')
+    //     ->where('users.role', '=', 'student')
+    //     ->get();
 
-        return view('dtable', compact('students','students'));
-        // return view('home', compact('students','students'));
-    }
+    //     return view('dtable', compact('students','students'));
+    //     // return view('home', compact('students','students'));
+    // }
 
 
 }

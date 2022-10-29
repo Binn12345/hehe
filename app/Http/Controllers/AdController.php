@@ -8,6 +8,7 @@ use App\Students;
 use App\User;
 use App\Admin;
 use App\Stud;
+use App\studentModel;
 use App\userlogs;
 use App\announcement;
 use App\Exports\StudentExport;
@@ -74,7 +75,7 @@ class AdController extends Controller
         ]);  
 
 
-        $categories = Stud::count();
+        $categories = studentModel::count();
         $cat        = userlogs::count();
 
 
@@ -133,61 +134,72 @@ class AdController extends Controller
      
     public function adminStore(Request $request)
      {
+        // $user = User::select('id')->where->("id",)->get();
+        // dd($user);
+        // dd($user[6]->id);
          $x = rand();
          $c = "";
          $c = $x;
          $year = date("Y").'M';
          $userID = Helper::IDGenerator(new Admin, 'user_id', 5, $year);
-         Students::create([
+        //  Students::create([
  
-             'Fullname'      =>$request->firstname . " " .$request->middlename . " " . $request->lastname,
-             'firstname'     =>$request->firstname,
-             'middlename'    =>$request->middlename,
-             'lastname'      =>$request->lastname,
-             // 'username'      =>$request-
-             'password'      =>$request->password,
-             'age'           =>$request->age,
-             'Gender'        =>$request->gen,
-             'Birthdate'     =>$request->dobb,
-             'Birthplace'    =>$request->bip,
-             'Contact'       =>$request->cont,
-             'Email'         =>$request->emaild,
-             'Address'       =>$request->add,
-             'key'           =>$c,
-             'created_at'    =>now(),
+        //      'Fullname'      =>$request->firstname . " " .$request->middlename . " " . $request->lastname,
+        //      'firstname'     =>$request->firstname,
+        //      'middlename'    =>$request->middlename,
+        //      'lastname'      =>$request->lastname,
+        //      // 'username'      =>$request-
+        //      'password'      =>$request->password,
+        //      'age'           =>$request->age,
+        //      'Gender'        =>$request->gen,
+        //      'Birthdate'     =>$request->dobb,
+        //      'Birthplace'    =>$request->bip,
+        //      'Contact'       =>$request->cont,
+        //      'Email'         =>$request->emaild,
+        //      'Address'       =>$request->add,
+        //      'key'           =>$c,
+        //      'created_at'    =>now(),
 
              
-         ]);
+        //  ]);
  
  
     
-         Admin::create([
-             'name' => $request->firstname . " " .$request->middlename . " " . $request->lastname,
-             'email' => $request->emaild,
-             'password' => bcrypt($request->pw),
-             'username' => $request->username,
-             'role'  => $request->role,
-             'key'   => $c,
-             'user_id' => $userID,
-             
-         ]);
-       
+         
     
 
 
    
         User::create([
-            'name' => $request->firstname . " " .$request->middlename . " " . $request->lastname,
-            'email' => $request->emaild,
-            'password' => bcrypt($request->pw),
-            'username' => $request->username,
-            'role'  => $request->role,
-            'key'   => $c,
+            'name'          =>$request->firstname . " " .$request->middlename . " " . $request->lastname,
+            'email'         =>$request->emaild,
+            'password'      =>bcrypt($request->pw),
+            // 'username' => $request->username,
+            'firstname'     =>$request->firstname,
+            'middlename'    =>$request->middlename,
+            'lastname'      =>$request->lastname,
+            'age'           =>$request->age,
+            'gender'        =>$request->gen,
+            'birthdate'     =>$request->dobb,
+            'birthplace'    =>$request->bip,
+            'contact'       =>$request->cont,
+            'email'         =>$request->emaild,
+            'address'       =>$request->add,
+            'role'          => $request->role,
+            'key'           => $c,
             // 'user_id' => $userID,
             
         ]);
 
-
+        Admin::create([
+            
+            'role'       => $request->role,
+            'key'        => $c,
+            'user_id'    => $userID,
+            'created_at' =>now(),
+            
+        ]);
+      
 
         $state= "ADMIN ACCOUNT is successfully created!";
         userlogs::create([
@@ -209,9 +221,9 @@ class AdController extends Controller
      {
         // $students = Students::all();    
         $admins = DB::table('admin')
-        ->select('admin.id','admin.user_id','data.Fullname','gender','role')
-        ->join('data','admin.key','data.key')
-        ->where('role', '=', 'admin')
+        ->select('admin.id','admin.user_id','users.name','gender','users.role','admin.key')
+        ->join('users','admin.key','users.key')
+        ->where('users.role', '=', 'admin')
         ->get();
 
         return view('student.adminData', compact('admins','admins'));
@@ -230,11 +242,10 @@ class AdController extends Controller
     // }
     public function showStudent()
     {
-        // $students = Students::all();    
         $students = DB::table('student')
-        ->select('student.id','student.user_id','name','gender','role','age')
-        ->join('data','student.key','data.key')
-        ->where('role', '=', 'student')
+        ->select('student.id','student.user_id','users.name','gender','age','student.role')
+        ->join('users','student.key','users.key')
+        ->where('users.role', '=', 'student')
         ->get();
 
         return view('dtable', compact('students','students'));
@@ -304,54 +315,68 @@ class AdController extends Controller
         return view('student.editAdmin')->with('student',$student);
     }
 
+
+
+
+
+
+
     public function studStore(Request $request)
     {
         $x = rand();
         $b = "";
         $b = $x;
         $year = date("Y").'A';
-        $userID = Helper::IDGenerator(new Stud, 'user_id', 5, $year);
+        $userID = Helper::IDGenerator(new studentModel, 'user_id', 5, $year);
         
         
-        Students::create([
+        // Students::create([
 
-            'Fullname'      =>$request->fname . " " .$request->mname . " " . $request->lname,
-            'firstname'     =>$request->fname,
-            'middlename'    =>$request->mname,
-            'lastname'      =>$request->lname,
-            // 'username'      =>$request-
-            'password'      =>$request->pw,     
-            'age'           =>$request->age,
-            'Gender'        =>$request->gender,
-            'Birthdate'     =>$request->dob,
-            'Birthplace'    =>$request->bp,
-            'Contact'       =>$request->contact,
-            'Email'         =>$request->email,
-            'Address'       =>$request->address,
-            'created_at'    =>now(),
-            'key'           =>$b,
-            // 'user_id' => $year.$userID,
-        ]);
+        //     'Fullname'      =>$request->fname . " " .$request->mname . " " . $request->lname,
+        //     'firstname'     =>$request->fname,
+        //     'middlename'    =>$request->mname,
+        //     'lastname'      =>$request->lname,
+        //     // 'username'      =>$request-
+        //     'password'      =>$request->pw,     
+        //     'age'           =>$request->age,
+        //     'Gender'        =>$request->gender,
+        //     'Birthdate'     =>$request->dob,
+        //     'Birthplace'    =>$request->bp,
+        //     'Contact'       =>$request->contact,
+        //     'Email'         =>$request->email,
+        //     'Address'       =>$request->address,
+        //     'created_at'    =>now(),
+        //     'key'           =>$b,
+        //     // 'user_id' => $year.$userID,
+        // ]);
 
        User::create([
             'name' => $request->fname . " " .$request->mname . " " . $request->lname,
             'email' => $request->email,
             'password' => bcrypt($request->username.$request->lname),
             'username' => $request->username,
-            'role'  => 'student',
-            'key'   => $b,
+            'firstname'     =>$request->fname,
+            'middlename'    =>$request->mname,
+            'lastname'      =>$request->Lname,
+            'age'           =>$request->age,
+            'gender'        =>$request->gender,
+            'birthdate'     =>$request->dob,
+            'birthplace'    =>$request->bp,
+            'contact'       =>$request->contact,
+            'email'         =>$request->email,
+            'address'       =>$request->address,
+            'role'          =>'student',
+            'key'           => $b,
+            'created_at'    =>now(),
             // 'user_id' => $userID,
             
             
         ]);
-        Stud::create([
-            'name' => $request->fname . " " .$request->mname . " " . $request->lname,
-            'email' => $request->email,
-            'password' => bcrypt($request->username.$request->lname),
-            'username' => $request->username,
-            'role'  => 'student',
-            'key'   => $b,
-            'user_id' => $userID,
+        studentModel::create([
+            'key'          =>$b,
+            'role'         =>'student',
+            'user_id'      => $userID,
+            'created_at'    =>now(),    
             
             
         ]);
@@ -362,20 +387,21 @@ class AdController extends Controller
 
 
 
-    //student Panel
+  //student Panel
 
 
 
 
-        // ACCOUNT ADMIN EDIT DELETE
-           public function DestroyAdminAccount(Admin $admin)
+        // ACCOUNT ADMIN EDIT DELETE    
+           public function destroy(Admin $admin)
             {
             
-                $admin_id = $admin->key;
-                $user = Students::where("key", $admin_id)->first();
-                $admin_id->delete();
-                $user->delete();
-                // return redirect()->back()->with('successs', 'Data has been deleted');
+                $adminn     = $admin->key;
+                $user       = User::where('key', $adminn)->first();
+                
+                $user           ->delete();
+                $admin          ->delete();
+                return back()->with('successs', 'Data has been deleted');
             }
 
             public function EditAdminAccount(Admin $admin)
@@ -487,5 +513,20 @@ class AdController extends Controller
             
         return redirect()->route('admin.announce')->with('successs', 'hahaha');
     }
+
+
+
+    // ADMIN CONTROL STUDENT EDIT VIEW DELETE PANEL
+    public function destroyStudent(studentModel $student)
+    {
+        $studentt     = $student->key;
+        $users       = User::where('key', $studentt)->first();
+        
+        $users            ->delete();
+        $student         ->delete();
+        
+        return back()->with('successs', 'Data has been deleted');
+    }
+
     
 }

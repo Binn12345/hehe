@@ -4,9 +4,10 @@
 
 
 @include('layouts.outModal')
-<div class="content-wrapper" >
+<div class="content-wrapper"  style="font-size:10px;
+font-family:'Times New Roman', Times, serif" >
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header" >
         
       <h1>Student Data</h1>
       <div class = " ">
@@ -34,16 +35,15 @@
     </section>
     <br>
     
-<section class="content" style="margin-top:30px;">
-        <div class="box" style="margin-top: 10px;">
+<section class="content" style="margin-top:40px;">
+        <div class="box" style="margin-top: 40px;">
             <div class="box-header">
                 <h3 class="box-title"></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <div class="table-responsive-lg">
-                    <table class="table" style="font-size:10px;
-                                                font-family:'Times New Roman', Times, serif">   
+                <div class="table-responsive-lg" style="margin-bottom: 50px;">
+                    <table class="table">   
                 <tr>
                     {{-- @php
                     dd($students);    
@@ -59,21 +59,21 @@
             @foreach($students as $student)
                 <tbody>
                     <tr>
-                    <td>{{$student->user_id}}</td>
+                    <td>{{$student->id}}</td>
                     <td>{{$student->name}}</td>
                     <td>{{$student->age}}</td>
                     <td>{{$student->gender}}</td>
                     <td>{{$student->role}}</td>
                    
                     <td>
-                        <form method="POST" action="{{ route('student.destroy',$student->id) }}">
+                        <form method="POST" action="{{ route('admin.DestroyStudentAccount',$student->id) }}">
                             @csrf
                             <a class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#modal-studentView"></a>&nbsp;
                             <a class="glyphicon glyphicon-pencil" href="{{ route ('student.edit',$student->id) }}" style="color: green;"></a>&nbsp;
                             {{ csrf_field() }}
                             
-                            {{ method_field('DELETE') }}
-                                <a class="glyphicon glyphicon-trash" type ="submit" value="Delete" style="color: red"></a>
+                            <a class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#modal-Studentdel" style="color:red" ></a>
+                            @include('confirm.modalConfirm2')
 
                         </form>
                     <td>
@@ -82,11 +82,11 @@
             @else
             <tr>
                 <td colspan="10">
-                    <div class="callout callout-danger" style="margin-top:10px;">
+                    <div class="callout callout-danger" style="margin-top:15px; padding:40px">
                         
     
                     <center>
-                        <p>No data Found.</p>   
+                        <p>No Student Records Found.</p>   
                     </center>
                   </div>
                 </td> 
