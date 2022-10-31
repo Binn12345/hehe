@@ -59,7 +59,9 @@
                     <div class="carousel-inner">
                       @foreach($images as $key => $item)
                       <div class="item {{ $key == 0 ? 'active' : ''}}">
-                        <img src ="{{URL::to($item)}}">
+
+                        <center><img src ="{{URL::to($item)}}"></center>
+                       
                       </div>
 
                       @endforeach
