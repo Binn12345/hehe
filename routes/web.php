@@ -121,11 +121,10 @@ use Illuminate\Support\Facades\Auth;
 
 
 
+                    Route::get('/access/modules/',  [ModsController::class, 'modules'])         ->name('modules');
 
-
-                    //EDIT PROFILE 
-
-                    Route::PUT('/update',         [ModsController::class, 'updateProfile'])      ->name('stdProfile.update');
+                    //EDIT PROFILE  
+                    Route::PUT('/update',           [ModsController::class, 'updateProfile'])      ->name('stdProfile.update');
 
 
 

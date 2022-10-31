@@ -30,7 +30,7 @@
     <div class="container" style="margin-top: 15vh;">
         <div class="justify-content-center">
             <div class="col-lg-12">
-
+              
                 {{-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
                   Launch Default Modal
                 </button> --}}
@@ -111,6 +111,9 @@
                   <!-- /.modal-content -->
                 </div>
               </div>
+
+
+              
               {{-- <a type="button" href="{{route('login')}}" class="btn btn-primary btn-block" style="margin-top: 20vh;
                 color: rgb(249, 247, 247);   padding-top: 20px;
                 padding-bottom: 20px;

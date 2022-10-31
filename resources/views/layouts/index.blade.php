@@ -11,7 +11,7 @@
 
 <body class="hold-transition skin-blue sidebar-mini">
     
-<div class = "wrapper" >
+<div class = "wrapper">
     @include('inc3.outModal')
     @include('inc3.navbar')
     @include('inc3.sidebar')

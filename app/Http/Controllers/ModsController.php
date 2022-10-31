@@ -157,5 +157,11 @@ class ModsController extends Controller
         return redirect()->route('student')->with('successs', 'hahaha');    
     }
 
+
+    public function modules()
+    {
+        return view('std3.modules.access')->with('successs','access success');  
+    }     
+    
         
 }

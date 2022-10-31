@@ -38,7 +38,14 @@
           <li><a href="{{route ('announcements') }}"><i class="fa fa-bell"></i> Announcement</a></li>
         </ul>
       </li>
-      
+      <li>
+        <a href="{{Route('modules')}}">
+          <i class="fa fa-book"></i> <span>Modules</span>
+          <span class="pull-right-container">
+            <small class="label pull-right bg-blue">new</small>
+          </span>
+        </a>
+      </li>
       <li>
         <a href="{{Route('stdProfile')}}">
           <i class="fa fa-user"></i> <span>Profile</span>
@@ -47,6 +54,7 @@
           </span>
         </a>
       </li>
+      
 
     </ul>
   </section>
