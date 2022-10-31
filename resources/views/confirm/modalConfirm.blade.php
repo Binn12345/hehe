@@ -10,7 +10,7 @@
           <div class="alert alert-danger alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fa fa-info"></i> Opsxx !</h5>
-            If you delete this data, you will no longer to view this data.
+            If you delete this data, this will be permanently.
             <p style="font-size:1rem;"> Are you sure ? &hellip;</p>
           </div>
           
