@@ -19,8 +19,7 @@
             <div class="modal-footer">
             {{ method_field('DELETE') }}
             <input class="btn btn-primary" type ="submit" VALUE="Yes"></input>
-            {{-- <button type="button" class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();" >Yes</button> --}}
+            
             </div>
         </form>
       </div>
