@@ -4,6 +4,8 @@ namespace App\Imports;
 
 use App\Students;
 use App\User;
+use App\studentModel;
+use App\Helpers\Helper; 
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
@@ -16,25 +18,38 @@ class StudentImport implements ToModel,WithHeadingRow
     */
     public function model(array $row)
     {
+        $x = rand();
+        $b = "";
+        $b = $x;
+        $year = date("Y").'A';
+        $userID = Helper::IDGenerator(new studentModel, 'student_no', 5, $year);
+
         return [
-            new Students([
-                "Fullname" => $row["fullname"],
-                "Gender" => $row["gender"],
-                "Birthdate" => date("Y-m-d",strtotime($row["birthdate"])),
-                "Birthplace" => $row["birthplace"],
-                "Contact" => $row["contact"],
-                "Email" => $row["email"],
-                "Address" => $row["address"],
-                "firstname" =>$row['firstname'],
-                "middlename" =>$row['middlename'],
-                "lastname"   =>$row['lastname'],
+            new studentModel([
+                'key'  => $b,
+                'student_no' => $userID,
+                'role' => 'student',
             ]),
             User::create([
-                'name' => $row["fullname"],
-                'email' => $row["email"],
-                'password' => bcrypt($row["lastname"]."excel"),
-                'username' => '123asas',
+                'name' => $row['fullname'], 
+                'email' => $row['email'],
+                'firstname' =>$row['firstname'],
+                'age'        =>$row['age'],
+                'middlename' =>$row['middlename'],
+                'gender'   => $row['gender'],
+                'birthdate' =>  date("Y-m-d",strtotime($row["birthdate"])),
+                'birthplace' => $row["birthplace"],
+                'username' => $row['username'],
+                'lastname' => $row['lastname'],
+                'password' => bcrypt($row['username'].$row['lastname']),
+                // 'username' => $row['username'],
+                'contact'   => $row['contact'],
+                'address' => $row['address'],
                 'role'  => 'student',
+                'key'       => $b,
+                // 'firstname'  =>$row['firstname'],
+                // 'middlename' =>$row['middlename'],
+                
                 
             ])
             ];

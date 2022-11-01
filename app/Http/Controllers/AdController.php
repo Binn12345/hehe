@@ -242,9 +242,9 @@ class AdController extends Controller
     // }
     public function showStudent()
     {
-        $students = DB::table('student')
-        ->select('student.id','student.user_id','users.name','gender','age','student.role')
-        ->join('users','student.key','users.key')
+        $students = DB::table('users')
+        ->select('student.id','student.student_no','users.name','gender','age','student.role')
+        ->join('student','student.key','users.key')
         ->where('users.role', '=', 'student')
         ->get();
 
@@ -294,9 +294,9 @@ class AdController extends Controller
 
     public function getDataPDF()
     {
-        // $students = Students::all();
+        // $students = Students::all();     
         $students = DB::table('student')
-        ->select('student.id','student.user_id','users.name','gender','address','contact','users.birthdate','users.email')
+        ->select('student.id','student.student_no','users.name','gender','address','contact','users.birthdate','users.email','users.birthplace','users.username','users.lastname')
         ->join('users','student.key','users.key')
         ->where('users.role', '=', 'student')
         ->get();
@@ -305,8 +305,9 @@ class AdController extends Controller
         return $pdf->download('student-data.pdf');
     }
 
-    public function edit(Students $student)
+    public function edit(User $student)
     {
+       
         return view('student.edit')->with('student',$student);
     }
      
@@ -327,7 +328,7 @@ class AdController extends Controller
         $b = "";
         $b = $x;
         $year = date("Y").'A';
-        $userID = Helper::IDGenerator(new studentModel, 'user_id', 5, $year);
+        $userID = Helper::IDGenerator(new studentModel, 'student_no', 5, $year);
         
         
         // Students::create([
@@ -357,7 +358,7 @@ class AdController extends Controller
             'username' => $request->username,
             'firstname'     =>$request->fname,
             'middlename'    =>$request->mname,
-            'lastname'      =>$request->Lname,
+            'lastname'      =>$request->lname,
             'age'           =>$request->age,
             'gender'        =>$request->gender,
             'birthdate'     =>$request->dob,
@@ -375,12 +376,12 @@ class AdController extends Controller
         studentModel::create([
             'key'          =>$b,
             'role'         =>'student',
-            'user_id'      => $userID,
+            'student_no'      => $userID,
             'created_at'    =>now(),    
             
             
         ]);
-        return redirect()->route('student.sTable')->with('successs', 'Your account has been successfully created.');
+        return redirect()->route('student.sTable')->with('successs', 'Student account has been successfully added.');
     }
 
 
@@ -457,7 +458,11 @@ class AdController extends Controller
 
 
 
-
+            public function import(Request $request)
+            {
+                Excel::import(new StudentImport, $request->file);
+                return redirect()->route('student.sTable')->with('successs', 'Data has been Updated');;
+            }
 
 
 

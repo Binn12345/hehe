@@ -3,7 +3,9 @@
 namespace App\Exports;
 use App\Students;
 use App\User;
+use App\studentModel;
 use App\StudentExcel;
+
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
@@ -13,11 +15,21 @@ class StudentExport implements FromCollection,WithHeadings
         return [
             
 
-            'SNO',
+            'Student No.',
             'Fullname',
             'Gender',
             'Address',
             'Age',
+            'Birthdate',
+            'Birthplace',   
+            'Contact',
+            'Username',
+            'Email',
+            'Firstname',
+            'Middlename',
+            'Lastname',
+            
+            
 
            
         ];
@@ -27,7 +39,7 @@ class StudentExport implements FromCollection,WithHeadings
     */
     public function collection()
     {
-        return collect(Students::getStudents());
+        return collect(studentModel::getExcelStudents());
         // return StudentExcel::all();
     }
 }

@@ -49,21 +49,15 @@ use Illuminate\Support\Facades\Auth;
                 Route::post('/store',               [AdController::class, 'studStore'])          ->name('student.studStore');
 
                 //student
-                Route::post('/update/{student}',    [AdController::class, 'updatee'])           ->name('studentt.update'); 
-
-                
-
-                
-
-
-                Route::get('/edit/{student}',       [AdController::class, 'edit'])             ->name('student.edit');
-                Route::get('/download-data.pdf',    [AdController::class, 'getDataPDF'])       ->name('student.getDataPDF');
+                Route::post('/update/{student}',    [AdController::class, 'updatee'])               ->name('studentt.update'); 
+                Route::get('/edit/{student}',       [AdController::class, 'edit'])                  ->name('student.edit');
+                Route::get('/download-data.pdf',    [AdController::class, 'getDataPDF'])            ->name('student.getDataPDF');
                 Route::get('/export-student-excel', [StudentController::class, 'exportToExcel'])    ->name('student.getDataEXCEL');
 
 
                 
                 Route::get('/get-create',           [StudentController::class, 'create'])           ->name('student.create');
-                Route::post('/import',              [StudentController::class, 'import'])           ->name('import');
+                Route::POST('/import',              [AdController::class, 'import'])                ->name('imports');
                 
                 
                 

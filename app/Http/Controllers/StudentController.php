@@ -71,11 +71,11 @@ class StudentController extends Controller
         return Excel::download(new StudentExport,'Students.xlsx');
     }
     //Import to EXCEL
-    public function import(Request $request)
-    {
-        Excel::import(new StudentImport, $request->file);
-        return redirect('/');
-    }
+    // public function import(Request $request)
+    // {
+    //     Excel::import(new StudentImport, $request->file);
+    //     return redirect('student.sTable');
+    // }
     //Export to CSV
     public function exportToCsv()
     {

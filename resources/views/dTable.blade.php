@@ -11,22 +11,22 @@ font-family:'Times New Roman', Times, serif" >
         
       <h1>Student Data</h1>
       <div class = " ">
-        <form method="POST" action="{{route('import')}}" enctype="multipart/form-data">
+        <form method="POST" action="{{route('imports')}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="exampleInputFile">Import excel file</label>
                 <input type="file" id="exampleInputFile" name="file" accept=".xlsx, .xls, .csv">
             </div>
-        <a type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-import"></span>&nbsp;import</a>
+            <input type="submit" class="btn btn-primary" value="Import"/>
         </form>
     </div>  
       <div class = "pull-left" style="margin-top: 20px;
                                     margin-bottom: 50px;">                              
         
-        <a class = "btn btn-success" href ="{{ route('stdReg') }}">&nbsp;Add New Data</a>
+        <a class = "btn btn-primary" href ="{{ route('stdReg') }}"><span class="glyphicon glyphicon-user"></span>&nbsp;Add New Data</a>
         <a class = "btn btn-danger" href="{{ route('student.getDataPDF') }}"><span class="glyphicon glyphicon-download"></span>&nbsp;Generate PDF</a>
-        <a class = "btn btn-info" href="{{ route('student.getDataEXCEL')}}"><span class="glyphicon glyphicon-export"></span>&nbsp;Export as Excel</a>
-        <a class = "btn btn-primary" href="{{ route('student.getDataCSV')}}"><span class="glyphicon glyphicon-export"></span>&nbsp;Export as CSV</a>
+        <a class = "btn btn-info" href="{{ route('student.getDataEXCEL')}}"><span class="glyphicon glyphicon-export"></span>&nbsp;Export Excel</a>
+        <a class = "btn btn-success" href="{{ route('student.getDataCSV')}}"><span class="glyphicon glyphicon-export"></span>&nbsp;Export CSV</a>
     </div>  
       {{-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -59,7 +59,8 @@ font-family:'Times New Roman', Times, serif" >
             @foreach($students as $student)
                 <tbody>
                     <tr>
-                    <td>{{$student->id}}</td>
+                    <td hidden>{{$student->id}}</td>
+                    <td>{{$student->student_no}}</td>
                     <td>{{$student->name}}</td>
                     <td>{{$student->age}}</td>
                     <td>{{$student->gender}}</td>

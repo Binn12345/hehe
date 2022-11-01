@@ -8,19 +8,15 @@
     <h1>
       
     </h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="#"></a></li>
-      {{-- <li class="active">500 error</li> --}}
-    </ol>
     <section class="content">
-    
-    <div class="callout callout-danger" style="margin-top:100px; padding: 50px;">
 
-        <p>There are no modules added right now. Please contact your Adviser or PROGRAM Head.</p>   
-    
-    </div>
-      <!-- /.error-page -->
+      <h2 class="sectionname">Bestlink College of the Philippines</h2>
+      <hr>
+      <div><div class="contentwithoutlink "><div class="no-overflow"><div class="no-overflow"><img src="https://bcpeducollege.elearningcommons.com/pluginfile.php/694285/mod_label/intro/eLC%20Office%20visit%20MV%20-%20Bulacan.png" alt="" width="100%" height="100%" role="presentation" class="img-responsive atto_image_button_text-bottom"></div></div></div></div>
+
+
+
+   
 
     </section>
   

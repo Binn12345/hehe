@@ -9,12 +9,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Announcements
+        
         
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Announcements</li>
+        {{-- <li><a href="#"><i class="fa fa-dashboard"></i></a></li> --}}
+        <li class="active"></li>
       </ol>
       
     </section>
@@ -28,7 +28,10 @@
     {{-- <img src ="{{URL::to($item)}}" style="height:10%; width:10%;" alt=""> --}}
     
     
-    <section class = "content"> 
+    <section class = "content">
+      <h2 class="glyphicon glyphicon-bell" style="margin-left:10px;">&nbsp;Announcement</h2>
+      <hr>
+      
       <div class = "row">
         <div class="col-md-1"></div>
         <div class="col-md-10" style="margin-top:25px;">

@@ -23,31 +23,31 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="fname" value="{{$student->Fullname}}" required> 
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="fname" value="{{$student->key}}" required> 
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Gender</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" name="gender" value="{{$student->Gender}}" required>
+                  <input type="text" class="form-control" id="exampleInputPassword1" name="gender" value="{{$student->gender}}" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Birthdate</label>
-                    <input type="date" class="form-control" id="exampleInputPassword1" name="dob" value="{{$student->Birthdate}}"required>
+                    <input type="date" class="form-control" id="exampleInputPassword1" name="dob" value="{{$student->birthdate}}"required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Birthplace</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="bp" value="{{$student->Birthplace}}"required>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="bp" value="{{$student->birthplace}}"required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Contact</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="contact" value="{{$student->Contact}}" required>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="contact" value="{{$student->contact}}" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Email</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="email" value="{{$student->Email}}"required>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="email" value="{{$student->email}}"required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Address</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="address" value="{{$student->Address}}"required>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="address" value="{{$student->address}}"required>
                 </div>
 
                 

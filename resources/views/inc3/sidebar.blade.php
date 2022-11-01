@@ -2,7 +2,7 @@
   <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar">
     <!-- Sidebar user panel -->
-    <div class="user-panel">
+    {{-- <div class="user-panel">
       <div class="pull-left image">
         <img src="../../../dist/img/avatar5.png" class="img-circle" alt="User Image">
       </div>
@@ -11,7 +11,7 @@
         <p>{{ Auth::user()->name }}</p>
         <a href="{{Route('student')}}"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
-    </div>
+    </div> --}}
     <!-- search form -->
     {{-- <form action="#" method="get" class="sidebar-form">
       <div class="input-group">
@@ -40,7 +40,7 @@
 
       <li>
         <a href="{{Route('newsfeed')}}">
-          <i class="glyphicon glyphicon-home" style="color:rgb(188, 188, 255);"></i> <span>Home</span>
+          <i class="glyphicon glyphicon-home" style="color:rgb(111, 111, 255);"></i> <span>Home</span>
           <span class="pull-right-container">
             <small class="label pull-right bg-blue">new</small>
           </span>

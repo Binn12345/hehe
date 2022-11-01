@@ -2,7 +2,7 @@
   <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar" >
     <!-- Sidebar user panel -->
-    <div class="user-panel">
+    {{-- <div class="user-panel">
       <div class="pull-left image">
         <img src="../../../dist/img/avatar5.png" class="img-circle" alt="User Image">
       </div>
@@ -10,7 +10,7 @@
         <p>{{Auth::user()->name}}</p>
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
-    </div>
+    </div> --}}
     <!-- search form -->
     {{-- <form action="#" method="get" class="sidebar-form">
       <div class="input-group">
@@ -40,7 +40,7 @@
       
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-bell"></i>  
+          <i class="glyphicon glyphicon-bell" style="color:rgb(192, 201, 71);"></i>  
           <span>Announcement</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
@@ -53,7 +53,7 @@
       </li>
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-user"></i> <span>Accounts</span>
+          <i class="glyphicon glyphicon-user"></i> <span>Accounts</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -65,7 +65,7 @@
       </li>
       <li>
         <a href="{{ route('student.sTable') }}">
-          <i class="fa fa-user"></i> <span>Student Profile</span>
+          <i class="glyphicon glyphicon-user" style="color:rgb(75, 132, 255);"></i> <span>Student Profile</span>
           <span class="pull-right-container">
             <small class="label pull-right bg-orange"></small>
           </span>
@@ -76,7 +76,7 @@
       
       <li>
         <a href="{{route('logs')}}">
-          <i class="fa fa-table"></i> <span>Audit Trail</span>
+          <i class="glyphicon glyphicon-align-left" style="color:rgb(241, 118, 90);"></i> <span>Audit Trail</span>
           <span class="pull-right-container">
             <small class="label pull-right bg-red"></small>
             <small class="label pull-right bg-blue"></small>
