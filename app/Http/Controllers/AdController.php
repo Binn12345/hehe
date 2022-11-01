@@ -296,9 +296,9 @@ class AdController extends Controller
     {
         // $students = Students::all();
         $students = DB::table('student')
-        ->select('student.id','student.user_id','Fullname','gender','Address','Contact','Birthdate','student.email')
-        ->join('data','student.key','data.key')
-        ->where('role', '=', 'student')
+        ->select('student.id','student.user_id','users.name','gender','address','contact','users.birthdate','users.email')
+        ->join('users','student.key','users.key')
+        ->where('users.role', '=', 'student')
         ->get();
         // dd($students);
         $pdf = PDF::loadView('index3', compact('students'))->setOptions(['defaultFont' => 'sans-serif'])->setPaper('a4', 'landscape');;

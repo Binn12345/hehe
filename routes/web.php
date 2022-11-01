@@ -120,8 +120,13 @@ use Illuminate\Support\Facades\Auth;
                     Route::get('/student-profile',  [ModsController::class, 'stdProfile'])      ->name('stdProfile');
 
 
+                    // Student Acitvity && Newsfeed && Fair
+                    Route::get('/access/modules/',                [ModsController::class, 'modules'])         ->name('modules');
+                    Route::get('/web/home/',                      [ModsController::class, 'newsfeed'])        ->name('newsfeed');   
+                    Route::get('/web/read-only',    [ModsController::class, 'fairWarning'])     ->name('fairWarning');
 
-                    Route::get('/access/modules/',  [ModsController::class, 'modules'])         ->name('modules');
+
+
 
                     //EDIT PROFILE  
                     Route::PUT('/update',           [ModsController::class, 'updateProfile'])      ->name('stdProfile.update');

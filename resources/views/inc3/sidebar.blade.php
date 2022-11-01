@@ -1,4 +1,4 @@
-<aside class="main-sidebar">
+<aside class="main-sidebar" style="font-size:12px;">
   <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar">
     <!-- Sidebar user panel -->
@@ -26,7 +26,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
-      <li class="active treeview">
+      {{-- <li class="active treeview">
         <a href="#">
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           <span class="pull-right-container">
@@ -34,13 +34,31 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          {{-- <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Announcement</a></li>  --}}
           <li><a href="{{route ('announcements') }}"><i class="fa fa-bell"></i> Announcement</a></li>
         </ul>
+      </li> --}}
+
+      <li>
+        <a href="{{Route('newsfeed')}}">
+          <i class="glyphicon glyphicon-home" style="color:rgb(188, 188, 255);"></i> <span>Home</span>
+          <span class="pull-right-container">
+            <small class="label pull-right bg-blue">new</small>
+          </span>
+        </a>
       </li>
+
+      <li>
+        <a href="{{Route('announcements')}}">
+          <i class="glyphicon glyphicon-bullhorn" style="color:rgb(192, 201, 71);"></i> <span>Announcement</span>
+          <span class="pull-right-container">
+            <small class="label pull-right bg-blue">new</small>
+          </span>
+        </a>
+      </li>
+
       <li>
         <a href="{{Route('modules')}}">
-          <i class="fa fa-book"></i> <span>Modules</span>
+          <i class="glyphicon glyphicon-bookmark" style="color:rgb(255, 57, 39);"></i> <span>Modules</span>
           <span class="pull-right-container">
             <small class="label pull-right bg-blue">new</small>
           </span>
@@ -48,14 +66,33 @@
       </li>
       <li>
         <a href="{{Route('stdProfile')}}">
-          <i class="fa fa-user"></i> <span>Profile</span>
+          <i class="
+          glyphicon glyphicon-user"></i> <span>Profile</span>
           <span class="pull-right-container">
             <small class="label pull-right bg-green">new</small>
           </span>
         </a>
       </li>
-      
 
+      <li>
+        <a href="{{Route('student')}}">
+          <i class="glyphicon glyphicon-tags" style="color:rgb(255, 111, 39);"></i> <span>Courses</span>
+          <span class="pull-right-container">
+            <small class="label pull-right bg-blue">new</small>
+          </span>
+        </a>
+      </li>
+      
+      <li class="header"><i class="glyphicon glyphicon-alert"></i> &nbsp; FAIR WARNING</li>
+      <li>
+        <a href="{{Route('fairWarning')}}">
+          <i class="glyphicon glyphicon-exclamation-sign"></i> <span>ReadUs</span>
+          <span class="pull-right-container">
+            <small class="label pull-right bg-blue">new</small>
+          </span>
+        </a>
+      </li>
+      
     </ul>
   </section>
   <!-- /.sidebar -->

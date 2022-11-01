@@ -24,7 +24,7 @@ font-family:'Times New Roman', Times, serif" >
                                     margin-bottom: 50px;">                              
         
         <a class = "btn btn-success" href ="{{ route('stdReg') }}">&nbsp;Add New Data</a>
-        <a class = "btn btn-danger" href="{{ route('student.getDataPDF') }}"><span class="glyphicon glyphicon-export"></span>&nbsp;Export as PDF</a>
+        <a class = "btn btn-danger" href="{{ route('student.getDataPDF') }}"><span class="glyphicon glyphicon-download"></span>&nbsp;Generate PDF</a>
         <a class = "btn btn-info" href="{{ route('student.getDataEXCEL')}}"><span class="glyphicon glyphicon-export"></span>&nbsp;Export as Excel</a>
         <a class = "btn btn-primary" href="{{ route('student.getDataCSV')}}"><span class="glyphicon glyphicon-export"></span>&nbsp;Export as CSV</a>
     </div>  

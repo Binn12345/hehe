@@ -29,13 +29,13 @@
                   <div class = "pull-left" style="margin-top: 20px;
                                     margin-bottom: 50px;">                              
         
-        <a class = "btn btn-primary" data-toggle="modal" data-target="#modal-CREATE" >&nbsp;Add New Data</a>
+        <a class = "btn btn-primary" data-toggle="modal" data-target="#modal-CREATE" ><span class="glyphicon glyphicon-user"></span>&nbsp; Add New Data</a>
           </div>
                   <div class="table-responsive-lg">
                     <table class="table" style="font-size:10px;
                                                 font-family:'Times New Roman', Times, serif">
                 <tr>
-                    <th>ID</th>
+                    <th hidden>ID</th>
                     <th>AD#</th>
                     <th>Name</th>
                     <th>Gender</th>
@@ -49,7 +49,7 @@
             @foreach($admins as $admin)
                 <tbody>
                     <tr>
-                    <td>{{$admin->id}}</td>
+                    <td hidden>{{$admin->id}}</td>
                     <td>{{$admin->user_id}}</td>
                     <td>{{$admin->name}}</td>
                     <td>{{$admin->gender}}</td>

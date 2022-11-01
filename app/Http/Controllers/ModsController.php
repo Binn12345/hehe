@@ -157,11 +157,23 @@ class ModsController extends Controller
         return redirect()->route('student')->with('successs', 'hahaha');    
     }
 
-
+    // Student Activity
     public function modules()
     {
         return view('std3.modules.access')->with('successs','access success');  
     }     
+    
+    // Student Newsfeed
+    public function newsfeed()
+    {
+        return view('std3.web.indexx');
+    }
+
+    // Fair Waarning
+    public function fairWarning()
+    {
+        return view('std3.warning.fair');
+    }
     
         
 }

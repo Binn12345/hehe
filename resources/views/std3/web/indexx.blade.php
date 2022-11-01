@@ -1,16 +1,16 @@
 @extends('layouts.index')
 <title>
-  Modules
+  BCP
 </title>
 @section('content')
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Modules
+      
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="#">Modules</a></li>
+      <li><a href="#"></a></li>
       {{-- <li class="active">500 error</li> --}}
     </ol>
     <section class="content">

@@ -46,10 +46,7 @@
                 <div class="box-body">
                   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-                      {{-- <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="1" class=" "></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li> --}}
+                     
                      
                       @foreach ($images as $key => $item)
                         <li data-target="#carousel-example-generic" data-slide-to="{{$key}}" class="{{$key==0 ? 'active' : ''}}"></li>
@@ -102,8 +99,10 @@
     
              
                   <p>There are no more announcements to show right now  .</p>   
+                  
               </center>
             </div>
+            
             @endif
             </div>
                
