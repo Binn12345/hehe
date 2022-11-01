@@ -23,7 +23,7 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="fname" value="{{$student->key}}" required> 
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="fname" value="{{$student->name}}" required> 
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Gender</label>

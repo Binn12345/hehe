@@ -69,7 +69,7 @@ font-family:'Times New Roman', Times, serif" >
                     <td>
                         <form method="POST" action="{{ route('admin.DestroyStudentAccount',$student->id) }}">
                             @csrf
-                            <a class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#modal-studentView"></a>&nbsp;
+                            {{-- <a class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#modal-studentView"></a>&nbsp; --}}
                             <a class="glyphicon glyphicon-pencil" href="{{ route ('student.edit',$student->id) }}" style="color: green;"></a>&nbsp;
                             {{ csrf_field() }}
                             

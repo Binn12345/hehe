@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class Students extends Model
 { 
-    protected $table = 'users';
+    protected $table = 'student';
     
     protected $fillable = ["Fullname","Gender","Birthdate","Birthplace","Contact","Email","Address", "firstname", "middlename", "lastname","username","age","password","key","user_id",];
 

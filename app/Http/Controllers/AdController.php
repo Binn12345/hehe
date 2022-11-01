@@ -243,8 +243,8 @@ class AdController extends Controller
     public function showStudent()
     {
         $students = DB::table('users')
-        ->select('student.id','student.student_no','users.name','gender','age','student.role')
-        ->join('student','student.key','users.key')
+        ->select('users.id','student.student_no','users.name','gender','age','student.role')
+        ->join('student','users.key','student.key')
         ->where('users.role', '=', 'student')
         ->get();
 
@@ -295,9 +295,9 @@ class AdController extends Controller
     public function getDataPDF()
     {
         // $students = Students::all();     
-        $students = DB::table('student')
-        ->select('student.id','student.student_no','users.name','gender','address','contact','users.birthdate','users.email','users.birthplace','users.username','users.lastname')
-        ->join('users','student.key','users.key')
+        $students = DB::table('users')
+        ->select('users.id','student.student_no','users.name','gender','address','contact','users.birthdate','users.email','users.birthplace','users.username','users.lastname')
+        ->join('student','student.key','users.key')
         ->where('users.role', '=', 'student')
         ->get();
         // dd($students);
@@ -310,8 +310,8 @@ class AdController extends Controller
        
         return view('student.edit')->with('student',$student);
     }
-     
-    public function editStudent(Student $student)
+     //admin ata
+    public function editStudent(Students $student)
     {
         return view('student.editAdmin')->with('student',$student);
     }
