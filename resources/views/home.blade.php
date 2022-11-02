@@ -88,7 +88,7 @@
         </div>
         <!-- /.row -->
         <!-- Main row -->
-        <div class="row">
+        {{-- <div class="row">
           <!-- Left col -->
           <section class="col-lg-12 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
@@ -137,7 +137,7 @@
   
           </section>
           <!-- right col -->
-        </div>
+        </div> --}}
         <!-- /.row (main row) -->
   
       </section>
@@ -151,7 +151,7 @@
     <!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
-    <div class="control-sidebar-bg"></div>
+
   </div>
     
 @endsection
