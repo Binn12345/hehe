@@ -67,14 +67,15 @@ font-family:'Times New Roman', Times, serif" >
                     <td>{{$student->role}}</td>
                    
                     <td>
-                        <form method="POST" action="{{ route('admin.DestroyStudentAccount',$student->id) }}">
+                        <form method="POST" action="{{ route('DestroyStud', $student->id) }}" >
                             @csrf
                             <a class="glyphicon glyphicon-eye-open" href="{{ route ('view.profile',$student->id) }}"></a>&nbsp;
                             <a class="glyphicon glyphicon-pencil" href="{{ route ('student.edit',$student->id) }}" style="color: green;"></a>&nbsp;
                             {{ csrf_field() }}
-                            
-                            <a class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#modal-Studentdel" style="color:red" ></a>
-                            @include('confirm.modalConfirm2')
+                            {{-- @include('confirm.modalConfirm2') --}}
+                            {{ method_field('DELETE') }}
+                            <input class="btn btn-danger" type="submit" name="submit" value="delete"/>
+                           
 
                         </form>
                     <td>

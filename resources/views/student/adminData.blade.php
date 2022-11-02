@@ -62,7 +62,7 @@
                             {{ csrf_field() }}
                             
                             
-                            <a class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#modal-del" style="color:red" ></a>
+                            <input class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#modal-del" style="color:red" ></input>
                             @include('confirm.modalConfirm')
                             
                                 {{-- <input class="glyphicon glyphicon-trash" type ="submit" value="Delete" style="color: red"></input> --}}

@@ -242,12 +242,11 @@ class AdController extends Controller
     // }
     public function showStudent()
     {
-        $students = DB::table('users')
+        $students = DB::table('student')
         ->select('users.id','student.student_no','users.name','gender','age','student.role')
-        ->join('student','users.key','student.key')
+        ->join('users','users.key','student.key')
         ->where('users.role', '=', 'student')
         ->get();
-
         return view('dtable', compact('students','students'));
         // return view('home', compact('students','students'));
     } 
@@ -535,11 +534,15 @@ class AdController extends Controller
     // ADMIN CONTROL STUDENT EDIT VIEW DELETE PANEL
     public function destroyStudent(studentModel $student)
     {
+        dd($admin);
+        
         $studentt     = $student->key;
+        
         $users       = User::where('key', $studentt)->first();
         
-        $users           ->delete();
-        $student         ->delete();
+       
+        $users          ->delete();
+        $student      ->delete();
         
         return back()->with('successs', 'Data has been deleted');
     }

@@ -81,7 +81,7 @@ use Illuminate\Support\Facades\Auth;
 
 
                 // admin edit delete account
-                Route::get('/support/edit/{admin}',          [AdController::class, 'editAdmin'])                      ->name('admin.edit');
+                Route::get('/support/edit/{admin}',        [AdController::class, 'editAdmin'])                      ->name('admin.edit');
                 Route::DELETE('/destroy/{admin}',          [AdController::class, 'destroy'])                        ->name('admin.DestroyAdminAccount');
                 Route::POST('/update/{admin}',             [AdController::class, 'UpdateAdminAccount'])             ->name('admin.EditAdminAccount');
                 
@@ -101,10 +101,10 @@ use Illuminate\Support\Facades\Auth;
 
 
                 // ADMIN DESTROY,EDIT, VIEW STUDENT ACCOUNT
-                Route::DELETE('/destroy/STUDENT/{student}',           [AdController::class, 'destroyStudent'])                       ->name('admin.DestroyStudentAccount');
+                Route::DELETE ('/{student}',           [AdController::class, 'destroyStudent'])   ->name('DestroyStud');
 
                 //chart
-                Route::get('/dashboard/web-support/',                  [AdController::class, 'supportChart'])                           ->name('dash.chart');
+                Route::get('/dashboard/web-support/',                  [AdController::class, 'supportChart'])                       ->name('dash.chart');
 
             });     
 
