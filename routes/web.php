@@ -41,7 +41,9 @@ use Illuminate\Support\Facades\Auth;
                 Route::post('/announcement/posted/', [AdController::class, 'announce'])         ->name('announcement');
                 Route::get('/register/account/',     [AdController::class, 'StdAcct'])          ->name('stdReg');
                 Route::get('/data/student',          [AdController::class, 'showStudent'])       ->name('student.sTable');
-                Route::get('/edit/student',          [AdController::class, 'editStudent'])        ->name('admin.edit');
+
+
+                // Route::get('/edit/admin/{admin}',          [AdController::class, 'editAdmin'])        ->name('admin.edit');
 
 
                 
@@ -51,7 +53,7 @@ use Illuminate\Support\Facades\Auth;
                 //student
                 Route::post('/update/{student}',    [AdController::class, 'updatee'])               ->name('studentt.update'); 
                 Route::get('/edit/{student}',       [AdController::class, 'edit'])                  ->name('student.edit');
-                Route::get('/student-profile/{student}',    [AdController::class, 'viewProfile'])               ->name('view.profile');
+                Route::get('/student-profile/{student}',    [AdController::class, 'viewProfile'])   ->name('view.profile');
                 Route::get('/download-data.pdf',    [AdController::class, 'getDataPDF'])            ->name('student.getDataPDF');
                 Route::get('/export-student-excel', [StudentController::class, 'exportToExcel'])    ->name('student.getDataEXCEL');
 
@@ -79,8 +81,9 @@ use Illuminate\Support\Facades\Auth;
 
 
                 // admin edit delete account
-                Route::DELETE('/destroy/{admin}',   [AdController::class, 'destroy'])                       ->name('admin.DestroyAdminAccount');
-                Route::POST('/update/{admin}',      [AdController::class, 'EditAdminAccount'])             ->name('EditAdminAccount');
+                Route::get('/support/edit/{admin}',          [AdController::class, 'editAdmin'])                      ->name('admin.edit');
+                Route::DELETE('/destroy/{admin}',          [AdController::class, 'destroy'])                        ->name('admin.DestroyAdminAccount');
+                Route::POST('/update/{admin}',             [AdController::class, 'UpdateAdminAccount'])             ->name('admin.EditAdminAccount');
                 
 
 
@@ -100,7 +103,8 @@ use Illuminate\Support\Facades\Auth;
                 // ADMIN DESTROY,EDIT, VIEW STUDENT ACCOUNT
                 Route::DELETE('/destroy/STUDENT/{student}',           [AdController::class, 'destroyStudent'])                       ->name('admin.DestroyStudentAccount');
 
-
+                //chart
+                Route::get('/dashboard/web-support/',                  [AdController::class, 'supportChart'])           ->name('dash.chart');
 
             });     
 

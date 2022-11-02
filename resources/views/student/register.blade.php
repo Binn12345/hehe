@@ -38,7 +38,8 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="{{route('student.store')}}" method="POST">
+
+                <form class="form-horizontal" action="{{route('student.store')}}" method="POST" id="contact_form">
                   @csrf
                   <div class="box-body">
                     <div class="col-xs-4">
@@ -155,6 +156,22 @@
                   </div>
                   <!-- /.box-footer -->
                 </form>
+
+                <script>
+                  if($('#contact_form').length > 0)
+                  {
+                    $('#contact_form').validate({
+
+                        rules : {
+
+
+                          
+                        }
+
+
+                    })
+                  }
+                </script>
               </div>
         </div>
     </div>

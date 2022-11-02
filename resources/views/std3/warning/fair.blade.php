@@ -9,8 +9,8 @@
       
     </h1>
     <ol class="breadcrumb">
-      <li><a href="{{Route('student')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="#"></a></li>
+      {{-- <li><a href="{{Route('student')}}"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="#"></a></li> --}}
       {{-- <li class="active">500 error</li> --}}
     </ol>
   </section>

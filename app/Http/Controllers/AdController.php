@@ -220,9 +220,9 @@ class AdController extends Controller
      public function showAdmin()
      {
         // $students = Students::all();    
-        $admins = DB::table('admin')
-        ->select('admin.id','admin.user_id','users.name','gender','users.role','admin.key')
-        ->join('users','admin.key','users.key')
+        $admins = DB::table('users')
+        ->select('users.id','admin.user_id','users.name','gender','admin.role')
+        ->join('admin','users.key','admin.key')
         ->where('users.role', '=', 'admin')
         ->get();
 
@@ -258,7 +258,7 @@ class AdController extends Controller
 
             'name'          =>$request->firstname.' '.$request->middlename.' '.$request->lastname,
             'firstname'     =>$request->firstname,
-            'middlname'     =>$request->middlename,
+            'middlename'     =>$request->middlename,
             'lastname'      =>$request->lastname,
             'gender'        =>$request->gender,
             'birthdate'     =>$request->dob,
@@ -318,10 +318,10 @@ class AdController extends Controller
         return view('student.edit')->with('student',$student);
     }
      //admin ata
-    public function editStudent(Students $student)
+    public function editAdmin(User $admin)
     {
-        return view('student.editAdmin')->with('student',$student);
-    }
+        return view('student.EditAdminAccount')->with('admin',$admin);
+    }   
 
 
 
@@ -419,17 +419,21 @@ class AdController extends Controller
 
 
             //UPDATE ADMIN ACCOUNT
-            public function UpdateAdminAccount(Request $request, Admin $admin)
+            public function UpdateAdminAccount(Request $request, User $admin)
             {
                 $admin->update([
 
-                    'Fullname'      =>$request->fname,
-                    'Gender'        =>$request->gender,
-                    'Birthdate'     =>$request->dob,
-                    'Birthplace'    =>$request->bp,
-                    'Contact'       =>$request->contact,
-                    // 'Email'         =>$request->email,
-                    'Address'       =>$request->address,
+                    'name'          =>$request->firstname.' '.$request->middlename.' '.$request->lastname,
+                    'firstname'     =>$request->firstname,
+                    'middlename'     =>$request->middlename,
+                    'lastname'      =>$request->lastname,
+                    'password'      =>$request->pw,
+                    'gender'        =>$request->gender,
+                    'birthdate'     =>$request->dob,
+                    'birthplace'    =>$request->bp,
+                    'contact'       =>$request->contact,
+                    'email'         =>$request->email,
+                    'address'       =>$request->address,
                     'created_at'    =>now(),
                 ]);
         
@@ -456,7 +460,7 @@ class AdController extends Controller
                     
                 ]); 
                 
-                return redirect()->route('dataResource')->with('successs', 'Data has been Updated');
+                return back()->with('successs', 'Data has been Updated');
                 // return view('student.editAnnounce')->with('admin',$admin);
             }
 
@@ -545,5 +549,10 @@ class AdController extends Controller
         return view('student.profile.indexx')->with('student',$student);
     }
 
-    
+    // chart
+
+    public function supportChart()
+    {
+        return view('student.dash.chart');
+    }
 }

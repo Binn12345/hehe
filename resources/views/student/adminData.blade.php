@@ -58,7 +58,7 @@
                         <form method="POST" action="{{ route('admin.DestroyAdminAccount', $admin->id) }}">
                             @csrf
                             {{-- <a class="glyphicon glyphicon-eye-open" href="{{ route ('view.profile',$admin->id) }}"></a>&nbsp; --}}
-                            <a class="glyphicon glyphicon-pencil" href="{{ route ('student.edit',$admin->id) }}" style="color: green;"></a>&nbsp;
+                            <a class="glyphicon glyphicon-pencil" href="{{ route ('admin.edit',$admin->id) }}" style="color: green;"></a>&nbsp;
                             {{ csrf_field() }}
                             
                             
