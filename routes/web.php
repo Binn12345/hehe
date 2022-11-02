@@ -104,7 +104,7 @@ use Illuminate\Support\Facades\Auth;
                 Route::DELETE('/destroy/STUDENT/{student}',           [AdController::class, 'destroyStudent'])                       ->name('admin.DestroyStudentAccount');
 
                 //chart
-                Route::get('/dashboard/web-support/',                  [AdController::class, 'supportChart'])           ->name('dash.chart');
+                Route::get('/dashboard/web-support/',                  [AdController::class, 'supportChart'])                           ->name('dash.chart');
 
             });     
 
