@@ -220,9 +220,9 @@ class AdController extends Controller
      public function showAdmin()
      {
         // $students = Students::all();    
-        $admins = DB::table('admin')
-        ->select('admin.id','admin.user_id','users.name','gender','users.role','admin.key')
-        ->join('users','admin.key','users.key')
+        $admins = DB::table('users')
+        ->select('users.id','admin.user_id','users.name','gender','admin.role')
+        ->join('admin','users.key','admin.key')
         ->where('users.role', '=', 'admin')
         ->get();
 
@@ -242,28 +242,34 @@ class AdController extends Controller
     // }
     public function showStudent()
     {
-        $students = DB::table('users')
+        $students = DB::table('student')
         ->select('users.id','student.student_no','users.name','gender','age','student.role')
-        ->join('student','users.key','student.key')
+        ->join('users','users.key','student.key')
         ->where('users.role', '=', 'student')
         ->get();
-
         return view('dtable', compact('students','students'));
         // return view('home', compact('students','students'));
     } 
-    public function updatee(Request $request, Students $student)
+    public function updatee(Request $request, User $student)
     {
 
         $student->update([
 
-            'Fullname'      =>$request->fname,
-            'Gender'        =>$request->gender,
-            'Birthdate'     =>$request->dob,
-            'Birthplace'    =>$request->bp,
-            'Contact'       =>$request->contact,
-            // 'Email'         =>$request->email,
-            'Address'       =>$request->address,
+            'name'          =>$request->firstname.' '.$request->middlename.' '.$request->lastname,
+            'firstname'     =>$request->firstname,
+            'middlename'     =>$request->middlename,
+            'lastname'      =>$request->lastname,
+            'gender'        =>$request->gender,
+            'birthdate'     =>$request->dob,
+            'birthplace'    =>$request->bp,
+            'contact'       =>$request->contact,
+            'email'         =>$request->email,
+            'address'       =>$request->address,
+            'password'      =>bcrypt($request->username.$request->lastname),
             'created_at'    =>now(),
+
+
+            
         ]);
 
         // $user->update([
@@ -289,14 +295,14 @@ class AdController extends Controller
             
         ]); 
         
-        return redirect()->route('dataResource')->with('successs', 'Data has been Updated');
+        return redirect()->route('student.sTable')->with('successs', 'Data has been Updated');
     }
 
     public function getDataPDF()
     {
         // $students = Students::all();     
         $students = DB::table('users')
-        ->select('users.id','student.student_no','users.name','gender','address','contact','users.birthdate','users.email','users.birthplace','users.username','users.lastname')
+        ->select('users.id','student.student_no','users.name','gender','address','contact','users.age','users.birthdate','users.email','users.birthplace','users.username','users.lastname')
         ->join('student','student.key','users.key')
         ->where('users.role', '=', 'student')
         ->get();
@@ -311,10 +317,10 @@ class AdController extends Controller
         return view('student.edit')->with('student',$student);
     }
      //admin ata
-    public function editStudent(Students $student)
+    public function editAdmin(User $admin)
     {
-        return view('student.editAdmin')->with('student',$student);
-    }
+        return view('student.EditAdminAccount')->with('admin',$admin);
+    }   
 
 
 
@@ -412,17 +418,21 @@ class AdController extends Controller
 
 
             //UPDATE ADMIN ACCOUNT
-            public function UpdateAdminAccount(Request $request, Admin $admin)
+            public function UpdateAdminAccount(Request $request, User $admin)
             {
                 $admin->update([
 
-                    'Fullname'      =>$request->fname,
-                    'Gender'        =>$request->gender,
-                    'Birthdate'     =>$request->dob,
-                    'Birthplace'    =>$request->bp,
-                    'Contact'       =>$request->contact,
-                    // 'Email'         =>$request->email,
-                    'Address'       =>$request->address,
+                    'name'          =>$request->firstname.' '.$request->middlename.' '.$request->lastname,
+                    'firstname'     =>$request->firstname,
+                    'middlename'     =>$request->middlename,
+                    'lastname'      =>$request->lastname,
+                    'password'      =>$request->pw,
+                    'gender'        =>$request->gender,
+                    'birthdate'     =>$request->dob,
+                    'birthplace'    =>$request->bp,
+                    'contact'       =>$request->contact,
+                    'email'         =>$request->email,
+                    'address'       =>$request->address,
                     'created_at'    =>now(),
                 ]);
         
@@ -449,7 +459,7 @@ class AdController extends Controller
                     
                 ]); 
                 
-                return redirect()->route('dataResource')->with('successs', 'Data has been Updated');
+                return back()->with('successs', 'Data has been Updated');
                 // return view('student.editAnnounce')->with('admin',$admin);
             }
 
@@ -524,14 +534,28 @@ class AdController extends Controller
     // ADMIN CONTROL STUDENT EDIT VIEW DELETE PANEL
     public function destroyStudent(studentModel $student)
     {
+        dd($admin);
+        
         $studentt     = $student->key;
+        
         $users       = User::where('key', $studentt)->first();
         
-        $users            ->delete();
-        $student         ->delete();
+       
+        $users          ->delete();
+        $student      ->delete();
         
         return back()->with('successs', 'Data has been deleted');
     }
 
-    
+    public function viewProfile(User $student)
+    {
+        return view('student.profile.indexx')->with('student',$student);
+    }
+
+    // chart
+
+    public function supportChart()
+    {
+        return view('student.dash.chart');
+    }
 }

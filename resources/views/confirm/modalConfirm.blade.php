@@ -16,6 +16,7 @@
           
         </div>
         <form method="POST" action="{{ route('admin.DestroyAdminAccount',$admin->id) }}">
+          
             <div class="modal-footer">
             {{ method_field('DELETE') }}
             <input class="btn btn-primary" type ="submit" VALUE="Yes"></input>

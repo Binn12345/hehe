@@ -55,14 +55,14 @@
                     <td>{{$admin->gender}}</td>
                     <td>{{$admin->role}}</td>
                     <td>
-                        <form method="POST" action="{{ route('admin.DestroyAdminAccount',$admin->id) }}">
+                        <form method="POST" action="{{ route('admin.DestroyAdminAccount', $admin->id) }}">
                             @csrf
-                            <a class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#modal-AdminView"></a>&nbsp;
-                            <a class="glyphicon glyphicon-pencil" href="{{ route ('student.edit',$admin->id) }}" style="color: green;"></a>&nbsp;
+                            {{-- <a class="glyphicon glyphicon-eye-open" href="{{ route ('view.profile',$admin->id) }}"></a>&nbsp; --}}
+                            <a class="glyphicon glyphicon-pencil" href="{{ route ('admin.edit',$admin->id) }}" style="color: green;"></a>&nbsp;
                             {{ csrf_field() }}
                             
                             
-                            <a class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#modal-del" style="color:red" ></a>
+                            <input class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#modal-del" style="color:red" ></input>
                             @include('confirm.modalConfirm')
                             
                                 {{-- <input class="glyphicon glyphicon-trash" type ="submit" value="Delete" style="color: red"></input> --}}

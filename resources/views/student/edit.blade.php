@@ -23,8 +23,21 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="fname" value="{{$student->name}}" required> 
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="name" value="{{$student->name}}" readonly> 
                 </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Lastname</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="lastname" value="{{$student->lastname}}" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Firstname</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="firstname" value="{{$student->firstname}}" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Middlename</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="middlename" value="{{$student->middlename}}" required>
+                  </div>
+
                 <div class="form-group">
                   <label for="exampleInputPassword1">Gender</label>
                   <input type="text" class="form-control" id="exampleInputPassword1" name="gender" value="{{$student->gender}}" required>
@@ -48,6 +61,10 @@
                 <div class="form-group">
                     <label for="exampleInputPassword1">Address</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" name="address" value="{{$student->address}}"required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Username</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="username" value="{{$student->username}}"required>
                 </div>
 
                 

@@ -34,7 +34,7 @@
         </a>
         <ul class="treeview-menu" >
           <li class="active" ><a href="{{Route('home')}}"><i class="fa fa-circle-o"></i>Overview</a></li>
-          {{-- <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li> --}}
+          <li><a href="{{Route('dash.chart')}}"><i class="fa fa-circle-o"></i>Statistic</a></li>
         </ul>
       </li>
       
