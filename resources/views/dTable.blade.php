@@ -69,11 +69,7 @@ font-family:'Times New Roman', Times, serif" >
                     <td>
                         <form method="POST" action="{{ route('DestroyStud', $student->id) }}" >
                             @csrf
-<<<<<<< HEAD
-                            <a class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#modal-studentView"></a>&nbsp;
-=======
                             <a class="glyphicon glyphicon-eye-open" href="{{ route ('view.profile',$student->id) }}"></a>&nbsp;
->>>>>>> 158a95f4f1654ae6fcd56e99b7359373a9d6f7c9
                             <a class="glyphicon glyphicon-pencil" href="{{ route ('student.edit',$student->id) }}" style="color: green;"></a>&nbsp;
                             {{ csrf_field() }}
                             {{-- @include('confirm.modalConfirm2') --}}
