@@ -55,9 +55,9 @@
                     <td>{{$admin->gender}}</td>
                     <td>{{$admin->role}}</td>
                     <td>
-                        <form method="POST" action="{{ route('admin.DestroyAdminAccount',$admin->id) }}">
+                        <form method="POST" action="{{ route('admin.DestroyAdminAccount', $admin->id) }}">
                             @csrf
-                            <a class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#modal-AdminView"></a>&nbsp;
+                            {{-- <a class="glyphicon glyphicon-eye-open" href="{{ route ('view.profile',$admin->id) }}"></a>&nbsp; --}}
                             <a class="glyphicon glyphicon-pencil" href="{{ route ('student.edit',$admin->id) }}" style="color: green;"></a>&nbsp;
                             {{ csrf_field() }}
                             

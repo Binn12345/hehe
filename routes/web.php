@@ -51,6 +51,7 @@ use Illuminate\Support\Facades\Auth;
                 //student
                 Route::post('/update/{student}',    [AdController::class, 'updatee'])               ->name('studentt.update'); 
                 Route::get('/edit/{student}',       [AdController::class, 'edit'])                  ->name('student.edit');
+                Route::get('/student-profile/{student}',    [AdController::class, 'viewProfile'])               ->name('view.profile');
                 Route::get('/download-data.pdf',    [AdController::class, 'getDataPDF'])            ->name('student.getDataPDF');
                 Route::get('/export-student-excel', [StudentController::class, 'exportToExcel'])    ->name('student.getDataEXCEL');
 

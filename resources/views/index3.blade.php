@@ -38,33 +38,35 @@
 @endif --}}
 <hr>
 <table class ="table table-striped" id="customers">
-    <tr>
+    <tr style = "font-style:10px;">
         <th>Stundent No.</th>
-        <th>Username</th>
+        {{-- <th>Username</th> --}}
         <th>Email</th>
         <th>Name</th>
         <th>Gender</th>
+        <th>Age</th>
         <th>Birthdate</th>
         <th>Birthplace</th>
         <th>Contact</th>
         <th>Address</th>
-        <th>Lastname</th> 
+        {{-- <th >Lastname</th>  --}}
        
     </tr>
 
     @foreach($students as $student)
-    <tbody>
+    <tbody style = "font-style:10px;">
         <tr>
           <td>{{$student->student_no}}</td>
-          <td>{{$student->username}}</td>
+          {{-- <td>{{$student->username}}</td> --}}
           <td>{{$student->email}}</td>
           <td>{{$student->name}}</td>
           <td>{{$student->gender}}</td>
+          <td>{{$student->age}}</td>
           <td>{{$student->birthdate}}</td>
           <td>{{$student->birthplace}}</td>
           <td>{{$student->contact}}</td>    
           <td>{{$student->address}}</td> 
-          <td>{{$student->lastname}}</td>    
+          {{-- <td>{{$student->lastname}}</td>     --}}
 
           
         </tr>

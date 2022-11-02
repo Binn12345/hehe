@@ -251,19 +251,26 @@ class AdController extends Controller
         return view('dtable', compact('students','students'));
         // return view('home', compact('students','students'));
     } 
-    public function updatee(Request $request, Students $student)
+    public function updatee(Request $request, User $student)
     {
 
         $student->update([
 
-            'Fullname'      =>$request->fname,
-            'Gender'        =>$request->gender,
-            'Birthdate'     =>$request->dob,
-            'Birthplace'    =>$request->bp,
-            'Contact'       =>$request->contact,
-            // 'Email'         =>$request->email,
-            'Address'       =>$request->address,
+            'name'          =>$request->firstname.' '.$request->middlename.' '.$request->lastname,
+            'firstname'     =>$request->firstname,
+            'middlname'     =>$request->middlename,
+            'lastname'      =>$request->lastname,
+            'gender'        =>$request->gender,
+            'birthdate'     =>$request->dob,
+            'birthplace'    =>$request->bp,
+            'contact'       =>$request->contact,
+            'email'         =>$request->email,
+            'address'       =>$request->address,
+            'password'      =>bcrypt($request->username.$request->lastname),
             'created_at'    =>now(),
+
+
+            
         ]);
 
         // $user->update([
@@ -289,14 +296,14 @@ class AdController extends Controller
             
         ]); 
         
-        return redirect()->route('dataResource')->with('successs', 'Data has been Updated');
+        return redirect()->route('student.sTable')->with('successs', 'Data has been Updated');
     }
 
     public function getDataPDF()
     {
         // $students = Students::all();     
         $students = DB::table('users')
-        ->select('users.id','student.student_no','users.name','gender','address','contact','users.birthdate','users.email','users.birthplace','users.username','users.lastname')
+        ->select('users.id','student.student_no','users.name','gender','address','contact','users.age','users.birthdate','users.email','users.birthplace','users.username','users.lastname')
         ->join('student','student.key','users.key')
         ->where('users.role', '=', 'student')
         ->get();
@@ -527,10 +534,15 @@ class AdController extends Controller
         $studentt     = $student->key;
         $users       = User::where('key', $studentt)->first();
         
-        $users            ->delete();
+        $users           ->delete();
         $student         ->delete();
         
         return back()->with('successs', 'Data has been deleted');
+    }
+
+    public function viewProfile(User $student)
+    {
+        return view('student.profile.indexx')->with('student',$student);
     }
 
     
