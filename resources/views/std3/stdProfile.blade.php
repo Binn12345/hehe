@@ -1,5 +1,5 @@
 @extends('layouts.index')
-
+<title>Profile</title>
 @section('content')
 
 
@@ -42,44 +42,50 @@
           <!-- /.box -->
 
           <!-- About Me Box -->
-          {{-- <div class="box box-primary">
+          <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">About Me</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+              <strong><i class="fa fa-phone margin-r-5"></i> Phone Number</strong>
 
               <p class="text-muted">
-                B.S. in Computer Science from the University of Tennessee at Knoxville
+                {{Auth::user()->contact}}
               </p>
 
               <hr>
 
               <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
 
-              <p class="text-muted">{{ Auth::user()->address }}</p>
+              <p class="text-muted">{{Auth::user()->address}}</p>
+
+              <hr>
+              <strong><i class="fa fa-calendar margin-r-5"></i> Birthdate</strong>
+
+              <p class="text-muted">{{Auth::user()->birthdate}}</p>
+
+              <hr>
+              <strong><i class="fa fa-map-marker margin-r-5"></i> Birthplace</strong>
+
+              <p class="text-muted">{{Auth::user()->birthplace}}</p>
 
               <hr>
 
-              <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
+              <strong><i class="fa fa-plus-square-o margin-r-5"></i> Email</strong>
 
               <p>
-                
-                <span class="label label-success">Coding</span>
-    
-                <span class="label label-warning">PHP</span>
-               
+                {{Auth::user()->email}}
               </p>
 
               <hr>
 
-              <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
+              <strong><i class="fa fa-user margin-r-5"></i> Gender</strong>
 
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+              <p>{{Auth::user()->gender}}</p>
             </div>
             <!-- /.box-body -->
-          </div> --}}
+          </div>
           <!-- /.box -->
         </div>
         <!-- /.col -->
