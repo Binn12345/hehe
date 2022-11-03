@@ -43,13 +43,13 @@
                   <div class="col-xs-4">
                     {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                     {{-- <div class="col-sm-10"> --}}
-                      <input class="form-control input-lg" type="text" name="lastname" placeholder="Lastname" style="font-family:'Courier New', Courier, monospace;">
+                      <input class="form-control input-lg" type="text" name="lastname" placeholder="Lastname" style="font-family:'Courier New', Courier, monospace;" required>
                     {{-- </div> --}}
                   </div>
                   <div class="col-xs-4">
                     {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                     {{-- <div class="col-sm-10"> --}}
-                      <input class="form-control input-lg" type="text" name="firstname" placeholder="Firstname" style="font-family:'Courier New', Courier, monospace;">
+                      <input class="form-control input-lg" type="text" name="firstname" placeholder="Firstname" style="font-family:'Courier New', Courier, monospace;" required>
                     {{--   --}}
                   </div>
                   <div class="col-xs-4">
@@ -61,20 +61,20 @@
                   
 
                   <div class="col-xs-12" style="margin-top: 10px; margin-bottom: 10px;">      
-                    <textarea class="form-control" placeholder="Present Address" name="add"style="font-family:'Courier New', Courier, monospace;" ></textarea>
+                    <textarea class="form-control" placeholder="Present Address" name="add"style="font-family:'Courier New', Courier, monospace;" required></textarea>
                   </div>
                   {{-- age based on datepicker --}}
                   <div class="col-xs-4">
                     {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                     {{-- <div class="col-sm-10"> --}}
-                      <input class="form-control input-lg" type="text" name="age" placeholder="99" style="font-family:'Courier New', Courier, monospace;" >
+                      <input class="form-control input-lg" type="text" name="age" placeholder="99" style="font-family:'Courier New', Courier, monospace;" required >
                   {{--   --}}
                   </div>
                   <div class="col-xs-4">
                     {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                     {{-- <div class="col-sm-10"> --}}
                       
-                      <input class="form-control input-lg" type="date" name="dobb" placeholder="Birthdate" style="font-family:'Courier New', Courier, monospace;">
+                      <input class="form-control input-lg" type="date" name="dobb" placeholder="Birthdate" style="font-family:'Courier New', Courier, monospace;" required>
                   {{--   --}}
                   </div>
                   <div class="col-xs-4" style="margin-bottom: 10px;">
@@ -90,18 +90,18 @@
                   </div>
                   
                   <div class="col-xs-12" style="margin-bottom: 10px;">
-                    <textarea class="form-control" placeholder="Place of Birth" name="bip" style="font-family:'Courier New', Courier, monospace;" ></textarea>    
+                    <textarea class="form-control" placeholder="Place of Birth" name="bip" style="font-family:'Courier New', Courier, monospace;" required></textarea>    
                   </div>
                   <div class="col-xs-6" style=" " >
                   
                       
-                    <input class="form-control input-lg" type="email" name="emaild" placeholder="Personal Email Address" style="font-family:'Courier New', Courier, monospace;">
+                    <input class="form-control input-lg" type="email" name="emaild" placeholder="Personal Email Address" style="font-family:'Courier New', Courier, monospace;" required>
              
                   </div>
                     <div class="col-xs-6" style=" " >
                   
                       
-                    <input class="form-control input-lg" type="text " name="cont" placeholder="Contact" style="font-family:'Courier New', Courier, monospace;">
+                    <input class="form-control input-lg" type="text " name="cont" placeholder="Contact" style="font-family:'Courier New', Courier, monospace;" required>
              
                   </div> 
                   
@@ -123,13 +123,13 @@
                         <div class="col-xs-6">
                           {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                           {{-- <div class="col-sm-10"> --}}
-                            <input class="form-control input-lg" type="password" name="pw" placeholder="Password" style="font-family:'Courier New', Courier, monospace;">
+                            <input class="form-control input-lg" type="password" name="pw" placeholder="Password" style="font-family:'Courier New', Courier, monospace;" required>
                         {{--   --}}
                         </div>
                         <div class="col-xs-6">
                           {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                           {{-- <div class="col-sm-10"> --}}
-                            <input class="form-control input-lg" type="password" name="pw" placeholder="Confirm Password" style="font-family:'Courier New', Courier, monospace;">
+                            <input class="form-control input-lg" type="password" name="pw" placeholder="Confirm Password" style="font-family:'Courier New', Courier, monospace;" required> 
                         {{--   --}}
                           </div>
                           <div class="col-xs-12" style="margin-top:10px;">

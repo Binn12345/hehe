@@ -27,7 +27,7 @@
       <div class="col-xs-4">
         {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
         {{-- <div class="col-sm-10"> --}}
-          <input class="form-control input-lg" type="text" name="mname" placeholder="Middlename / Optional" style="font-family:'Courier New', Courier, monospace;" required>
+          <input class="form-control input-lg" type="text" name="mname" placeholder="Middlename / Optional" style="font-family:'Courier New', Courier, monospace;">
       {{--   --}}
       </div>
       

@@ -220,9 +220,9 @@ class AdController extends Controller
      public function showAdmin()
      {
         // $students = Students::all();    
-        $admins = DB::table('users')
-        ->select('users.id','admin.user_id','users.name','gender','admin.role')
-        ->join('admin','users.key','admin.key')
+        $admins = DB::table('admin')
+        ->select('admin.id','admin.user_id','users.name','gender','admin.role','admin.key')
+        ->join('users','users.key','admin.key')
         ->where('users.role', '=', 'admin')
         ->get();
 
@@ -243,7 +243,7 @@ class AdController extends Controller
     public function showStudent()
     {
         $students = DB::table('student')
-        ->select('users.id','student.student_no','users.name','gender','age','student.role')
+        ->select('student.id','student.student_no','users.name','gender','age','student.role','student.key')
         ->join('users','users.key','student.key')
         ->where('users.role', '=', 'student')
         ->get();
@@ -399,15 +399,17 @@ class AdController extends Controller
 
 
 
-        // ACCOUNT ADMIN EDIT DELETE    
-           public function destroy(Admin $admin)
+            // ACCOUNT ADMIN EDIT DELETE    
+           public function destroy($admin)
             {
-            
-                $adminn     = $admin->key;
-                $user       = User::where('key', $adminn)->first();
-                
-                $user           ->delete();
-                $admin          ->delete();
+
+                $x = Admin::where('admin.id', $admin)->first();
+                $xc = $x->key;
+                $x->delete();
+
+                $query = User::where('users.key',$xc)->delete();
+
+
                 return back()->with('successs', 'Data has been deleted');
             }
 
@@ -532,17 +534,15 @@ class AdController extends Controller
 
 
     // ADMIN CONTROL STUDENT EDIT VIEW DELETE PANEL
-    public function destroyStudent(studentModel $student)
+    public function destroyStudent($student)
     {
-        dd($admin);
-        
-        $studentt     = $student->key;
-        
-        $users       = User::where('key', $studentt)->first();
-        
        
-        $users          ->delete();
-        $student      ->delete();
+        $xr = studentModel::where('student.id', $student)->first();
+        $xc = $xr->key;
+        $xr->delete();
+
+
+        $query = User::where('users.key',$xc)->delete();
         
         return back()->with('successs', 'Data has been deleted');
     }

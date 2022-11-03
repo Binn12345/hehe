@@ -59,6 +59,7 @@ font-family:'Times New Roman', Times, serif" >
             @foreach($students as $student)
                 <tbody>
                     <tr>
+                    <td hidden>{{$student->key}}</td>
                     <td hidden>{{$student->id}}</td>
                     <td>{{$student->student_no}}</td>
                     <td>{{$student->name}}</td>
@@ -72,10 +73,10 @@ font-family:'Times New Roman', Times, serif" >
                             <a class="glyphicon glyphicon-eye-open" href="{{ route ('view.profile',$student->id) }}"></a>&nbsp;
                             <a class="glyphicon glyphicon-pencil" href="{{ route ('student.edit',$student->id) }}" style="color: green;"></a>&nbsp;
                             {{ csrf_field() }}
-                            {{-- @include('confirm.modalConfirm2') --}}
-                            {{ method_field('DELETE') }}
-                            <input class="btn btn-danger" type="submit" name="submit" value="delete"/>
-                           
+                            
+                            {{-- {{ method_field('DELETE') }} --}}
+                            <a class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#modal-Studentdel" style="color: red;" ></a>
+                            @include('confirm.modalConfirm2')
 
                         </form>
                     <td>

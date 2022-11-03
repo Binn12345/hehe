@@ -60,7 +60,7 @@
                     <div class="col-xs-4">
                       {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                       {{-- <div class="col-sm-10"> --}}
-                        <input class="form-control input-lg" type="text" name="mname" placeholder="Middlename / Optional" style="font-family:'Courier New', Courier, monospace;" required>
+                        <input class="form-control input-lg" type="text" name="mname" placeholder="Middlename / Optional" style="font-family:'Courier New', Courier, monospace;">
                     {{--   --}}
                     </div>
                     
@@ -88,7 +88,7 @@
                           <option value="" hidden>Choose your Gender</option>
                           <option value="Male">Male</option>
                           <option value="Female">Female</option>
-                          <option value="custom">Custom</option>  
+                          <option value="custom">Custom</option>    
                         </select>
                         
                 

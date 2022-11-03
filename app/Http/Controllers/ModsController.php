@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Students;
+use App\studentModel;
 use App\User;
 use App\Admin;
 use App\Stud;
@@ -121,43 +122,46 @@ class ModsController extends Controller
     }
 
 
+    public function updateProfilePic(Request $request, $id){
+        $user = User::find($id);
+        $userid = $user->key;
+        // dd($userid);
 
+        $myImage = $request->all()['imagea'][0];
+        // dd($myImage);
 
-    public function updateProfile(Request $request, User $user)
-    {
-        $image = array();
-        
-        if($request->hasFile('images')){
-            $files = $request->file('images');
-            
-
-            foreach($files as $file)
-            {
-                $image_name = md5($file->getClientOriginalName().rand(1,1000));
-                $ext = strtolower($file->getClientOriginalExtension());
-                $image_full_name = $image_name.'.'.$ext;
-                $upload_path = 'public/multiple_image/';
-                $image_url = $upload_path.$image_full_name;
-                $file->move($upload_path, $image_full_name);
-                $image[] = $image_url;
-            }
-            
-            $user->update([
-                'image'     =>implode('|', $image),
-            ]);
-            
+        if($request->hasFile('imagea')){
+            $imagename = 'profile-'. time()  . '.' . $myImage->guessClientExtension();
+            $myImage->move(public_path('images/'), $imagename);
+            $user->image    = $imagename;
+        }else{
+            return back()->withStatus('Please input image.');
         }
-        $user->update([
-            'name'         =>$request->title,
-            'email'       =>$request->content,
-            'created_at'    =>now(),
-        ]);
+        $user->update(); 
+        
 
+
+        $state= "Successfull Update Profile";
+        userlogs::create([
+
+            'actor'             =>$request->user()->name,
+            'state'             =>$state,
+            'role'              =>$request->user()->role,
+            'created_at'        =>now(),
             
-        return redirect()->route('student')->with('successs', 'hahaha');    
+        ]);  
+
+
+        DB::table('userlogs')
+        ->select('actor','state','role','created_at')
+        ->get();
+
+        return redirect()->route('stdProfile')->with('successs','Your profile now is updated');      
+        // ()()
     }
 
-    // Student Activity
+
+    
     public function modules()
     {
         return view('std3.modules.access')->with('successs','access success');  

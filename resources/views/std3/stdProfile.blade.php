@@ -17,9 +17,9 @@
           <div class="box box-primary">
             <div class="box-body box-profile">
               
-              <img class="profile-user-img img-responsive img-circle" src="{{Auth::user()->image}}" alt="User profile picture">
+              <img class="profile-user-img img-responsive img-circle" src="{{ URL::to('images/'.Auth::user()->image) }}" alt="User profile picture">
 
-              <h3 class="profile-username text-center">{{ Auth::user()->name }}</h3>
+              <h3 class="profile-username text-center">{{ Auth::user()->name }}</h3>  
 
               <p class="text-muted text-center">{{Auth::user()->role}}</p>
 
@@ -95,7 +95,8 @@
                 <!-- Post -->
                 <div class="post">
                   <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="{{Auth::user()->image}}" alt="user image">
+                    {{-- <img class="img-circle img-bordered-sm" src="{{Auth::user()->image}}" alt="user image"> --}}
+                    <img class="img-circle img-bordered-sm" src="{{URL::to('images/'.Auth::user()->image)}}" alt="user image">
                         <span class="username">
                           <a href="#">{{Auth::user()->name}}</a>
                           <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
@@ -299,7 +300,9 @@
               <!-- /.tab-pane -->
 
               <div class="tab-pane" id="settings">
-                <form class="form-horizontal" action="{{route('stdProfile.update')}}" enctype="multipart/form-data" method="POST">
+
+               
+                <form class="form-horizontal"  action="{{route('changeProfileImage',  Auth::user()->id)}}" enctype="multipart/form-data" method="POST">
                   @csrf
                   @method('PUT')  
                   <div class="form-group">
@@ -308,6 +311,7 @@
                     <div class="col-sm-10">
                       <input type="text" class="form-control" id="inputName" placeholder="Name" value="{{Auth::user()->name}}" readonly>
                     </div>
+                    {{-- ( . )Y( . ) --}}
                   </div>
                   <div class="form-group">
                     <label for="inputEmail" class="col-sm-2 control-label">Email</label>
@@ -320,7 +324,7 @@
                     <label for="inputName" class="col-sm-2 control-label">Choose a PROFILE</label>
 
                     <div class="col-sm-10">
-                      <input type="file" class="form-control" accept="image/png, image/gif, image/jpeg"  name="images[]" id="inputName" placeholder="Name">
+                      <input type="file" class="form-control" accept="image/png, image/gif, image/jpeg"  name="imagea[]" multiple id="inputName" placeholder="Name">
                     </div>
                   </div>
                   {{-- <div class="form-group">

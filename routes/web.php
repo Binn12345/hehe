@@ -51,11 +51,11 @@ use Illuminate\Support\Facades\Auth;
                 Route::post('/store',               [AdController::class, 'studStore'])          ->name('student.studStore');
 
                 //student
-                Route::post('/update/{student}',    [AdController::class, 'updatee'])               ->name('studentt.update'); 
-                Route::get('/edit/{student}',       [AdController::class, 'edit'])                  ->name('student.edit');
-                Route::get('/student-profile/{student}',    [AdController::class, 'viewProfile'])   ->name('view.profile');
-                Route::get('/download-data.pdf',    [AdController::class, 'getDataPDF'])            ->name('student.getDataPDF');
-                Route::get('/export-student-excel', [StudentController::class, 'exportToExcel'])    ->name('student.getDataEXCEL');
+                Route::post('/update/{student}',            [AdController::class, 'updatee'])               ->name('studentt.update'); 
+                Route::get('/edit/{student}',               [AdController::class, 'edit'])                  ->name('student.edit');
+                Route::get('/student-profile/{student}',    [AdController::class, 'viewProfile'])           ->name('view.profile');
+                Route::get('/download-data.pdf',            [AdController::class, 'getDataPDF'])            ->name('student.getDataPDF');
+                Route::get('/export-student-excel',         [StudentController::class, 'exportToExcel'])    ->name('student.getDataEXCEL');
 
 
                 
@@ -125,13 +125,9 @@ use Illuminate\Support\Facades\Auth;
                     Route::get('/web/read-only',    [ModsController::class, 'fairWarning'])     ->name('fairWarning');
 
 
-
-
                     //EDIT PROFILE  
-                    Route::PUT('/update',           [ModsController::class, 'updateProfile'])      ->name('stdProfile.update');
-
-
-
+                    // Route::PUT('/update',           [ModsController::class, 'updateProfile'])      ->name('stdProfile.update');
+                    Route::put('/update/{id}',           [ModsController::class, 'updateProfilePic'])      ->name('changeProfileImage');
 
             });
 
