@@ -1,7 +1,7 @@
 google.charts.load('current', {'packages':['corechart']});
 
 google.charts.setOnLoadCallback(drawPieChart);
-// google.charts.setOnLoadCallback(drawLineChart);
+google.charts.setOnLoadCallback(drawLineChart);
 
 function drawPieChart()
 {

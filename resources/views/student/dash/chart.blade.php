@@ -7,8 +7,9 @@
 @section('content')
 <script type="text/javascript" defer>
   let analytics = <?php echo $gender; ?>;
-  let application = <?php echo $application; ?>
+  let application = <?php echo $application; ?>;
 </script>
+
 <div class="content-wrapper">
       
 
