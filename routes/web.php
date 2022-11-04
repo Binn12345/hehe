@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\userManageController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SupportController;
 use App\Http\Controllers\ModsController;
@@ -27,12 +29,29 @@ use Illuminate\Support\Facades\Auth;
             
             Route::get('/', 'bugController@bug')->name('bug');
             
-
-
-            
             Route::get('test', [testHelperController::class , 'index']);  
             
             //adminSIDE
+
+
+            Route::prefix('user')->middleware(['auth', 'isManage'])->group(
+
+                function()
+                {
+                    Route::get('/',         [userManageController::class, 'home'])        ->name('userManage');
+
+                    
+
+
+
+
+                }
+
+            );
+
+
+
+
             Route::prefix('admin')->middleware(['auth','isCheckk'])->group(function()
             {
                 
@@ -41,8 +60,8 @@ use Illuminate\Support\Facades\Auth;
                 Route::get('/data-resources',        [AdController::class, 'showAdmin'])        ->name('dataResource');
                 Route::post('/announcement/posted/', [AdController::class, 'announce'])         ->name('announcement');
                 Route::get('/register/account/',     [AdController::class, 'StdAcct'])          ->name('stdReg');
-                Route::get('/data/student',          [AdController::class, 'showStudent'])       ->name('student.sTable');
-                Route::get('/profile/aid={student}',      [AdController::class, 'viewProfileAsAdmin'])           ->name('view.profileAdmin');
+                Route::get('/data/student',          [AdController::class, 'showStudent'])      ->name('student.sTable');
+                Route::get('/profile/aid={student}', [AdController::class, 'viewProfileAsAdmin'])           ->name('view.profileAdmin');
 
                 // Route::get('/edit/admin/{admin}',          [AdController::class, 'editAdmin'])        ->name('admin.edit');
 
