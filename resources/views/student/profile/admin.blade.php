@@ -319,7 +319,7 @@
               <!-- /.tab-pane -->
 
               <div class="tab-pane" id="settings">
-                <form class="form-horizontal"action="{{ route('admin.EditStudentAccount', $student) }}" method="POST">
+                <form class="form-horizontal"action="{{ route('admin.EditAdminAccount', $student) }}" method="POST">
                   <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">Name</label>
 

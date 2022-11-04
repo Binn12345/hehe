@@ -1,21 +1,13 @@
 @extends('layouts.app')
 
 <title>
-    Profile        
+    BCP - Profile     
 </title>
 @section('content')
+    
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        
-      </h1>
-      <ol class="breadcrumb">
-        {{-- <li><a href="#"><i class="fa fa-dashboard"></i></a></li> --}}
-        <li><a href="#"></a></li>
-        <li class="active"></li>
-      </ol>
-    </section>
+    
 
     <!-- Main content -->
     <section class="content">
@@ -24,14 +16,14 @@
         <div class="col-md-3">
 
           <!-- Profile Image -->
-        
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="../../dist/img/avatar5.png" alt="User profile picture">
-    
-              <h3 class="profile-username text-center">{{$student->name}}</h3>
-                
-              <p class="text-muted text-center">{{$student->role}}</p>
+              
+              <img class="profile-user-img img-responsive img-circle" src="{{ URL::to('images/'.Auth::user()->image) }}" alt="User profile picture">
+
+              <h3 class="profile-username text-center">{{ Auth::user()->name }}</h3>  
+
+              <p class="text-muted text-center">{{Auth::user()->role}}</p>
 
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
@@ -61,38 +53,38 @@
               <strong><i class="fa fa-phone margin-r-5"></i> Phone Number</strong>
 
               <p class="text-muted">
-                {{$student->contact}}
+                {{Auth::user()->contact}}
               </p>
 
               <hr>
 
               <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
 
-              <p class="text-muted">{{$student->address}}</p>
+              <p class="text-muted">{{Auth::user()->address}}</p>
 
               <hr>
               <strong><i class="fa fa-calendar margin-r-5"></i> Birthdate</strong>
 
-              <p class="text-muted">{{$student->birthdate}}</p>
+              <p class="text-muted">{{Auth::user()->birthdate}}</p>
 
               <hr>
               <strong><i class="fa fa-map-marker margin-r-5"></i> Birthplace</strong>
 
-              <p class="text-muted">{{$student->birthplace}}</p>
+              <p class="text-muted">{{Auth::user()->birthplace}}</p>
 
               <hr>
 
               <strong><i class="fa fa-plus-square-o margin-r-5"></i> Email</strong>
 
               <p>
-                {{$student->email}}
+                {{Auth::user()->email}}
               </p>
 
               <hr>
 
               <strong><i class="fa fa-user margin-r-5"></i> Gender</strong>
 
-              <p>{{$student->gender}}</p>
+              <p>{{Auth::user()->gender}}</p>
             </div>
             <!-- /.box-body -->
           </div>
@@ -111,20 +103,17 @@
                 <!-- Post -->
                 <div class="post">
                   <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
+                    {{-- <img class="img-circle img-bordered-sm" src="{{Auth::user()->image}}" alt="user image"> --}}
+                    <img class="img-circle img-bordered-sm" src="{{URL::to('images/'.Auth::user()->image)}}" alt="user image">
                         <span class="username">
-                          <a href="#">Jonathan Burke Jr.</a>
+                          <a href="#">{{Auth::user()->name}}</a>
                           <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
                         </span>
-                    <span class="description">Shared publicly - 7:30 PM today</span>
+                    <span class="description">Shared publicly - 7:30 PM</span>
                   </div>
                   <!-- /.user-block -->
                   <p>
-                    Lorem ipsum represents a long-held tradition for designers,
-                    typographers and the like. Some people hate it and argue for
-                    its demise, but others ignore the hate as they create awesome
-                    tools to help create filler text for everyone from bacon lovers
-                    to Charlie Sheen fans.
+                    HAHAHHAHA xD  .
                   </p>
                   <ul class="list-inline">
                     <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
@@ -140,35 +129,35 @@
                 <!-- /.post -->
 
                 <!-- Post -->
-                    {{-- <div class="post clearfix">
-                    <div class="user-block">
-                        <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
-                            <span class="username">
-                            <a href="#">Sarah Ross</a>
-                            <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                            </span>
-                        <span class="description">Sent you a message - 3 days ago</span>
-                    </div>
-                    <!-- /.user-block -->
-                    <p>
-                        Lorem ipsum represents a long-held tradition for designers,
-                        typographers and the like. Some people hate it and argue for
-                        its demise, but others ignore the hate as they create awesome
-                        tools to help create filler text for everyone from bacon lovers
-                        to Charlie Sheen fans.
-                    </p>
+                {{-- <div class="post clearfix">
+                  <div class="user-block">
+                    <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
+                        <span class="username">
+                          <a href="#">Sarah Ross</a>
+                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                        </span>
+                    <span class="description">Sent you a message - 3 days ago</span>
+                  </div>
+                  <!-- /.user-block -->
+                  <p>
+                    Lorem ipsum represents a long-held tradition for designers,
+                    typographers and the like. Some people hate it and argue for
+                    its demise, but others ignore the hate as they create awesome
+                    tools to help create filler text for everyone from bacon lovers
+                    to Charlie Sheen fans.
+                  </p>
 
-                    <form class="form-horizontal">
-                        <div class="form-group margin-bottom-none">
-                        <div class="col-sm-9">
-                            <input class="form-control input-sm" placeholder="Response">
-                        </div>
-                        <div class="col-sm-3">
-                            <button type="submit" class="btn btn-danger pull-right btn-block btn-sm">Send</button>
-                        </div>
-                        </div>
-                    </form>
-                    </div> --}}
+                  <form class="form-horizontal">
+                    <div class="form-group margin-bottom-none">
+                      <div class="col-sm-9">
+                        <input class="form-control input-sm" placeholder="Response">
+                      </div>
+                      <div class="col-sm-3">
+                        <button type="submit" class="btn btn-danger pull-right btn-block btn-sm">Send</button>
+                      </div>
+                    </div>
+                  </form>
+                </div> --}}
                 <!-- /.post -->
 
                 <!-- Post -->
@@ -319,29 +308,34 @@
               <!-- /.tab-pane -->
 
               <div class="tab-pane" id="settings">
-                <form class="form-horizontal"action="{{ route('admin.EditStudentAccount', $student) }}" method="POST">
+
+               
+                <form class="form-horizontal"   enctype="multipart/form-data" method="POST">
+                  @csrf
+                  @method('PUT')  
                   <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">Name</label>
 
                     <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputName" name="name" value="{{$student->name}}" readonly>
+                      <input type="text" class="form-control" id="inputName" placeholder="Name" value="{{Auth::user()->name}}" readonly>
                     </div>
+                    {{-- ( . )Y( . ) --}}
                   </div>
                   <div class="form-group">
                     <label for="inputEmail" class="col-sm-2 control-label">Email</label>
 
                     <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputEmail" name="email" value="{{$student->email}}" >
-                    </div>
-                  </div>
-                  {{-- <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputName" placeholder="Name">
+                      <input type="email" class="form-control" id="inputEmail" placeholder="Email" value="{{Auth::user()->email}}">
                     </div>
                   </div>
                   <div class="form-group">
+                    <label for="inputName" class="col-sm-2 control-label">Choose a PROFILE</label>
+
+                    <div class="col-sm-10">
+                      <input type="file" class="form-control" accept="image/png, image/gif, image/jpeg"  name="imagea[]" multiple id="inputName" placeholder="Name">
+                    </div>
+                  </div>
+                  {{-- <div class="form-group">
                     <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
 
                     <div class="col-sm-10">
@@ -385,6 +379,5 @@
     <!-- /.content -->
   </div>
 
-
-
+    
 @endsection

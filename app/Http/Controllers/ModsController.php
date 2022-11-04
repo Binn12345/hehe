@@ -32,13 +32,31 @@ class ModsController extends Controller
     //     // return view('home', compact('students','students'));
     // }
 
-    public function stdProfile()
+    public function stdProfile(Request $request)
     {
+        $state= "View Profile";
+        userlogs::create([
+
+            'actor'             =>$request->user()->name,
+            'state'             =>$state,
+            'role'              =>$request->user()->role,
+            'created_at'        =>now(),
+            
+        ]); 
         return view('std3.stdProfile');
     }
     //MOD Only For Announcements
-    public function announceByAdm()
+    public function announceByAdm(Request $request)
     {
+        $state= "check announcement";
+        userlogs::create([
+
+            'actor'             =>$request->user()->name,
+            'state'             =>$state,
+            'role'              =>$request->user()->role,
+            'created_at'        =>now(),
+            
+        ]); 
         return view('std3.stdAnnouncement');
     }
 
@@ -141,7 +159,7 @@ class ModsController extends Controller
         
 
 
-        $state= "Successfull Update Profile";
+        $state= "Successfully Update Profile";
         userlogs::create([
 
             'actor'             =>$request->user()->name,
@@ -156,8 +174,11 @@ class ModsController extends Controller
         ->select('actor','state','role','created_at')
         ->get();
 
+
+
+
         return redirect()->route('stdProfile')->with('successs','Your profile now is updated');      
-        // ()()
+        
     }
 
 
@@ -174,8 +195,17 @@ class ModsController extends Controller
     }
 
     // Fair Waarning
-    public function fairWarning()
+    public function fairWarning(Request $request)
     {
+        $state= "View Fair Warning";
+        userlogs::create([
+
+            'actor'             =>$request->user()->name,
+            'state'             =>$state,
+            'role'              =>$request->user()->role,
+            'created_at'        =>now(),
+            
+        ]); 
         return view('std3.warning.fair');
     }
     

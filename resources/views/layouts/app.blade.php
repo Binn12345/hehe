@@ -7,9 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="https://bcpedu.elearningcommons.com/images/favicon-16x16.png" type="image/x-icon">
-    <title>
-        Bestlink College of the Philippines
-      </title>
+   
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css">
 
     <!-- Scripts -->
@@ -55,6 +53,7 @@
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script> --}}
 
+   <script src="{{asset('js/chart.js')}}"></script>
 </body>
 </html>
 

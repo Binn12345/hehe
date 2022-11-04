@@ -25,17 +25,17 @@
                   <label for="exampleInputEmail1">Name</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" name="name" value="{{$admin->name}}"  required readonly> 
                 </div>
-                {{-- <div class="form-group">
+                <div class="form-group" hidden>
                     <label for="exampleInputEmail1">Password</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="pw" value="{{$admin->password}}"  required readonly> 
-                  </div> --}}
+                    <input type="password" class="form-control" id="exampleInputEmail1" name="pw" value="{{$admin->password}}"  required> 
+                  </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Firstname</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" name="firstname" value="{{$admin->firstname}}" required> 
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Middlename</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="middlename" value="{{$admin->middlename}}" required> 
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="middlename" value="{{$admin->middlename}}"> 
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Lastname</label>

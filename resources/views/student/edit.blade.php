@@ -17,7 +17,7 @@
             
             <!-- /.box-header -->
             <!-- form start -->
-            <form action="{{ route('studentt.update', $student) }}" method="POST">
+            <form action="{{ route('admin.EditStudentAccount', $student) }}" method="POST">
 
                 @csrf
               <div class="box-body">

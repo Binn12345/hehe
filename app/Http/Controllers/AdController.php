@@ -217,11 +217,12 @@ class AdController extends Controller
 
 
 
-     public function showAdmin()
+     public function showAdmin(User $id)
      {
+        // admin -> users.id
         // $students = Students::all();    
         $admins = DB::table('admin')
-        ->select('admin.id','admin.user_id','users.name','gender','admin.role','admin.key')
+        ->select('users.id','admin.user_id','users.name','gender','admin.role','admin.key')
         ->join('users','users.key','admin.key')
         ->where('users.role', '=', 'admin')
         ->get();
@@ -240,63 +241,64 @@ class AdController extends Controller
     //     $announcements = announcement::all();
     //     return view('admin.announce', compact('announcements','announcements'));
     // }
-    public function showStudent()
+    public function showStudent(User $id)
     {
+        //student->users.id
         $students = DB::table('student')
-        ->select('student.id','student.student_no','users.name','gender','age','student.role','student.key')
+        ->select('users.id','student.student_no','users.name','gender','age','student.role','student.key')
         ->join('users','users.key','student.key')
         ->where('users.role', '=', 'student')
         ->get();
         return view('dtable', compact('students','students'));
         // return view('home', compact('students','students'));
     } 
-    public function updatee(Request $request, User $student)
-    {
+    // public function updatee(Request $request, User $student)
+    // {
 
-        $student->update([
+    //     $student->update([
 
-            'name'          =>$request->firstname.' '.$request->middlename.' '.$request->lastname,
-            'firstname'     =>$request->firstname,
-            'middlename'     =>$request->middlename,
-            'lastname'      =>$request->lastname,
-            'gender'        =>$request->gender,
-            'birthdate'     =>$request->dob,
-            'birthplace'    =>$request->bp,
-            'contact'       =>$request->contact,
-            'email'         =>$request->email,
-            'address'       =>$request->address,
-            'password'      =>bcrypt($request->username.$request->lastname),
-            'created_at'    =>now(),
+    //         'name'          =>$request->firstname.' '.$request->middlename.' '.$request->lastname,
+    //         'firstname'     =>$request->firstname,
+    //         'middlename'     =>$request->middlename,
+    //         'lastname'      =>$request->lastname,
+    //         'gender'        =>$request->gender,
+    //         'birthdate'     =>$request->dob,
+    //         'birthplace'    =>$request->bp,
+    //         'contact'       =>$request->contact,
+    //         'email'         =>$request->email,
+    //         'address'       =>$request->address,
+    //         'password'      =>bcrypt($request->username.$request->lastname),
+    //         'created_at'    =>now(),
 
 
             
-        ]);
+    //     ]);
 
-        // $user->update([
+    //     // $user->update([
 
-        //     'name'          =>$request->fname,
-        //     'email'         =>$request->email,
-        //     // 'Birthdate'     =>$request->dob,
-        //     // 'Birthplace'    =>$request->bp,
-        //     // 'Contact'       =>$request->contact,
-        //     // 'Email'         =>$request->email,
-        //     // 'Address'       =>$request->address,
-        //     'created_at'    =>now(),
-        // ]);
+    //     //     'name'          =>$request->fname,
+    //     //     'email'         =>$request->email,
+    //     //     // 'Birthdate'     =>$request->dob,
+    //     //     // 'Birthplace'    =>$request->bp,
+    //     //     // 'Contact'       =>$request->contact,
+    //     //     // 'Email'         =>$request->email,
+    //     //     // 'Address'       =>$request->address,
+    //     //     'created_at'    =>now(),
+    //     // ]);
         
 
-        $state= "Successfully Data Updated.";
-        userlogs::create([
+    //     $state= "Successfully Data Updated.";
+    //     userlogs::create([
 
-            'actor'             =>$request->user()->name,
-            'state'             =>$state,
-            'role'              =>$request->user()->role,
-            'created_at'        =>now(),
+    //         'actor'             =>$request->user()->name,
+    //         'state'             =>$state,
+    //         'role'              =>$request->user()->role,
+    //         'created_at'        =>now(),
             
-        ]); 
+    //     ]); 
         
-        return redirect()->route('student.sTable')->with('successs', 'Data has been Updated');
-    }
+    //     return redirect()->route('student.sTable')->with('successs', 'Data has been Updated');
+    // }
 
     public function getDataPDF()
     {
@@ -306,6 +308,7 @@ class AdController extends Controller
         ->join('student','student.key','users.key')
         ->where('users.role', '=', 'student')
         ->get();
+       
         // dd($students);
         $pdf = PDF::loadView('index3', compact('students'))->setOptions(['defaultFont' => 'sans-serif'])->setPaper('a4', 'landscape');;
         return $pdf->download('student-data.pdf');
@@ -403,13 +406,14 @@ class AdController extends Controller
            public function destroy($admin)
             {
 
-                $x = Admin::where('admin.id', $admin)->first();
+                $x = User::where('users.id', $admin)->first();
                 $xc = $x->key;
+                
                 $x->delete();
 
-                $query = User::where('users.key',$xc)->delete();
+                $query = Admin::where('admin.key',$xc)->delete();
 
-
+                // dd($query);
                 return back()->with('successs', 'Data has been deleted');
             }
 
@@ -417,6 +421,13 @@ class AdController extends Controller
             {
                 return view('student.editAnnounce')->with('admin',$admin);
             }
+
+            // UPDATE STUDENT ACCOUNT
+            
+
+
+
+
 
 
             //UPDATE ADMIN ACCOUNT
@@ -428,7 +439,7 @@ class AdController extends Controller
                     'firstname'     =>$request->firstname,
                     'middlename'     =>$request->middlename,
                     'lastname'      =>$request->lastname,
-                    'password'      =>$request->pw,
+                    'password'      =>$request->pw,  
                     'gender'        =>$request->gender,
                     'birthdate'     =>$request->dob,
                     'birthplace'    =>$request->bp,
@@ -438,17 +449,7 @@ class AdController extends Controller
                     'created_at'    =>now(),
                 ]);
         
-                // $user->update([
-        
-                //     'name'          =>$request->fname,
-                //     'email'         =>$request->email,
-                //     // 'Birthdate'     =>$request->dob,
-                //     // 'Birthplace'    =>$request->bp,
-                //     // 'Contact'       =>$request->contact,
-                //     // 'Email'         =>$request->email,
-                //     // 'Address'       =>$request->address,
-                //     'created_at'    =>now(),
-                // ]);
+    
                 
         
                 $state= "Successfully Data Updated.";
@@ -461,7 +462,7 @@ class AdController extends Controller
                     
                 ]); 
                 
-                return back()->with('successs', 'Data has been Updated');
+                return redirect()->route('dataResource')->with('successs', 'Data has been Uphsahdated');
                 // return view('student.editAnnounce')->with('admin',$admin);
             }
 
@@ -537,15 +538,25 @@ class AdController extends Controller
     public function destroyStudent($student)
     {
        
-        $xr = studentModel::where('student.id', $student)->first();
+        $xr = User::where('users.id', $student)->first();
         $xc = $xr->key;
+        
         $xr->delete();
 
 
-        $query = User::where('users.key',$xc)->delete();
+        $query = studentModel::where('student.key',$xc)->delete();
         
         return back()->with('successs', 'Data has been deleted');
     }
+
+    public function viewProfileAsAdmin(User $student)
+    {
+        return view('student.profile.admin')->with('student',$student);
+    }
+
+
+
+
 
     public function viewProfile(User $student)
     {
@@ -557,5 +568,36 @@ class AdController extends Controller
     public function supportChart()
     {
         return view('student.dash.chart');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function defProfile(Request $request)
+    {
+
+
+        $state= "Access myProfile";
+        userlogs::create([
+
+            'actor'             =>$request->user()->name,
+            'state'             =>$state,
+            'role'              =>$request->user()->role,
+            'created_at'        =>now(),
+            
+        ]); 
+
+
+        return view('student.profile.defProfile');
     }
 }

@@ -249,7 +249,7 @@
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">
-                <a href="{{Route('stdProfile')}}" class="btn btn-default btn-flat">Profile</a>
+                <a href="{{Route('myProfile')}}" class="btn btn-default btn-flat">Profile</a>
               </div>
               <div class="pull-right">
                 <a data-toggle="modal" data-target="#modal-defaults" class="btn btn-default btn-flat">{{ __('Logout') }}</a>

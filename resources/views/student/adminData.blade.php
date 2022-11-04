@@ -35,7 +35,7 @@
                     <table class="table" style="font-size:10px;
                                                 font-family:'Times New Roman', Times, serif">
                 <tr>
-                    <th hidden>ID</th>
+                    <th>ID</th>
                     <th>AD#</th>
                     <th>Name</th>
                     <th>Gender</th>
@@ -49,7 +49,7 @@
             @foreach($admins as $admin)
                 <tbody>
                     <tr>
-                    <td hidden>{{$admin->id}}</td>
+                    <td>{{$admin->id}}</td>
                     <td hidden>{{$admin->key}}</td>
                     <td>{{$admin->user_id}}</td>
                     <td>{{$admin->name}}</td>
@@ -58,7 +58,7 @@
                     <td>
                         <form method="POST" action="{{route('admin.DestroyAdminAccount', $admin->id) }}">
                             @csrf
-                            {{-- <a class="glyphicon glyphicon-eye-open" href="{{ route ('view.profile',$admin->id) }}"></a>&nbsp; --}}
+                            <a class="glyphicon glyphicon-eye-open" href="{{ route ('view.profileAdmin',$admin->id) }}"></a>&nbsp;
                             <a class="glyphicon glyphicon-pencil" href="{{ route ('admin.edit',$admin->id) }}" style="color: green;"></a>&nbsp;
                             {{ csrf_field() }}
                             

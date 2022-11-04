@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SupportController;
 use App\Http\Controllers\ModsController;
 use App\Http\Controllers\AdController;
 use App\Http\Controllers\testHelperController;
@@ -41,18 +42,21 @@ use Illuminate\Support\Facades\Auth;
                 Route::post('/announcement/posted/', [AdController::class, 'announce'])         ->name('announcement');
                 Route::get('/register/account/',     [AdController::class, 'StdAcct'])          ->name('stdReg');
                 Route::get('/data/student',          [AdController::class, 'showStudent'])       ->name('student.sTable');
-
+                Route::get('/profile/aid={student}',      [AdController::class, 'viewProfileAsAdmin'])           ->name('view.profileAdmin');
 
                 // Route::get('/edit/admin/{admin}',          [AdController::class, 'editAdmin'])        ->name('admin.edit');
 
-
+                //viewAdminProfileDef
+                Route::get('/profile',              [AdController::class, 'defProfile'])       ->name('myProfile');
+                
                 
 
                 Route::post('/store',               [AdController::class, 'studStore'])          ->name('student.studStore');
 
                 //student
-                Route::post('/update/{student}',            [AdController::class, 'updatee'])               ->name('studentt.update'); 
+                // Route::post('/update/{student}',            [AdController::class, 'updatee'])               ->name('studentt.update'); 
                 Route::get('/edit/{student}',               [AdController::class, 'edit'])                  ->name('student.edit');
+                Route::post('/sub/update/{student}',            [SupportController::class, 'UpdateStudentAccount'])               ->name('admin.EditStudentAccount');
                 Route::get('/student-profile/{student}',    [AdController::class, 'viewProfile'])           ->name('view.profile');
                 Route::get('/download-data.pdf',            [AdController::class, 'getDataPDF'])            ->name('student.getDataPDF');
                 Route::get('/export-student-excel',         [StudentController::class, 'exportToExcel'])    ->name('student.getDataEXCEL');
@@ -91,7 +95,7 @@ use Illuminate\Support\Facades\Auth;
 
                 //  announcement deleted
                 Route::DELETE ('/data-announcement/{announcement}',              [AdController::class, 'destroyAnnouncement'])     ->name('announcement.destroy');
-                Route::GET    ('/data-announcement/edit/{announcement}',         [AdController::class, 'editAnnouncement'   ])     ->name('announcement.edit');
+                Route::GET    ('/data-announcement/edit/id={announcement}',         [AdController::class, 'editAnnouncement'   ])     ->name('announcement.edit');
                 Route::put    ('/data-announcement/{announcement}',              [AdController::class, 'updateAnnouncement' ])      ->name('announcement.update');
                 
                 
@@ -104,7 +108,7 @@ use Illuminate\Support\Facades\Auth;
                 Route::DELETE ('/{student}',           [AdController::class, 'destroyStudent'])   ->name('DestroyStud');
 
                 //chart
-                Route::get('/dashboard/web-support/',                  [AdController::class, 'supportChart'])                       ->name('dash.chart');
+                Route::get('/dashboard/web-support/',                  [SupportController::class, 'chartsView'])                       ->name('dash.chart');
 
             });     
 

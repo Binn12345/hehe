@@ -80,12 +80,14 @@
                                         {{-- <a class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#modal-studentView"></a>&nbsp; --}}
                                         <a class="glyphicon glyphicon-pencil" href="{{ route ('announcement.edit',$announcement->id) }}" style="color: green;"></a>&nbsp;
                                         {{ csrf_field() }}
+                                        <a class="glyphicon glyphicon-trash"data-toggle="modal" data-target="#modal-delAn" style="color: red;"></a>&nbsp;
+                                        @include('confirm.modalConAnnounce')
+                                        {{-- {{ method_field('DELETE') }}
                                         
-                                        {{ method_field('DELETE') }}
-                                       
                                             <input class="btn btn-danger" type ="submit"  value="Delete" >
                                             
-                                            </input>
+                                            </input> --}}
+                                           
             
                                     </form>
                                 <td>

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<title>BCP - Student Data</title>
 @section('content')
 
 
@@ -48,6 +48,8 @@ font-family:'Times New Roman', Times, serif" >
                     {{-- @php
                     dd($students);    
                     @endphp --}}
+
+                    <th>ID</th>
                     <th>SNO</th>
                     <th>Name</th>
                     <th>Age</th>
@@ -60,7 +62,7 @@ font-family:'Times New Roman', Times, serif" >
                 <tbody>
                     <tr>
                     <td hidden>{{$student->key}}</td>
-                    <td hidden>{{$student->id}}</td>
+                    <td>{{$student->id}}</td>
                     <td>{{$student->student_no}}</td>
                     <td>{{$student->name}}</td>
                     <td>{{$student->age}}</td>
