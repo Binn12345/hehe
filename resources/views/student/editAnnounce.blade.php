@@ -37,8 +37,10 @@
                         <div class="post" style="margin-left: 20px;">
                                                 
                                 <div class="user-block">
-                                    <label >Recent Posted</label>    
-                                    <span class="username">                
+                                    <label >Recent Posted</label> 
+                                    <img class="img-circle img-bordered-sm" src="../../../dist/img/avatar5.png" alt="user image">   
+                                    <span class="username">   
+                                      {{-- {{URL::to('images/'.Auth::user()->image)}}              --}}
                                       <a href="#">{{$announcement->actRole}}.</a>
                                       <a href="#" class="pull-right btn-box-tool"><i class=""></i></a>
                                     </span>
