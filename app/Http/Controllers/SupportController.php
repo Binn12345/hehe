@@ -92,11 +92,12 @@ class SupportController extends Controller
                 }
         
                 // APPLICATION CHART
-                $studentApplications = DB::table('users')
+                $studentApplications = DB::table('student')
                 ->select(
                     DB::raw("day(created_at) as day"),
-                    DB::raw("count(*) as number")) 
-                ->groupBy(DB::raw("day(created_at)"))
+                    DB::raw("count(*) as number"))
+                    
+                ->groupBy(DB::raw("day(created_at)"),'role')
                 ->get();
         
                 $result[] = ['Application', 'Number'];

@@ -11,11 +11,10 @@
 </script>
 
 <div class="content-wrapper">
+
+    <section class="content">
       
-
-
-      <div class="box-body">
-        <div class="row">
+        <div class="row" style ="margin-top:50px;">
             <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -41,13 +40,6 @@
 
         </div>
 
-      </div>
-
-
-
-
-
-
-
+      </section>
 </div>
 @endsection
