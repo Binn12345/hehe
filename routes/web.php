@@ -34,16 +34,15 @@ use Illuminate\Support\Facades\Auth;
             //adminSIDE
 
 
-            Route::prefix('user')->middleware(['auth', 'isManage'])->group(
+            Route::prefix('administrator')->middleware(['auth', 'isManage'])->group(
 
                 function()
                 {
-                    Route::get('/',         [userManageController::class, 'home'])        ->name('userManage');
-
-                    
-
-
-
+                    Route::get('/',                         [userManageController::class, 'index'])                     ->name('userManage');
+                    Route::get('/add/roles',                [userManageController::class, 'create_At_account'])         ->name('userCreate');
+                    Route::get('/web/fair-use/',            [userManageController::class, 'fair_warning'])              ->name('readUs');
+                    Route::get('/profile',                  [userManageController::class, 'mProfile'])                  ->name('pprofile');
+                    Route::get('/accounts',                 [userManageController::class, 'list'])                      ->name('adm.list');
 
                 }
 

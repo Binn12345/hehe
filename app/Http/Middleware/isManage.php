@@ -18,13 +18,15 @@ class isManage
     public function handle($request, Closure $next)
     {
         if(Auth::check()){
-            if(Auth::user()->role == 'user'){
+            if(Auth::user()->role == 'super admin'){
                 return $next($request);
             }else{
-                return redirect('/admin');;
+                
+                // return redirect()->route('bug')->with('success', 'Access Denied');
+                return redirect('/admin');
             }
         }else{
-            return redirect()->route('login');
+            return redirect()->route('/login');
         }
     }
 }

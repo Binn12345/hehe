@@ -36,7 +36,7 @@ class checkUser
                     return $next($request);
                 }else{
                     // return redirect('/admin');
-                    return redirect('/user');
+                    return redirect('/administrator');
                 }
             }else{
                 return redirect()->route('login');

@@ -142,7 +142,7 @@
 
                         <div class="modal-footer">
                           <a href ={{route('register')}} class="btn btn-primary" style="margin-right: 15px;  float: right; width: 96%; padding-top: 15px; padding-bottom: 15px; margin-bottom:10px;">
-                          Register as Admin
+                          Register as Super Admin
                          </a> 
                          <a href={{route('student.cre')}} class="btn btn-info" style="margin-right: 15px;  float: right; width: 96%; padding-top: 15px; padding-bottom: 15px;">
                           Register as Student
@@ -164,7 +164,7 @@
 @if ($message = Session::get('success'))
 
     <script>
-      swal("Account!","{!!Session::get('success')!!}","success",{button:"OK",});
+      swal("Success!","{!!Session::get('success')!!}","success",{button:"OK",});
     </script>
 
 @endif
