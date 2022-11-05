@@ -21,6 +21,7 @@ class isCheckk
             if(Auth::user()->role == 'admin'){
                 return $next($request);
             }else{
+                // return response()->json('Your account is inactive');
                 return redirect('/student');
             }
             

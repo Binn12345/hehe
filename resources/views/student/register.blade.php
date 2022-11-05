@@ -38,7 +38,19 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
+                {{-- {{$errors}} --}}
 
+                @if($errors->any())
+                <div>
+                  <ul>
+                    @foreach($errors->all() as $err )
+                    <li>
+                      {{$err}}
+                    </li>
+                    @endforeach
+                  </ul>
+                </div>  
+                @endif
                 <form class="form-horizontal" action="{{route('student.store')}}" method="POST" id="contact_form">
                   @csrf
                   <div class="box-body">
@@ -54,7 +66,7 @@
                     <div class="col-xs-4">
                       {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                       {{-- <div class="col-sm-10"> --}}
-                        <input class="form-control input-lg" type="text" name="fname" placeholder="Firstname" style="font-family:'Courier New', Courier, monospace;" required>
+                        <input class="form-control input-lg" type="text" name="fname" placeholder="Firstname" style="font-family:'Courier New', Courier, monospace;">
                       {{--   --}}
                     </div>
                     <div class="col-xs-4">
@@ -100,7 +112,7 @@
                     <div class="col-xs-6" style=" " >
                     
                         
-                      <input class="form-control input-lg" type="email" name="email" placeholder="Personal Email Address" style="font-family:'Courier New', Courier, monospace;" required>
+                      <input class="form-control input-lg" type="email" name="email" placeholder="Personal Email Address" style="font-family:'Courier New', Courier, monospace;" >
                
                     </div>
                       <div class="col-xs-6" style=" " >

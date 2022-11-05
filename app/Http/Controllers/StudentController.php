@@ -12,6 +12,7 @@ use App\Imports\StudentImport;
 use Excel;
 use PDF;     
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -157,10 +158,32 @@ class StudentController extends Controller
 
     //     return redirect()->back()->with('successs', 'Data has been Updated');
     // }
-
+    
     //CREATE DATA for student
     public function store(Request $request)
     {
+
+     
+        // $request->validate([
+
+
+                'middlename' => 'required | regex:/^[^\d]+$/| max:5| min:3',
+                'email'      => 'required | email'
+        //     'firstname' => ['required', 'regex:/^[^\d]+$/', 'max:255'],
+        //     'middlename' => ['required', 'regex:/^[^\d]+$/', 'max:255'],
+        //     'lastname' => ['required', 'regex:/^[^\d]+$/', 'max:255'],
+        //     'contact' => ['required', 'regex:/^(09)\\d{9}$/'],
+        //     'email' => ['required', 'string', 'regex:/.+@(gmail|yahoo)\.com$/', 'unique:users', 'unique:admins'],
+        //      'gender' => 'required',
+        //       'dob' => 'date_format:Y-m-d|before:today|nullable',
+        //    'place_birth' => ['required', 'string', 'min:5'],
+        //        'address' => ['required', 'max:255', 'min:10'],
+
+
+
+
+        // ]);
+
         $x = rand();
         $b = "";
         $b = $x;
@@ -193,7 +216,8 @@ class StudentController extends Controller
         ]);
         studentModel::create([
             'key'          =>$b,
-            'role'         =>'student',
+            'role'         =>'student', 
+            'gender'       =>$request->gender,
             'user_id'      => $userID,
             'created_at'    =>now(),    
             

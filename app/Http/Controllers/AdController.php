@@ -245,7 +245,7 @@ class AdController extends Controller
     {
         //student->users.id
         $students = DB::table('student')
-        ->select('users.id','student.student_no','users.name','gender','age','student.role','student.key')
+        ->select('users.id','student.student_no','users.name','users.gender','age','student.role','student.key')
         ->join('users','users.key','student.key')
         ->where('users.role', '=', 'student')
         ->get();
@@ -304,7 +304,7 @@ class AdController extends Controller
     {
         // $students = Students::all();     
         $students = DB::table('users')
-        ->select('users.id','student.student_no','users.name','gender','address','contact','users.age','users.birthdate','users.email','users.birthplace','users.username','users.lastname')
+        ->select('users.id','student.student_no','users.name','users.gender','address','contact','users.age','users.birthdate','users.email','users.birthplace','users.username','users.lastname')
         ->join('student','student.key','users.key')
         ->where('users.role', '=', 'student')
         ->get();
@@ -386,6 +386,7 @@ class AdController extends Controller
             'key'          =>$b,
             'role'         =>'student',
             'student_no'      => $userID,
+            'gender'        =>$request->gender,
             'created_at'    =>now(),    
             
             

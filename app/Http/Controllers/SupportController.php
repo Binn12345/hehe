@@ -78,7 +78,7 @@ class SupportController extends Controller
             public function chartsView(){
 
                 // GENDER CHART
-                $data = DB::table('users')
+                $data = DB::table('student')
                 ->select(
                     DB::raw('gender as gender'),
                     DB::raw('count(*) as number'))
