@@ -109,4 +109,14 @@ class SupportController extends Controller
                 return view('student.dash.chart')->with('gender', json_encode($array))->with('application',json_encode($result));
             }
 
+
+
+
+            
+
+            public function setPicker()
+            {
+                return view('choices.btn');
+            }
+
 }

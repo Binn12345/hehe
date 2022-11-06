@@ -164,25 +164,33 @@ class StudentController extends Controller
     {
 
      
-        // $request->validate([
+        $request->validate([
 
 
-                'middlename' => 'required | regex:/^[^\d]+$/| max:5| min:3',
-                'email'      => 'required | email'
-        //     'firstname' => ['required', 'regex:/^[^\d]+$/', 'max:255'],
-        //     'middlename' => ['required', 'regex:/^[^\d]+$/', 'max:255'],
-        //     'lastname' => ['required', 'regex:/^[^\d]+$/', 'max:255'],
-        //     'contact' => ['required', 'regex:/^(09)\\d{9}$/'],
-        //     'email' => ['required', 'string', 'regex:/.+@(gmail|yahoo)\.com$/', 'unique:users', 'unique:admins'],
-        //      'gender' => 'required',
-        //       'dob' => 'date_format:Y-m-d|before:today|nullable',
-        //    'place_birth' => ['required', 'string', 'min:5'],
-        //        'address' => ['required', 'max:255', 'min:10'],
+                // 'middlename' => 'regex:/^[^\d]+$/| max:50| min:20',
+                // 'email' => 'max:50| min:20 | email',
+                // 'firstname' =>  'min:20| regex:/^[^\d]+$/    | max:255',
+                // 'middlename' => 'min:20 | regex:/^[^\d]+$/    | max:255',
+                // 'lastname' => 'min:20 | regex:/^[^\d]+$/      | max:255',
+                // 'contact' => ' min:11 | regex:/^(09)\d{9}$/    | max:11',
+                // 'email' => 'string |  regex:/.+@(gmail|yahoo)\.com$/ | unique:users | unique:admins',
+                // 'gender' => 'required',
+                // 'dob' => 'date_format:Y-m-d      | before:today     | nullable',
+                // 'place_birth' => 'string | min:50| max:100',
+                // 'address' => 'max:100 | min:50',
+                
+                'firstname' => ['required', 'regex:/^[^\d]+$/', 'max:255'],
+                'middlename' => ['required', 'regex:/^[^\d]+$/', 'max:255'],
+                'lastname' => ['required', 'regex:/^[^\d]+$/', 'max:255'],
+                'contact' => ['required', 'regex:/^(09)\d{9}$/'],
+                'email' => ['required', 'string', 'regex:/.+@(gmail|yahoo)\.com$/'],
+                'gender' => 'required',
+                'dob' => 'date_format:Y-m-d|before:today|nullable',
+                'birthplace' => ['required', 'string', 'min:5'],
+                'address' => ['required', 'max:255', 'min:10'],
 
 
-
-
-        // ]);
+        ]);
 
         $x = rand();
         $b = "";
@@ -193,17 +201,17 @@ class StudentController extends Controller
 
 
        User::create([
-            'name'          =>$request->fname . " " .$request->mname . " " . $request->lname,
+            'name'          =>$request->firstname . " " .$request->middlename . " " . $request->lastname,
             'email'         =>$request->email,
-            'password'      =>bcrypt($request->username.$request->lname),
+            'password'      =>bcrypt($request->username.$request->lastname),
             'username'      =>$request->username,
-            'firstname'     =>$request->fname,
-            'middlename'    =>$request->mname,
-            'lastname'      =>$request->lname,
+            'firstname'     =>$request->firstname,
+            'middlename'    =>$request->middlename,
+            'lastname'      =>$request->lastname,
             'age'           =>$request->age,
             'gender'        =>$request->gender,
             'birthdate'     =>$request->dob,
-            'birthplace'    =>$request->bp,
+            'birthplace'    =>$request->birthplace,
             'contact'       =>$request->contact,
             'email'         =>$request->email,
             'address'       =>$request->address,

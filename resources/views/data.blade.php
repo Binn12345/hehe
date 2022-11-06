@@ -52,6 +52,7 @@
 </head>
 <body style="background: linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(2,0,36,0.3) 35%, rgba(2,0,36,0.3) 100%), url('dist/img/bg.jpg') no-repeat center/cover; height: 100vh; ">
     
+  
 
     @yield('content')
     

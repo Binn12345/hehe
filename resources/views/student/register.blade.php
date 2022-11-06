@@ -32,17 +32,20 @@
         
             <div class="box box-info">
                 <div class="box-header with-border">
+                  <br>
                   <h3 class="box-title" style="margin-left: 15px;
                   font-family:'Courier New', Courier, monospace;
                   font-size: 4rem;">Register an Account</h3>
+                  <br><br>
+                  
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
                 {{-- {{$errors}} --}}
 
-                @if($errors->any())
+                {{-- @if($errors->any())
                 <div>
-                  <ul>
+                  <ul style="list-style-type:none;">
                     @foreach($errors->all() as $err )
                     <li>
                       {{$err}}
@@ -50,14 +53,27 @@
                     @endforeach
                   </ul>
                 </div>  
-                @endif
+                @endif --}}
+                @if($errors->any())
+                  <div class="callout callout-danger">
+                    <h4>ERROR!</h4>
+    
+                    <ul style="list-style-type:none;">
+                      @foreach($errors->all() as $err )
+                      <li>
+                        {{$err}}
+                      </li>
+                      @endforeach
+                    </ul>
+                  </div>
+                  @endif
                 <form class="form-horizontal" action="{{route('student.store')}}" method="POST" id="contact_form">
                   @csrf
                   <div class="box-body">
                     <div class="col-xs-4">
                       {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                       {{-- <div class="col-sm-10"> --}}
-                        <input class="form-control input-lg" type="text" name="lname" id="lname" placeholder="Lastname" style="font-family:'Courier New', Courier, monospace;" required>
+                        <input class="form-control input-lg" type="text" name="lastname" id="lname" placeholder="Lastname" style="font-family:'Courier New', Courier, monospace;" required>
                         {{-- <h5 id="userLname" style="color: red;">
                           **lastname is missing
                         </h5> --}}
@@ -66,19 +82,19 @@
                     <div class="col-xs-4">
                       {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                       {{-- <div class="col-sm-10"> --}}
-                        <input class="form-control input-lg" type="text" name="fname" placeholder="Firstname" style="font-family:'Courier New', Courier, monospace;">
+                        <input class="form-control input-lg" type="text" name="firstname" placeholder="Firstname" style="font-family:'Courier New', Courier, monospace;" required>
                       {{--   --}}
                     </div>
                     <div class="col-xs-4">
                       {{-- <label for="inputEmail3" class="col-sm-2 control-label">Email</label> --}}
                       {{-- <div class="col-sm-10"> --}}
-                        <input class="form-control input-lg" type="text" name="mname" placeholder="Middlename / Optional" style="font-family:'Courier New', Courier, monospace;">
+                        <input class="form-control input-lg" type="text" name="middlename" placeholder="Middlename / Optional" style="font-family:'Courier New', Courier, monospace;" required>
                     {{--   --}}
                     </div>
                     
 
                     <div class="col-xs-12" style="margin-top: 10px; margin-bottom: 10px;">      
-                      <textarea class="form-control" placeholder="Present Address" name="address"style="font-family:'Courier New', Courier, monospace;" ></textarea>
+                      <textarea class="form-control" placeholder="Present Address" name="address"style="font-family:'Courier New', Courier, monospace;" required></textarea>
                     </div>
                     {{-- age based on datepicker --}}
                     <div class="col-xs-4">
@@ -96,7 +112,7 @@
                     </div>
                     <div class="col-xs-4" style="margin-bottom: 10px;">
                       
-                        <select name="gender" id="gender-select" type="text" class="form-control input-lg" style="font-family:'Courier New', Courier, monospace;" >
+                        <select name="gender" id="gender-select" type="text" class="form-control input-lg" style="font-family:'Courier New', Courier, monospace;" required >
                           <option value="" hidden>Choose your Gender</option>
                           <option value="Male">Male</option>
                           <option value="Female">Female</option>
@@ -107,12 +123,12 @@
                     </div>
                     
                     <div class="col-xs-12" style="margin-bottom: 10px;">
-                      <textarea class="form-control" placeholder="Place of Birth" name="bp" style="font-family:'Courier New', Courier, monospace;" ></textarea>    
+                      <textarea class="form-control" placeholder="Place of Birth" name="birthplace" style="font-family:'Courier New', Courier, monospace;" ></textarea>    
                     </div>
                     <div class="col-xs-6" style=" " >
                     
                         
-                      <input class="form-control input-lg" type="email" name="email" placeholder="Personal Email Address" style="font-family:'Courier New', Courier, monospace;" >
+                      <input class="form-control input-lg" type="email" name="email" placeholder="Personal Email Address" style="font-family:'Courier New', Courier, monospace;" required>
                
                     </div>
                       <div class="col-xs-6" style=" " >
