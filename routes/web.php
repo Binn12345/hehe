@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
             Auth::routes();
-            Route::get('/ctrl/panel',  'SupportController@setPicker')->name('control');
+            Route::get('/ctrl/btn',  'SupportController@setPicker')->name('control');
 
             // Route::get('test', [testHelperController::class , 'index']);
             Route::post('student_/register/', 'StudentController@store')->name('student.store'); 

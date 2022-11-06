@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Control Panel for BCP</title>
+    <title>BCP</title>
     <link rel="shortcut icon" href="https://bcpedu.elearningcommons.com/images/favicon-16x16.png" type="image/x-icon">
     <link rel="icon" href="https://bcpedu.elearningcommons.com/images/favicon-16x16.png" type="image/x-icon">
     <link rel="stylesheet" href="https://bcpedu.elearningcommons.com/css/app.css">
@@ -14,25 +14,15 @@
 </head>
 
 <body>
-    <div class="container">
-        
-
-
-        
-
-
-
-    </div>
-
+    
     <div class="flex flex-col flex-auto min-w-0 mt-28">
+        
         <!-- Main -->
         <div class="flex flex-col flex-auto items-center p-6 sm:p-10">
-            <div class="logo">
-                <img class="w-36" src="https://bcpedu.elearningcommons.com/images/bcp-olp-logo-mini2.png" alt="">
-            </div>
+            
 
             <div class="school_name mt-12 text-4xl sm:text-5xl text-center">
-                Bestlink College of the Philippines
+                Control Panel
             </div>
 
             <div class="mt-20 flex flex-0 w-3/4">
@@ -48,17 +38,17 @@
                 </div>
             </div>
 
-            <div class="mt-20 flex flex-0">
+            {{-- <div class="mt-20 flex flex-0">
                 <div class="grid grid-cols-2 gap-10">
-                    <a class="button__items" href="#" target="_blank">
+                    <a class="button__items" href="#">
                         <i class="fab fa-facebook fa-2x"></i>
                     </a>
 
-                    <a class="button__items" href="#" target="_blank">
+                    <a class="button__items" href="#">
                         <i class="fas fa-school fa-2x"></i>
                     </a>
                 </div>
-            </div>
+            </div> --}}
             <!-- Footer -->
 
         </div>

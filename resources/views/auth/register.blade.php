@@ -1,7 +1,30 @@
 @extends('layouts.app2')
 
 @section('content')
-
+<nav class="navbar navbar-inverse" style="background-color:rgb(0, 0, 0);">
+    <div class="container"> 
+      
+      <div class="navbar-header">
+        <img src="https://bcp.edu.ph/images/logo50.png" alt="BCP" class="d-inline-block align-middle pt-2 pl-2">&nbsp;
+      
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{{route('bug')}}">Home</a></li>
+        {{-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Courses <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">--/--/--</a></li>
+            <li><a href="#">--/--/--</a></li>
+            <li><a href="#">--/--/--</a></li>
+          </ul>
+        </li> --}}
+        <li><a href="#">Courses</a></li>
+      </ul>
+      {{-- <ul class="nav navbar-nav navbar-right">
+        <li><a data-toggle="modal" data-target="#exampleModalLong"style="color: white;"><span class="glyphicon glyphicon-user"></span>&nbsp;Register Online</a></li>
+        <li><a data-toggle="modal" data-target="#modal-default"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Login</a></li>
+      </ul>  --}}
+    </div>
+  </nav>
 <div class="container" style="background-color: white; margin-top:10px;" >
     <div class="row justify-content-center">
         <div class="col-md-8">
