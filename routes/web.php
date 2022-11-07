@@ -45,7 +45,10 @@ use Illuminate\Support\Facades\Auth;
                     Route::get('/web/fair-use/',            [userManageController::class, 'fair_warning'])              ->name('readUs');
                     Route::get('/profile',                  [userManageController::class, 'mProfile'])                  ->name('pprofile');
                     Route::get('/accounts',                 [userManageController::class, 'list'])                      ->name('adm.list');
+                    Route::get('/dashboard',                [userManageController::class, 'dashboard'])                  ->name('adm.dash');
 
+                    // add role 
+                    Route::post('/roles',                   [userManageController::class, 'addRole'])                   ->name('adm.addRole');
                 }
 
             );

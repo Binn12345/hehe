@@ -179,15 +179,15 @@ class StudentController extends Controller
                 // 'place_birth' => 'string | min:50| max:100',
                 // 'address' => 'max:100 | min:50',
                 
-                'firstname' => ['required', 'regex:/^[^\d]+$/', 'max:255'],
-                'middlename' => ['required', 'regex:/^[^\d]+$/', 'max:255'],
-                'lastname' => ['required', 'regex:/^[^\d]+$/', 'max:255'],
-                'contact' => ['required', 'regex:/^(09)\d{9}$/'],
-                'email' => ['required', 'string', 'regex:/.+@(gmail|yahoo)\.com$/'],
-                'gender' => 'required',
-                'dob' => 'date_format:Y-m-d|before:today|nullable',
-                'birthplace' => ['required', 'string', 'min:5'],
-                'address' => ['required', 'max:255', 'min:10'],
+                'firstname'     => ['required', 'regex:/^[^\d]+$/', 'max:255'],
+                'middlename'    => ['required', 'regex:/^[^\d]+$/', 'max:255'],
+                'lastname'      => ['required', 'regex:/^[^\d]+$/', 'max:255'],
+                'contact'       => ['required', 'regex:/^(09)\d{9}$/'],
+                'email'         => ['required', 'string', 'regex:/.+@(gmail|yahoo)\.com$/'],
+                'gender'        => 'required',
+                'dob'           => 'date_format:Y-m-d|before:today|nullable',
+                'birthplace'    => ['required', 'string', 'min:5'],
+                'address'       => ['required', 'max:255'],
 
 
         ]);
@@ -226,7 +226,7 @@ class StudentController extends Controller
             'key'          =>$b,
             'role'         =>'student', 
             'gender'       =>$request->gender,
-            'user_id'      => $userID,
+            'student_no'      => $userID,
             'created_at'    =>now(),    
             
             

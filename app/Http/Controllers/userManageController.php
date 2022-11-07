@@ -1,7 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Helpers\Helper;
+use App\Students;
+use App\User;
+use App\Admin;
+use App\Stud;
+use App\studentModel;
+use App\userlogs;
+use App\announcement;
+use App\Exports\StudentExport;
+use App\Imports\StudentImport;
+use Excel;
+use PDF;     
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class userManageController extends Controller
@@ -44,5 +56,57 @@ class userManageController extends Controller
 
     }
 
+    // add role register
+    public function addRole(Request $request)
+    {
+
+        $request->validate([
+
+            'fname'  =>     [ 'regex:/^[^\d]+$/', 'max:50'],
+            'email'  =>     [ 'string', 'regex:/.+@(gmail|yahoo)\.com$/'],
+            'p'      =>     [ 'regex:/^[^\d]+$/', 'max:50'],
+
+
+        ]);
+
+
+        $x = rand();
+        $c = "";
+        $c = $x;
+        $year = date("Y").'M';
+        $userID = Helper::IDGenerator(new Admin, 'user_id', 5, $year);
+
+
+        User::create([
+            'name'          =>$request->fname,
+            'email'         =>$request->email,
+            'password'      =>bcrypt($request->p),
+            // 'username' => $request->username,
+           
+            'role'          => $request->role,
+            'key'           => $c,
+            // 'user_id' => $userID,
+            
+        ]);
+
+        Admin::create([
+            
+            'role'       => $request->role,
+            'key'        => $c,
+            'user_id'    => $userID,
+            'created_at' =>now(),
+            
+        ]);
+        
+        
+
+        return redirect()->route('userCreate')->with('success', 'account has been successfully added.');
+    }
+
+    // dashboard
+    public function dashboard()
+    {
+        return view('management.dashboard');
+    }
 
 }

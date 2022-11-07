@@ -35,7 +35,7 @@
                     <table class="table" style="font-size:10px;
                                                 font-family:'Times New Roman', Times, serif">
                 <tr>
-                    <th>ID</th>
+                    {{-- <th>ID</th> --}}
                     <th>AD#</th>
                     <th>Name</th>
                     <th>Gender</th>
@@ -49,7 +49,7 @@
             @foreach($admins as $admin)
                 <tbody>
                     <tr>
-                    <td>{{$admin->id}}</td>
+                    {{-- <td>{{$admin->id}}</td> --}}
                     <td hidden>{{$admin->key}}</td>
                     <td>{{$admin->user_id}}</td>
                     <td>{{$admin->name}}</td>

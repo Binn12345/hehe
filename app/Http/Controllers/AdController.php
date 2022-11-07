@@ -222,7 +222,7 @@ class AdController extends Controller
         // admin -> users.id
         // $students = Students::all();    
         $admins = DB::table('admin')
-        ->select('users.id','admin.user_id','users.name','gender','admin.role','admin.key')
+        ->select('users.id','admin.user_id','users.name','users.gender','admin.role','admin.key')
         ->join('users','users.key','admin.key')
         ->where('users.role', '=', 'admin')
         ->get();
@@ -403,18 +403,29 @@ class AdController extends Controller
 
 
 
-            // ACCOUNT ADMIN EDIT DELETE    
+            // ACCOUNT ADMIN EDIT DELETE        
            public function destroy($admin)
             {
+                
+                // $admins = User::find($admin);
+                // dd($admins);
+                // $admin_id = $admins->admin_id;
+                // $user = User::where("account_id", $admin_id)->first();
+                // $admin->delete();
+                // $user->delete();
 
-                $x = User::where('users.id', $admin)->first();
+
+
+                $x = User::where('id', $admin)->first();
                 $xc = $x->key;
                 
+                
+
+            
                 $x->delete();
 
                 $query = Admin::where('admin.key',$xc)->delete();
 
-                // dd($query);
                 return back()->with('successs', 'Data has been deleted');
             }
 
@@ -530,7 +541,7 @@ class AdController extends Controller
         ]);
 
             
-        return redirect()->route('admin.announce')->with('successs', 'hahaha');
+        return redirect()->route('admin.announce')->with('successs', 'data has been updated');
     }
 
 

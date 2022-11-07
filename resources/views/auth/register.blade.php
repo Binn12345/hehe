@@ -17,7 +17,7 @@
             <li><a href="#">--/--/--</a></li>
           </ul>
         </li> --}}
-        <li><a href="#">Courses</a></li>
+        {{-- <li><a href="#">Courses</a></li> --}}
       </ul>
       {{-- <ul class="nav navbar-nav navbar-right">
         <li><a data-toggle="modal" data-target="#exampleModalLong"style="color: white;"><span class="glyphicon glyphicon-user"></span>&nbsp;Register Online</a></li>
@@ -25,11 +25,14 @@
       </ul>  --}}
     </div>
   </nav>
-<div class="container" style="background-color: white; margin-top:10px;" >
+<div class="container" style="background-color: rgb(255, 255, 255); margin-top:10px; padding:15px;" >
     <div class="row justify-content-center">
+        <div class="col-md-2">
+        </div>
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+            <div class="card" style="margin-top:10px;">
+                <div class="card-header" style="font-size: 3.5rem;
+                                                font-family:'Courier New', Courier, monospace;"><b>{{ __('Register') }}</b></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -101,7 +104,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" style="padding:15px;">
                                     {{ __('Register') }}
                                 </button>
                             </div>
